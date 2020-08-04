@@ -1,0 +1,11 @@
+[
+["index.html", "On the Theory of Relativity Abstract", " On the Theory of Relativity Albert Einstein Tuesday August 04, 2020 Abstract Put your abstract here "],
+["acknowledgments.html", "Acknowledgments", " Acknowledgments Acknowledge people here (optional) "],
+["introduction.html", "1 Introduction", " 1 Introduction Useful methods for working with bookdown cross references tables figures toc lof lot Don’t forget to cite your work! R Core Team (2016) References "],
+["results.html", "2 Results", " 2 Results Objective conclusions "],
+["discussion.html", "3 Discussion", " 3 Discussion Subjective conclusions "],
+["conclusion.html", "4 Conclusion", " 4 Conclusion Really just placeholder stuff for now. \\[ \\frac{1}{\\sqrt{2\\pi\\sigma}} \\exp{\\left\\lbrace \\frac{(x-\\mu)^2}{\\sigma^2} \\right\\rbrace} \\] "],
+["appendix-a.html", "A Appendix A", " A Appendix A blah "],
+["appendix-b.html", "B Appendix B", " B Appendix B foo bar "],
+["references.html", "References", " References "]
+]

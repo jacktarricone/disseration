@@ -1,0 +1,11 @@
+# Introduction
+
+- Useful methods for working with bookdown
+  - cross references
+  - tables
+  - figures
+  - toc
+  - lof
+  - lot
+
+Don't forget to cite your work! @R-base

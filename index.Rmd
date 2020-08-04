@@ -1,0 +1,27 @@
+--- 
+title: "On the Theory of Relativity"
+author: "Albert Einstein"
+date: "`r format(Sys.Date(), '%A %B %d, %Y')`"
+site: bookdown::bookdown_site
+bibliography: [bibliography.bib]
+biblio-style: apalike
+documentclass: report
+geometry:
+- top=1.0in
+- left=1.5in
+- bottom=1.25in
+- right=1.5in
+linestretch: 2
+link-citations: yes
+github-repo: adkudson/thesis
+lof: True
+lot: True
+---
+
+# Abstract {-}
+
+Put your abstract here
+
+# Acknowledgments {-}
+
+Acknowledge people here (optional)

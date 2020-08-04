@@ -1,0 +1,12 @@
+```{r 200-appendix-setup}
+```
+
+# (APPENDIX) Appendix {-}
+
+# Appendix A
+
+blah
+
+# Appendix B
+
+foo bar
