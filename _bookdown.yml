@@ -6,10 +6,8 @@ after_chapter_script: [_outgoing.R]
 view: https://github.com/SchisslerGroup/UNR-thesis-template/blob/master/%s
 rmd_files: [
   "index.Rmd",
-  "010-introduction.Rmd",
-  "080-results.Rmd",
-  "090-discussion.Rmd",
-  "100-conclusion.Rmd",
+  "020-tables.Rmd",
+  "030-equations.Rmd",
   "200-appendix.Rmd",
   "300-references.Rmd"
 ]

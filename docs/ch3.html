@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | THESIS TITLE: SOME CATCHY LINE</title>
-  <meta name="description" content="References | THESIS TITLE: SOME CATCHY LINE" />
+  <title>3 Using Equations | THESIS TITLE: SOME CATCHY LINE</title>
+  <meta name="description" content="3 Using Equations | THESIS TITLE: SOME CATCHY LINE" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | THESIS TITLE: SOME CATCHY LINE" />
+  <meta property="og:title" content="3 Using Equations | THESIS TITLE: SOME CATCHY LINE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | THESIS TITLE: SOME CATCHY LINE" />
+  <meta name="twitter:title" content="3 Using Equations | THESIS TITLE: SOME CATCHY LINE" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="supplementary-code.html"/>
-
+<link rel="prev" href="ch2.html"/>
+<link rel="next" href="supplementary-code.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -155,23 +155,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="ch3" class="section level1">
+<h1><span class="header-section-number">3</span> Using Equations</h1>
+<p>Example of equations</p>
+<p><span class="math display" id="eq:psyoutcome">\[\begin{equation}
+  Y \sim \textrm{Bernoulli}(\pi)
+  \tag{3.1}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:bernprob1">\[\begin{equation}
+  \pi = P(Y=1 \vert x; \theta) = F(x; \theta)
+   \tag{3.2}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:bernproby">\[\begin{equation}
+  P(Y=y | x; \theta) = F(x;\theta)^y(1-F(x;\theta))^{1-y}
+  \tag{3.3}
+\end{equation}\]</span></p>
+<p>The likelihood function <span class="math inline">\(\mathcal{L}\)</span> can be determined using equation <a href="ch3.html#eq:bernproby">(3.3)</a></p>
+<p><span class="math display" id="eq:bernlik">\[\begin{equation}
+  \begin{split}
+    \mathcal{L}(\theta | y, x) &amp;= \prod_{i}^{N} P(y_i | x_i; \theta) \\
+    &amp;= \prod_{i}^{N}F(x_i;\theta)^{y_i}(1-F(x_i;\theta))^{1-y_i}
+  \end{split}
+  \tag{3.4}
+\end{equation}\]</span></p>
+<p>Equation <a href="ch3.html#eq:bernlik">(3.4)</a> is commonly expressed in terms of its logarithm.</p>
+<p><span class="math display" id="eq:bernloglik">\[\begin{equation}
+  \ln \mathcal{L}(\theta | y, x) = \sum_{i}^{N} y_i \ln\left(F(x_i;\theta)\right) + (1-y_i) \ln\left(F(x_i;\theta))\right)
+  \tag{3.5}
+\end{equation}\]</span></p>
+
+</div>
 
 
-<div id="refs" class="references">
-<div>
-<p>Britannica, Encyclopaedia. 2014. “The Editors of Encyclopaedia Britannica.” Dispersion.</p>
-</div>
-</div>
-</div>
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="supplementary-code.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="ch2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="supplementary-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -207,7 +230,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/SchisslerGroup/UNR-thesis-template/blob/master/300-references.Rmd",
+"link": "https://github.com/SchisslerGroup/UNR-thesis-template/blob/master/030-equations.Rmd",
 "text": null
 },
 "download": ["UNR-thesis-template.pdf"],

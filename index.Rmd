@@ -1,27 +1,63 @@
 --- 
-title: "On the Theory of Relativity"
-author: "Albert Einstein"
-date: "`r format(Sys.Date(), '%A %B %d, %Y')`"
+title: "THESIS TITLE: SOME CATCHY LINE"
+author: "WHAT'S YOUR NAME"
+date: "May/August/December, 20XX"
 site: bookdown::bookdown_site
 bibliography: [bibliography.bib]
 biblio-style: apalike
-documentclass: report
-geometry:
-- top=1.0in
-- left=1.5in
-- bottom=1.25in
-- right=1.5in
-linestretch: 2
 link-citations: yes
-github-repo: adkudson/thesis
-lof: True
-lot: True
 ---
 
-# Abstract {-}
+# Introduction {#ch1}
 
-Put your abstract here
+```{r ch1-setup, include=FALSE}
+library(tidyverse)
+```
 
-# Acknowledgments {-}
+example of r plot
 
-Acknowledge people here (optional)
+```{r rplot, fig.cap="My first figure"}
+curve(dnorm(x), -6, 6)
+```
+
+example of ggplot
+
+```{r ggplot, fig.cap="My second figure"}
+ggplot(tibble(x = c(-4, 4), y = c(0, 1)), aes(x, y)) +
+  geom_hline(yintercept = 0, lwd = 0.5) +
+  geom_vline(xintercept = 0, lwd = 0.5) +
+  stat_function(fun = plogis, args = list(location = 1), size = 1.5, 
+                color = "steelblue") +
+  geom_segment(aes(x = 0, xend = qlogis(0.5, 1), y = 0.5, yend = 0.5),
+               lty = "dotted") +
+  geom_segment(aes(x = qlogis(0.5, 1), xend = qlogis(0.5, 1), y = 0, yend = 0.5),
+               lty = "dotted") +
+  geom_segment(aes(x = 0, xend = qlogis(0.84, 1), y = 0.84, yend = 0.84),
+               lty = "dotted") +
+  geom_segment(aes(x = qlogis(0.84, 1), xend = qlogis(0.84, 1), y = 0, yend = 0.84),
+               lty = "dotted") +
+  annotate("segment", x = qlogis(0.5, 1), xend = qlogis(0.84, 1), 
+           y = 0.25, yend = 0.25, size = 0.5, color = "gray32",
+           arrow = arrow(ends = "both", type = "closed")) +
+  annotate("label", x = mean(qlogis(c(0.5, 0.84), 1)), y = 0.25, label = "JND") +
+  annotate("segment", 
+           x = -1, xend = qlogis(0.5, 1),
+           y = 0.84, yend = 0.5, color = "gray32",
+           arrow = arrow(type = "closed")) +
+  annotate("label", x = -1, y = 0.84, label = "PSS", hjust = 1, vjust = 0) +
+  annotate("segment", x = -2, xend = -1.5, 
+           y = 0.25, yend = plogis(-1.5, 1), color = "gray32",
+           arrow = arrow(type = "closed")) +
+  annotate("label", x = -2, y = 0.25, label = "F(x)", vjust = 0, hjust = 1) +
+  scale_y_continuous(breaks = c(0, 0.5, 0.84, 1.0)) +
+  theme(axis.ticks.x = element_blank(), axis.text.x = element_blank()) +
+  labs(x = "Stimulus Intensity", y = "Probability",
+       title = "Components of the Psychometric Function, F")
+```
+
+
+example of included graphics
+
+```{r png, fig.cap="My third figure"}
+knitr::include_graphics("figures/chart_of_pf.png")
+```

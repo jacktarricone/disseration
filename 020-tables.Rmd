@@ -1,0 +1,28 @@
+# Using Tables {#ch2}
+
+```{r ch2-setup, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+```
+
+example of a reference [@britannica2014editors].
+
+example of display math
+
+$$
+\frac{\Delta I}{I} = k
+$$
+
+Example of inline math $\Delta I = 0.2$
+
+## Level 2 Heading
+
+example of a table and reference (table \@ref(tab:my-table))
+
+```{r my-table}
+iris %>%
+  slice_sample(n = 10) %>%
+  kable(booktabs = TRUE, caption = "THIS IS MY TABLE!") %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+```
+
