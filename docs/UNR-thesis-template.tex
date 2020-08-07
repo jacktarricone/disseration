@@ -4,6 +4,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %==============================================================================01
 \documentclass[11pt, oneside]{book}
+\usepackage{lipsum}
 %==============================================================================02
 \usepackage{lmodern}
 %==============================================================================03
@@ -39,13 +40,13 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 %==============================================================================07
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 %==============================================================================08
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={THESIS TITLE: SOME CATCHY LINE},
-  pdfauthor={WHAT'S YOUR NAME},
+  pdftitle={A Tale of Two Cities: Reno and Las Vegas},
+  pdfauthor={Karen T. Barensby},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -127,20 +128,6 @@
 %==============================================================================17
 %==============================================================================18
 % Place here anything extra that you would like in the preamble
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 %==============================================================================19
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
@@ -155,56 +142,112 @@
 
 \begin{titlepage}
 \begin{center}
-
+\vspace*{1in}
 University of Nevada, Reno
 
-\textbf{THESIS TITLE: SOME CATCHY LINE}
+\vspace{1.5in}
+\textbf{A Tale of Two Cities: Reno and Las Vegas}
 
+\vspace{1in}
 A thesis submitted in partial fulfillment of the \\
 requirements for the degree of Master of Science in \\
 Statistics and Data Science
 
+\vspace{1in}
 by
 
-WHAT'S YOUR NAME
+\vspace{1em}
+Karen T. Barensby
 
+\vspace{2em}
+Dr.~Glen J. Smith/Thesis Advisor
 
-
+\vspace{3em}
 May/August/December, 20XX
+
 \end{center}
 \end{titlepage}
 %==============================================================================22
-% Begin ---------------
+% Begin Copyright --------------------- (optional)
 \thispagestyle{empty}
-Copyright page (optional)
-%------------------ End
+\begin{center}
+\vspace*{\fill}
+Copyright by Albert Einstein 1944 \\
+All Rights Reserved
+\vspace*{\fill}
+\end{center}
+%------------------------ End Copyright
 
 
-% Begin ---------------
+% Begin Committee Approval Page -------
 \newpage
 \thispagestyle{empty}
-Committee Aproval Page
-%------------------ End
+\begin{center}
+
+\includegraphics[width=0.75in, height=0.75in]{./figures/unr_logos/University Logo RGB_block_n_blue}
+
+THE GRADUATE SCHOOL
+
+\vspace{1em}
+We recommend that the thesis \\
+prepared under our supervision by\\
+
+\vspace{1em}
+\textbf{YOUR NAME}
+
+\vspace{1em}
+entitled
+
+\textbf{THESIS TITLE}
+
+\vspace{2em}
+be accepted in partial fullfilment of the \\
+requirements for the degree of
+
+\vspace{1em}
+\textbf{DEGREE}
+
+\vspace{1em}
+ADVISOR \\
+\textit{Advisor}
+
+\vspace{1em}
+COMMITTEE MEMBER \\
+\textit{Committee Member}
+
+\vspace{1em}
+GRADUATE SCHOOL REPRESENTATIVE \\
+\textit{Graduate School Representative}
+
+\vspace{1em}
+David W. Zeh, Ph.D., Dean \\
+\textit{Graduate School}
+
+\vspace{1em}
+May/August/December, 20XX
+\end{center}
+%---------- End Committee Approval Page
 
 
 % Begin ---------------
 \newpage
 \setcounter{page}{1} % Begin lower case Roman numerals
-Abstract
-
-Big Idea: making contributions to and gaining mastery of state of the art statistical computing tools and Bayesian modeling/probabilistic programming.
+\section*{Abstract}
+\lipsum[1]
 %------------------ End
 
 
 % Begin ---------------
 \newpage
-Dedication (optional)
+\section*{Dedication (optional)}
+\lipsum[2]
 %------------------ End
 
 
 % Begin ---------------
 \newpage
-Acknowledgments (optional)
+\section*{Acknowledgments (optional)}
+\lipsum[1]
 %------------------ End
 
 % Begin ---------------
@@ -227,7 +270,7 @@ example of r plot
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{UNR-thesis-template_files/figure-latex/rplot-1} 
+{\centering \includegraphics[width=0.7\linewidth]{index_files/figure-latex/rplot-1} 
 
 }
 
@@ -238,7 +281,7 @@ example of ggplot
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{UNR-thesis-template_files/figure-latex/ggplot-1} 
+{\centering \includegraphics[width=0.7\linewidth]{index_files/figure-latex/ggplot-1} 
 
 }
 
@@ -249,7 +292,7 @@ example of included graphics
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{figures/chart_of_pf} 
+{\centering \includegraphics[width=0.7\linewidth]{figures/unr_logos/University Logo RGB_block_n_blue_877} 
 
 }
 

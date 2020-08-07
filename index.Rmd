@@ -1,6 +1,7 @@
 --- 
-title: "THESIS TITLE: SOME CATCHY LINE"
-author: "WHAT'S YOUR NAME"
+title: "A Tale of Two Cities: Reno and Las Vegas"
+author: "Karen T. Barensby"
+advisor: "Dr. Glen J. Smith/Thesis Advisor"
 date: "May/August/December, 20XX"
 site: bookdown::bookdown_site
 bibliography: [bibliography.bib]
@@ -59,5 +60,5 @@ ggplot(tibble(x = c(-4, 4), y = c(0, 1)), aes(x, y)) +
 example of included graphics
 
 ```{r png, fig.cap="My third figure"}
-knitr::include_graphics("figures/chart_of_pf.png")
+knitr::include_graphics("figures/unr_logos/University Logo RGB_block_n_blue_877.png")
 ```
