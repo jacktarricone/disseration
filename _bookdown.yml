@@ -1,4 +1,4 @@
-book_filename: "UNR-thesis-template"
+book_filename: "myThesis"
 delete_merged_file: yes
 repo: https://github.com/SchisslerGroup/UNR-thesis-template
 before_chapter_script: [_common.R]

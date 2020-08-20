@@ -19,3 +19,4 @@ _book
 _bookdown_files
 
 !docs/*.pdf
+*.rds
