@@ -1,0 +1,647 @@
+%==============================================================================00
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%==============================================================================01
+\documentclass[11pt, oneside, openany]{scrbook}
+\setkomafont{disposition}{\bfseries}
+\usepackage{mathptmx}
+\usepackage{lipsum}
+%==============================================================================02
+% Make chapter pages have numbering at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{fancy}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
+%==============================================================================03
+\usepackage{lmodern}
+\usepackage{setspace}
+%==============================================================================04
+\usepackage{amssymb,amsmath}
+%==============================================================================05
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+%==============================================================================06
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+%==============================================================================07
+\usepackage[table]{xcolor}
+%==============================================================================08
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={A Tale of Two Cities: Reno and Las Vegas},
+  pdfauthor={Karen T. Barensby},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+%==============================================================================09
+\usepackage[top=1in, left=1.5in, bottom=1.25in, right=1.5in]{geometry}
+%==============================================================================10
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+%==============================================================================11
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+%==============================================================================12
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+%==============================================================================13
+%==============================================================================14
+%==============================================================================15
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+%==============================================================================16
+\setcounter{secnumdepth}{5}
+%==============================================================================17
+%==============================================================================18
+% Place here anything extra that you would like in the preamble
+%==============================================================================19
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+%==============================================================================20
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+%==============================================================================21
+\frontmatter
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{1in}
+University of Nevada, Reno
+
+\vspace{1.5in}
+\textbf{Advancing the Monitoring Capabilities of Mountain Snowpack Fluctuations at Various Spatial and Temporal Scales}
+
+\vspace{1in}
+A dissertation submitted in partial fulfillment of the \\
+requirements for the degree of Doctor of Philosophy in \\
+Hydrology 
+
+\vspace{1in}
+by
+
+\vspace{1em}
+Jack Tarricone
+
+\vspace{2em}
+Dr.~Anne Nolin/Dissertation Advisor
+
+\vspace{3em}
+August, 2023
+
+\end{center}
+\end{titlepage}
+%==============================================================================22
+% Begin Copyright --------------------- (optional)
+\thispagestyle{empty}
+\begin{center}
+\vspace*{\fill}
+Copyright by Albert Einstein 1944 \\
+All Rights Reserved
+\vspace*{\fill}
+\end{center}
+%------------------------ End Copyright
+
+
+% Begin Committee Approval Page -------
+\newpage
+\thispagestyle{empty}
+\begin{center}
+
+\includegraphics[width=0.75in, height=0.75in]{./figures/unr_logos/University Logo RGB_block_n_blue}
+
+THE GRADUATE SCHOOL
+
+\vspace{1em}
+We recommend that the thesis \\
+prepared under our supervision by\\
+
+\vspace{1em}
+\textbf{Jack Tarricone}
+
+\vspace{1em}
+entitled
+
+\textbf{Advancing the Monitoring Capabilities of Mountain Snowpack Fluctuations at Various Spatial and Temporal Scales}
+
+\vspace{2em}
+be accepted in partial fulfillment of the \\
+requirements for the degree of
+
+\vspace{1em}
+\textbf{DOCTOR OF PHILOSOPHY}
+
+\vspace{1em}
+Anne Nolin Ph.D. \\
+\textit{Advisor}
+
+\vspace{1em}
+Adrian Harpold Ph.D. \\
+\textit{Committee Member}
+
+\vspace{1em}
+HP Marshall Ph.D. \\
+\textit{Committee Member}
+
+\vspace{1em}
+Franz Meyer Ph.D. \\
+\textit{Committee Member}
+
+\vspace{1em}
+Kenneth Nussear Ph.D. \\
+\textit{Committee Member}
+
+\vspace{1em}
+Thomas Albright Ph.D. \\
+\textit{Graduate School Representative}
+
+\vspace{1em}
+Markus Kemmelmeier, Ph.D., Dean\\
+\textit{Graduate School}
+
+\vspace{1em}
+August, 2023
+\end{center}
+%---------- End Committee Approval Page
+
+
+% Begin ---------------
+\newpage
+\setcounter{page}{1} % Begin lower case Roman numerals
+\section*{Abstract}
+\lipsum[1]
+%------------------ End
+
+
+% Begin ---------------
+\newpage
+\section*{Dedication}
+For Chuck.
+%------------------ End
+
+
+% Begin ---------------
+\newpage
+\section*{Acknowledgments)}
+First and foremost, I'd like to thank my family. I've 
+%------------------ End
+
+% Begin ---------------
+\setcounter{tocdepth}{1}
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
+%------------------ End
+%==============================================================================23
+\setstretch{2.0}
+%==============================================================================24
+\mainmatter
+
+
+
+
+
+
+%==============================================================================2
+%==============================================================================
+%==============================================================================
+%==============================================================================
+\hypertarget{ch1}{%
+\chapter{Introduction}\label{ch1}}
+
+
+hello my name is....
+
+%==============================================================================2
+%==============================================================================
+%==============================================================================
+%==============================================================================
+\hypertarget{ch2}{%
+\chapter{Physiographic Controls on midwinter snowmelt in Sierra Nevada, CA}}\label{ch2}}
+
+\hypertarget{ch2-abstract}{\section{Abstract}\label{ch2-abstract}}
+\hypertarget{ch2-intro}{\section{Introduction}\label{ch2-intro}}
+\hypertarget{level-3-heading}{\subsection{Level 3 Heading}}
+\hypertarget{level-4-heading}{\subsubsection{Level 4 Heading}}
+
+
+\hypertarget{ch3}{%
+\chapter{Estimating snow accumulation and ablation with L-band interferometric synthetic aperture radar (InSAR)}\label{ch3}}
+
+%==============================================================================
+%==============================================================================
+%==============================================================================
+
+\hypertarget{ch3-abstract}{\section{Abstract}\label{ch3-abstract}}
+  Snow is a critical water resource for the western United States and many regions across the globe. However, our ability to accurately measure and monitor changes in snow mass from satellite remote sensing, specifically its water equivalent, remains a challenge. To confront these challenges, NASA initiated the SnowEx program, a multiyear effort to address knowledge gaps in snow remote sensing. During SnowEx 2020, the Uninhabited Aerial Vehicle Synthetic Aperture Radar (UAVSAR) team acquired an L-band interferometric synthetic aperture radar (InSAR) data time series to evaluate the capabilities and limitations of repeat-pass L-band InSAR for tracking changes in snow water equivalent (SWE). The goal was to develop a more comprehensive understanding of where and when L-band InSAR can provide SWE change estimates, allowing the snow community to leverage the upcoming NASA--ISRO (NASA--Indian Space Research Organization) SAR (NISAR) mission. Our study analyzed three InSAR image pairs from the Jemez Mountains, NM, between 12 and 26~February 2020. We developed a snow-focused multi-sensor method that uses UAVSAR InSAR data synergistically with optical fractional snow-covered area (fSCA) information. Combining these two remote sensing datasets allows for atmospheric correction and delineation of snow-covered pixels within the radar swath. For all InSAR pairs, we converted phase change values to SWE change estimates between the three acquisition dates. We then evaluated InSAR-derived retrievals using a combination of fSCA, snow pits, meteorological station data, in situ snow depth sensors, and ground-penetrating radar (GPR). The results of this study show that repeat-pass L-band InSAR is effective for estimating both snow accumulation and ablation with the proper measurement timing, reference phase, and snowpack conditions.
+
+%==============================================================================
+%==============================================================================
+%==============================================================================
+\hypertarget{ch3-intro}{\section{Introduction}\label{ch3-intro}}
+
+%==============================================================================
+\hypertarget{ch3-intro-1}{\subsection{Significance and motivation}\label{ch3-intro-1}}
+
+In the western United States (WUS), seasonal mountain snowmelt produces approximately
+70 \% of the annual discharge \citep{liHowMuchRunoff2017} and is the primary water source for about 60~million people \citep{stewartChangesSnowmeltRunoff2004}. To adequately
+manage this resource, an accurate accounting of the spatiotemporal variations in snow water equivalent (SWE) is needed \citep{balesMountainHydrologyWestern2006}.
+Climate change is affecting the stationarity of the WUS hydrologic cycle \citep{millyStationarityDeadWhither2008}, causing an overall decline in mountain snowpack \citep{moteDramaticDeclinesSnowpack2018} and emphasizing the importance of properly monitoring snow into the future \citep{siirila-woodburnLowtonoSnowFuture2021}.
+
+Water managers could benefit from regular repeat coverage of spatially distributed, low-latency SWE data at spatial resolutions that are appropriate for mountain water forecasting. While remote sensing has made significant advances in measuring snow properties, there is still no remote sensing technique that can continually measure SWE from space for mountain hydrologic applications \citep{lettenmaierInroadsRemoteSensing2015}. Here, we explore L-band interferometric synthetic aperture radar (InSAR) for monitoring changes in SWE.
+
+%==============================================================================
+\hypertarget{ch3-intro-2}{\subsection{Background and previous work}\label{ch3-intro-2}}
+
+
+The most effective and widely used SWE estimation technique combines suborbital lidar \citep{deemsFractalDistributionSnow2006,trujilloTopographicMeteorologicCanopy2007a} with hyperspectral imaging \citep{nolinMappingAlpineSnow1993} to produce both snow depth and fractional snow-covered area (fSCA) at the watershed scale. Converting these measurements into SWE requires spatially distributed snowpack energy balance modeling \citep{painterAirborneSnowObservatory2016}. Like all optical techniques, lidar and hyperspectral imaging are limited by cloud cover, which can be frequent in mountain environments, and global spaceborne monitoring with lidar is not currently practical.
+
+Since the 1970s, spaceborne passive microwave radiometers have used brightness temperature to estimate SWE at hemispherical scales \citep{rangoUtilizationSpaceborneMicrowave1979}. More recent studies utilized the Advanced Microwave Scanning Radiometer for EOS (ASMR-E) and the Scanning Multichannel Microwave Radiometer (SMMR) to continue the development of this SWE estimation technique \citep{derksenTimeseriesAnalysisPassivemicrowavederived2002, vuyovichComparisonPassiveMicrowave2014}. These instruments produce data on the spatial scale of tens of kilometers, limiting their ability to capture the topographic and snowpack heterogeneity of mountain environments. Passive microwave retrievals are also limited to dry snowpacks with $<$ 1 m of snow depth due to signal saturation \citep{fosterQuantifyingUncertaintyPassive2005}.
+
+While passive microwave remote sensing is not well suited for mountain environments, active microwave (radar) has shown promise for snowpack monitoring. Time-of-flight approaches have been used for decades from ground-based \citep{gublerUseMicrowaveFMCW1984,marshallFMCWRadarsSnow2008} and airborne \citep{mcgrathInterannualSnowAccumulation2018,lewisRegionalGreenlandAccumulation2017} platforms. Synthetic aperture radar (SAR) is an active microwave remote sensing technique that addresses the two main deficiencies in both optical and passive microwave; it can penetrate through clouds and has a spatial resolution on the scale of tens of meters instead of kilometers.
+
+Spaceborne applications of SAR for estimating snow properties have mostly focused on backscatter approaches, where shorter wavelengths (Ku- and X-band) have been used to estimate SWE \citep{rottColdRegionsHydrology2010,yuehAirborneKuBandPolarimetric2009,kingInfluenceSnowMicrostructure2018,zhuSnowWaterEquivalent2021}. However, this method requires a complex dense-media radiative transfer model (DMRT) with input parameters that not only include snow density ($\rho_\mathrm{s}$) and snowpack liquid water content (LWC) but also parameters such as snow stratigraphy, snow grain size, and ground surface conditions. Snow microstructure parameters are challenging to precisely estimate over large spatial scales \citep{rutterEffectSnowMicrostructure2019}.
+
+SAR is proven for measuring snow wetness, \citep{naglerRetrievalWetSnow2000,naglerAdvancementsSnowmeltMonitoring2016,lundMappingSnowmeltProgression2020} as wet snow attenuates the radar signal, causing a decrease in backscatter intensity when compared with dry-snow conditions. New backscatter methods are being developed to measure snow depth at C-band \citep{lievensSnowDepthVariability2019,lievensSentinel1SnowDepth2022}. This technique shows promise, especially in deeper snowpacks ($>$ 1 m), but the underlying physics governing the retrievals are not yet well characterized.
+
+Recently, the use of InSAR to estimate SWE has become an area of interest because of the higher temporal (12 d) frequency and L-band ($\sim$ 24 cm) wavelength of the future NASA--ISRO (NASA--Indian Space Research Organization) SAR (NISAR) mission \citep{rosenNASAISROSARNISAR2017}. InSAR uses the differences in radar phase between subsequent overpasses to estimate surface displacement. The InSAR SWE theory, initially proposed by \citet{guneriussenInSAREstimationChanges2001}, relates changes in the interferometric phase of a radar signal to SWE changes in dry snow on the ground between acquisitions.
+
+A series of studies have shown the further utility of these InSAR methods for snow, such as \citet{rottSnowMassRetrieval2003} in Austria and \citet{deebMonitoringSnowpackEvolution2011} on Alaska's North Slope, which both used the European Remote-Sensing Satellite (ERS-1) C-band radar. \citet{leinssSnowWaterEquivalent2015} conducted an intensive season-long ground-based dual-frequency (Ku- and X-band) interferometric experiment in Finland with measurements every 4 h, where they found that the method was successful for continually measuring SWE in dry taiga snow but that liquid water and vegetation quickly cause coherence loss at these higher frequencies.
+
+More recent studies have also used C-band radar from various spaceborne platforms. Sentinel-1A and B were utilized in Finland, leveraging the more consistent overpass repeat cycle \citep{condeEstimationTemporalChanges2019}. \citet{liEstimatingSnowDepth2017} analyzed two InSAR pairs from the Envisat  Advanced Synthetic Aperture Radar (ASAR) instrument in the Tianshan Mountains of northwestern China, where they found promising results but were limited by large interferometric temporal baselines and the lack of in situ validation data. \citet{epplerSnowWaterEquivalent2022} used a 9-year RADARSAT-2 time series in Canada to develop ``SlopeVar'', a method for estimating SWE change without phase unwrapping by spatially correlating phase sensitivity to local topography. \citet{naglerAirborneExperimentInsar2022} conducted an airborne L- and C-band experiment in the Austrian Alps in preparation for Radar Observing System for Europe in L-band (ROSE-L). While their results are preliminary, they show good performance for tracking snowfall events at L-band because of its lack of impairment from 2$\pi$ phase wrapping ambiguities.
+
+These orbital InSAR studies showed promise for estimating SWE but lacked sufficient temporal length and variety of vegetation, topography, and snowpack characteristics. Moreover, they also lacked adequate validation data and a small spatial scale to thoroughly understand the technique's limitations and synergies with other types of snow measurements.
+
+%==============================================================================
+%==============================================================================
+
+\hypertarget{ch3-intro-3}{\subsection{Research objectives}\label{ch3-intro-3}}
+
+
+To address these InSAR-derived SWE limitations, the 2020 NASA SnowEx campaign \citep{marshallNASASnowEx20202019} conducted an Uninhabited Aerial Vehicle Synthetic Aperture Radar (UAVSAR) L-band InSAR time series flight campaign at 13 research sites across the WUS. The goal of the 2020 SnowEx experiment was to test L-band InSAR's ability to measure SWE changes over a wide range of geographic locations, snow conditions, and land cover types with corresponding in situ ground-based observations. InSAR-derived snow depth changes measured over a 2-week interval on the open western end of Grand Mesa, CO, in~February~2020 showed high correlation ($r^{2} = 0.76$) with snow depth differences measured by coincident repeat lidar from the same time period. Root-mean-square error (RMSE) differences between the two 5 m resolution depth change maps were within typical lidar error ($<$ 5 cm) for depth and 0.9 cm of SWE \citep{marshallLBandInSARDepth2021}.
+
+The overall goal of this study is to assess the performance of L-band InSAR for monitoring SWE changes in an environment where there is both snow accumulation and ablation (melt, evaporation, or sublimation). Currently, this UAVSAR-based approach has only been applied to cold dry-snow conditions on Grand Mesa \citep{marshallLBandInSARDepth2021}, where the snow depth variations were mainly driven by wind redistribution but not melt or evaporation. Towards this end, the specific objectives of the work presented here are to (1)~analyze InSAR SWE retrievals over a complex mountain region and (2)~validate the retrievals using satellite and in situ data.
+
+%==============================================================================
+\hypertarget{ch3-methods}{\section{Methods}\label{ch3-methods}}
+
+
+To achieve our objectives, we analyzed three interferometric image pairs that were acquired over the Jemez Mountains, NM. First, we developed a workflow \citep{data1} that (a) corrects the observed interferometric phase for atmospheric delay and (b) corrects incidence angle error effects by using improved incidence angle estimates derived from airborne lidar. We then computed spatial changes in SWE over the study area and evaluated our SWE retrievals using fSCA, ultrasonic snow depth sensors, ground-penetrating radar (GPR), and snow pits.
+
+This section (Sect.~2) is split into the following subsections: Sect.~2.1 provides an overview of InSAR with respect to SWE change estimation, Sect.~2.2 describes the study area, Sect.~2.3 reviews the remote sensing and in situ data, Sect.~2.4 is a description of the atmospheric correction steps, Sect.~2.5 explains the creation of new incidence angle data, and Sect.~2.7 outlines the SWE change calculation.
+
+%==============================================================================
+\hypertarget{ch3-methods-1}{\subsection{InSAR for detecting SWE changes}\label{ch3-methods-1}}
+
+
+InSAR is an active remote sensing technique that uses the differences in phase to map surface topography (single pass) \citep{zebkerTopographicMappingInterferometric1986} or various types of surface deformation (repeat pass) \citep{goldsteinInterferometricRadarMeasurement1987}. Using the precise location of the orbit or flight pattern, the phase difference between the two (repeat-pass) acquisitions can be used to calculate deformation at the centimeter scale. Traditionally, repeat-pass InSAR \citep{rosenSyntheticApertureRadar2000}, where the sensor scans the same area at two different times, has been used to monitor tectonic motion \citep{funningSurfaceDisplacementsSource2005}, geomorphic processes \citep{colesantiMonitoringLandslidesTectonic2003}, ice sheet velocity \citep{mouginotMappingIceMotion2012}, and volcanic activity \citep{polandVolcanoGeodesyUsing2022}.
+
+For snow applications, \citet{guneriussenInSAREstimationChanges2001} theorized a relationship between InSAR phase change and change in dry SWE between acquisitions. Dry snow has low attenuation of the radar signal, and the majority of the backscatter stems from the snow--soil interface at frequencies below 10 GHz \citep{marshallEstimatingAlpineSnowpack2005,ulabySnowcoverInfluenceBackscattering1984}. Dry snow and the atmosphere have different dielectric properties, causing a refraction or directional change in the radar propagation path and a decrease in speed when the signal propagates through the snow layer (Fig.~1). The refraction and wave speed are controlled by the refractive index of snow, which is governed by $\rho_\mathrm{s}$. We leverage these previous studies to develop a current workflow applied to UAVSAR data acquisitions.
+
+To isolate the SWE change impacts on the phase, other factors impacting phase must be identified and compensated for. Outlined in \citet{deebMonitoringSnowpackEvolution2011} and updated for suborbital acquisition considerations, total interferometric phase includes the following contributions:
+\begin{equation}
+\phi_\mathrm{total} =  \phi_\mathrm{flat} + \phi_\mathrm{topo} + \phi_\mathrm{atm} + \phi_{\mathrm{snow}} + \phi_\mathrm{random} +\phi_\mathrm{systematic},
+\end{equation}
+where $\phi_\mathrm{flat}$ and $\phi_\mathrm{topo}$ are phase impacts from the flat Earth and local topography, respectively, which are both accounted for in the UAVSAR InSAR processing chain using the Shuttle Radar Topography Mission (SRTM) digital elevation model (DEM) as input. $\phi_\mathrm{random}$ is the random error, where the majority comes from temporal decorrelation \citep{zebkerAtmosphericEffectsInterferometric1997}. $\phi_\mathrm{systematic}$ represents the systematic error within the UAVSAR instrument. This error is mainly associated with uncertainty in the plane's position and deviations in the flight track between acquisitions. Variations in the plane's position are accounted for within the UAVSAR processing workflow as well as possible, but not all aircraft motion can be completely captured, which can leave residual phase change.
+
+Assuming that all previously mentioned errors are accounted for, extracting $\phi_\mathrm{snow}$ from the observed phase ($\phi_\mathrm{total}$) in UAVSAR data mostly requires accurate compensation for $\phi_\mathrm{atm}$, which is the phase contribution from change in path delay through the atmosphere. The reader is referred to Sect.~2.4 for a detailed explanation of how $\phi_{\mathrm{atm}}$ is addressed in our approach. Once $\phi_\mathrm{snow}$ is isolated, the measured phase shifts are used to estimate SWE with the following equation proposed by \citet{guneriussenInSAREstimationChanges2001}, which accounts for both the path length change caused by refraction and the change in wave speed in snow:
+\begin{equation}
+\Delta\text{SWE} = - \frac{\Delta \phi_\mathrm{snow} \lambda}{4 \pi} \cdot \rho_{s} \cdot \frac{1}{\cos \theta- \sqrt{\epsilon_\mathrm{s} - \sin^{2} \theta}},
+\end{equation}
+where $\Delta$SWE is the change in SWE between acquisitions, $\lambda$ is the radar wavelength (23.84 cm for UAVSAR), $\theta$ is the radar incidence angle, and $\epsilon_\mathrm{s}$ is the real part of the dielectric permittivity of snow. For dry snow, there is a direct relationship between $\epsilon_\mathrm{s}$ and $\rho_\mathrm{s}$, whereas the relationship becomes more complex for wet snow, with even small amounts of liquid water vastly increasing $\epsilon_\mathrm{s}$ values. Recent studies from \citet{epplerSnowWaterEquivalent2022} and \citet{leinssSnowWaterEquivalent2015} found that error in density estimates only biases total SWE change by $<$ $\sim$ 5 \% for dry snow for a wide range of $\theta$ ($<$ 50$^{\circ}$) and $\rho_\mathrm{s}$ ($<$ 500 kg m$^{-3}$). \citet{leinssSnowWaterEquivalent2015} also showed a nearly linear relationship between $\Delta$SWE and interferometric phase for dry snow, which simplifies the SWE estimation. That said, we used Eq.~(2) because our study considers melting snow, and $\epsilon_\mathrm{s}$ is a direct input. \par
+
+%f1
+\begin{figure}[t]
+\centering\includegraphics[width=8cm]{figures/ch3_figs/fig01.pdf}
+\caption{Diagram adapted from \citet{leinssSnowWaterEquivalent2015} showing the geometric principle of the InSAR SWE retrieval. $R_a$ represents propagation through atmosphere (no snow) and $R_\mathrm{s}$ propagation to the wave front (with snow). The amount of refraction ($\theta_\mathrm{s}$) and change in wave speed are controlled by $\epsilon_\mathrm{s}$, which is a function of snow $\rho_\mathrm{s}$. The variation in path length with and without snow is equal to $\Delta R_\mathrm{s} - \Delta R_\mathrm{a}$. This path length difference causes a phase delay which is used to estimate SWE changes.}
+\end{figure}
+
+%==============================================================================
+\hypertarget{ch3-methods-3}{\subsection{Description of the study area}\label{ch3-methods-3}}
+
+
+Located in northern New Mexico, USA, the Jemez Mountains and Jemez River basin are on the southern extent of the Rocky Mountains (Fig.~2b). The UAVSAR swath encompasses portions of Valles Caldera National Preserve (VCNP; 35$^{\circ}$53' N, 106$^{\circ}$32' W) (Fig.~2a). This area is mainly a mountain conifer forest environment consisting of Douglas fir, white fur, and blue spruce. VCNP is surrounded by lower-elevation semiarid desert. Within the swath also lies the Valles Caldera, a 25 km wide volcanic structure dating back about 1.2 Myr. Within VCNP is Valle Grande (VG) (Fig.~2f), an extensive open grassland. Many resurgent lava domes form peaks over the grassy valleys, the highest of which is Redondo Peak (3430 m). About 50 \% of the total annual precipitation falls in the summer months as rain from convective monsoonal storms, and the rest falls in the winter as snow. The water in this area drains into the East Fork of the Jemez River and eventually to the Rio Grande. The nearby Quemazon Natural Resource Conservation Services (NRCS) Snow Telemetry (SNOTEL) site ($35^{\circ}55'$ N, 106$^{\circ}$24' W; 2898 m) has a 1980--2022 average peak SWE of 22.4 cm.
+
+%f2
+\begin{figure}[t]
+\centering\includegraphics[width=\textwidth]{figures/ch3_figs/fig02.pdf}
+\caption{\textbf{(a)}~DEM of the UAVSAR acquisition area provided by NASA, with a red rectangle outlining the study area. \textbf{(b)}~Map showing the area of the UAVSAR acquisition (black outline) in the Jemez Mountains, NM. \textbf{(c)}~A close-up of the GPR transect outlined by the black rectangle in panel~\textbf{(d)}, with the Headquarters Meteorologic station (HQ Met; blue triangle) and HQ snow pit (black triangle) displayed. Due to their close proximity, a single red triangle represents the Burned Area (BA) pit and Catalina--Jemez Critical Zone Observatory (CZO) snow depth sensors. Within the study area extent, panel~\textbf{(d)}~is the lidar DEM; panel~\textbf{(e)}~is the lidar-derived slope; panel~\textbf{(f)}~is the lidar aspect binned to north-facing (270--90$^{\circ}$, blue) and south-facing (90--270$^{\circ}$, orange) slopes, with the gray area representing the flat VG meadow where aspect values are not valid; and panel~\textbf{(g)}~is the NLCD canopy cover percentage.}
+\end{figure}
+
+We focus our analysis on an 82.5 km$^{2}$ section of the UAVSAR swath that encompasses VG and the surrounding forested hillslopes. The study area is defined by the red rectangle in Fig.~2a, with inset maps showing elevation (Fig.~2d), slope (Fig.~2e), binned north and south aspects with VG delineated (Fig.~2f), and the 2016 National Land Cover Database (NLCD) canopy cover percentage (Fig.~2g).
+
+%==============================================================================
+\hypertarget{ch3-methods-4}{\subsection{Data description}\label{ch3-methods-4}}
+\hypertarget{ch3-methods-5}{\subsection{Description of the study area}\label{ch3-methods-5}}
+
+
+UAVSAR is a fully polarimetric L-band radar deployed on a NASA Gulfstream III aircraft, traditionally flown at $\sim$\,13\,700\,m with a 22\,km nominal swath width \citep{hensleyUAVSARInstrumentDescription2008, rosenUAVSARNewNASA2006}. Detailed technical specifications of the radar are provided at the top of Table~1. UAVSAR data were accessed using the uavsar\_pytools \citep{keskinenUavsarPytools2022} Python package. It uses the asf\_search application programming interface (\url{https://github.com/asfadmin/Discovery-asf_search}, last access: 2~March~2023) for easier downloading, formatting, and analysis of UAVSAR data. The flights used in this study occurred on the mornings of 12, 19, and 26~February~2020. The UAVSAR team at the NASA Jet Propulsion Laboratory (JPL) processed two 7\,d (12--19 and 19--26~February) and one 14\,d (12--26~February) ground-projected (GRD) InSAR pairs. They were unwrapped using the Integrated Correlation and Unwrapping (ICU) algorithm \citep{goldsteinSatelliteRadarInterferometry1988}. Processing parameters are outlined at the bottom of Table~1, and information about the specific products used is provided in the Supplement. For the three flights used in this study, the flight track baseline was maintained within $<$\,$\pm$3\,m, which is within the $<$\,$\pm$5\,m requirement \citep{hensleyUAVSARInstrumentDescription2008}.
+
+%t01
+\begin{table}[t]
+\caption{Technical specifications of the UAVSAR L-band radar (top). InSAR processing and data parameters (bottom).}
+\begin{tabular}{ll}
+\toprule Parameter & Value \\
+\midrule
+Wavelength & 23.84\,cm \\
+Frequency & 1.26\,GHz \\
+Polarization & Quad pol \\
+Bandwidth & 80\,MHz \\
+Pulse length & 40\,$\mu$s \\
+Radar look direction & Left \\
+Range swath width & 22\,km \\
+Average near-range look angle & 28.01$^{\circ}$\\
+Average far-range look angle & 68.9$^{\circ}$\\
+\middlehline
+Ground range pixel spacing & 6\,m \\
+Number of looks in range & 3 \\
+Number of looks in azimuth & 12 \\
+Phase unwrapping method & ICU \\
+Phase unwrapping filtering method & Low pass \\
+Phase unwrapping filter window size & 3~pixels\,$\times$\,3~pixels \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three interferometric products are produced for each InSAR pair: coherence, unwrapped phase, and the interferogram. Coherence measures the consistency of the scattering characteristics within a pixel between InSAR acquisitions. Unwrapped phase is the estimated absolute phase change in a pixel, generated from the initially ambiguous interferogram, which is defined modulo 2$\pi$.
+
+When there is a significant change in the landscape scattering properties between InSAR acquisitions, phase noise and fringe discontinuities increase, coherence decreases, and the unwrapping algorithm performs less reliably \citep{balzterForestMappingMonitoring2001}. We analyzed the coherence and unwrapped phase products for the HH (horizontal--horizontal) and VV (vertical--vertical) polarizations to assess their quality before implementing the SWE change equation. We found that co-polarizations performed similarly (Table~2) and chose to utilize HH for our study.
+
+The right side of Fig.~3 shows the coherence values in the study area for (a)~12--19~February, (b)~19--26~February, and (c)~12--26~February. In the coherence maps, there are clear patterns with respect to topography and probable variations in snowpack LWC. The area of lowest coherence surrounds the main channel of the Jemez River (dotted red line) that flows through the southern central portion of VG. As seen in Fig.~3d, there is a variable area of low backscatter in all three amplitude images. This backscatter decrease is likely caused by snowpack LWC or subnivean surface water attenuating the radar signal. The spatial variability in backscatter values in this riparian area between acquisitions causes low coherence and the loss of pixels in the unwrapping processes for all three pairs. There are also horizontal streaks of low coherence and high backscatter within the images. These are likely a result of radio frequency interference (RFI) during the acquisitions. These lines do not propagate into the unwrapped phase data and, therefore, are not of concern.
+
+The left side of Fig.~3a--c displays the unwrapped phase values for the three InSAR pairs. The 12--19~February and 12--26~February pairs show the atmospherically corrected data, with this methodology discussed in Sect.~2.4. In the open VG meadow (dotted blue line), the unwrapping algorithm performs well, and most pixels are preserved except in the riparian area for the reasons described previously. The other source of low coherence and corresponding unwrapping pixel loss occurs on the forested hill slopes (outside of the dotted blue line) surrounding the VG meadow. Overall, the unwrapped data provide a high-quality input into the SWE change inversion equation.
+
+%f3
+\begin{figure*}[t]
+\includegraphics[width=14cm]{tc-2022-224-f03.jpg}
+\caption{The unwrapped phase and coherence data for the \textbf{(a)}~12--19~February, \textbf{(b)}~19--26~February, and \textbf{(c)}~12--26~February InSAR pairs. \textbf{(d)}~The amplitude data for the three UAVSAR flights. Both panels~\textbf{(a)} and \textbf{(c)} were atmospherically corrected. The gray area in the phase data represents pixels lost in the unwrapping processes. VG and Jemez River main channel are outlined by blue and red dotted lines, respectively. Triangles show the BA (red) and HQ (black) pits.}
+\end{figure*}
+
+%t02
+\begin{table*}[t]
+\caption{UAVSAR unwrapped phase (UNW) and coherence statistics for the full scene (FS) and study area (SA). UNW loss (\%) is the percentage of pixels lost in the unwrapping process.}
+\begin{tabular}{l l l l l l}
+\tophline
+Pair & Polarization & FS mean coherence & SA mean coherence & FS UNW loss (\%) & SA UNW loss (\%) \\
+\middlehline
+12--19 Feb & HH & 0.53 & 0.50 & 9.4 & 7.7 \\
+12--19 Feb & VV & 0.54 & 0.50 & 8.9 & 12.8 \\
+19--26 Feb & HH & 0.55 & 0.52 & 5.0 & 4.1 \\
+19--26 Feb & VV & 0.57 & 0.54 & 4.3 & 3.7 \\
+12--26 Feb & HH & 0.50 & 0.48 & 8.3 & 6.6 \\
+12--26 Feb & VV & 0.53 & 0.51 & 6.7 & 5.5 \\
+
+\bottomhline
+\end{tabular}
+\end{table*}
+
+
+
+
+
+
+
+
+
+
+
+\hypertarget{ch4}{%
+\chapter{Example Code}\label{ch4}}
+
+
+%example of r plot
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{docs/index_files/figure-html/rplot-1.png}} 
+
+\caption{My first figure}\label{fig:rplot}
+\end{figure}
+example of ggplot
+\begin{figure}
+{\centering \includegraphics[width=0.7\linewidth]{docs/index_files/figure-html/ggplot-1.png}} 
+\caption{My second figure}\label{fig:ggplot}
+\end{figure}
+
+example of included graphics
+
+\begin{figure}
+{\centering \includegraphics[width=0.7\linewidth]{figures/unr_logos/University Logo RGB_block_n_blue_877} }
+\caption{My third figure}\label{fig:png}
+\end{figure}
+
+
+\caption{\label{tab:my-table}THIS IS MY TABLE!}
+\centering
+\begin{tabular}[t]{rrrrl}
+\toprule
+Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
+\midrule
+\rowcolor{gray!6}  5.5 & 2.5 & 4.0 & 1.3 & versicolor\\
+5.7 & 2.6 & 3.5 & 1.0 & versicolor\\
+\rowcolor{gray!6}  5.5 & 2.6 & 4.4 & 1.2 & versicolor\\
+6.2 & 2.2 & 4.5 & 1.5 & versicolor\\
+\rowcolor{gray!6}  5.5 & 4.2 & 1.4 & 0.2 & setosa\\
+\addlinespace
+7.7 & 3.0 & 6.1 & 2.3 & virginica\\
+\rowcolor{gray!6}  6.5 & 3.0 & 5.2 & 2.0 & virginica\\
+5.5 & 2.4 & 3.7 & 1.0 & versicolor\\
+\rowcolor{gray!6}  6.7 & 3.3 & 5.7 & 2.1 & virginica\\
+6.9 & 3.2 & 5.7 & 2.3 & virginica\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+Example of equations
+
+\begin{equation}
+  Y \sim \textrm{Bernoulli}(\pi)
+  \label{eq:psyoutcome}
+\end{equation}
+
+\begin{equation}
+  \pi = P(Y=1 \vert x; \theta) = F(x; \theta)
+   \label{eq:bernprob1}
+\end{equation}
+
+\begin{equation}
+  P(Y=y | x; \theta) = F(x;\theta)^y(1-F(x;\theta))^{1-y}
+  \label{eq:bernproby}
+\end{equation}
+
+The likelihood function \(\mathcal{L}\) can be determined using equation \eqref{eq:bernproby}
+
+\begin{equation}
+  \begin{split}
+    \mathcal{L}(\theta | y, x) &= \prod_{i}^{N} P(y_i | x_i; \theta) \\
+    &= \prod_{i}^{N}F(x_i;\theta)^{y_i}(1-F(x_i;\theta))^{1-y_i}
+  \end{split}
+  \label{eq:bernlik}
+\end{equation}
+
+Equation \eqref{eq:bernlik} is commonly expressed in terms of its logarithm.
+
+\begin{equation}
+  \ln \mathcal{L}(\theta | y, x) = \sum_{i}^{N} y_i \ln\left(F(x_i;\theta)\right) + (1-y_i) \ln\left(F(x_i;\theta))\right)
+  \label{eq:bernloglik}
+\end{equation}
+
+\hypertarget{appendix-appendix}{%
+\appendix}
+
+
+\hypertarget{supplementary-code}{%
+\chapter{Supplementary Code}\label{supplementary-code}}
+
+One model, Three Implementations. There are a few ways to specify a hierarchical model in R. Below I describe three common frameworks that require varying levels of mathematical and programmatic competence. Frameworks with lower barriers for entry are great for researchers in many fields, but they lack fine control over the parameters in a model. As the framework complexity increases, so too does the ability to generate complex models that are typically not possible.
+
+Novice
+\setstretch{1.0}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(rstanarm)}
+\KeywordTok{stan_glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(k, n}\OperatorTok{-}\NormalTok{k) }\OperatorTok{~}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{x }\OperatorTok{|}\StringTok{ }\NormalTok{G1) }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{x }\OperatorTok{|}\StringTok{ }\NormalTok{G2), }
+           \DataTypeTok{family =} \KeywordTok{binomial}\NormalTok{(}\DataTypeTok{link =} \StringTok{"logit"}\NormalTok{),}
+           \DataTypeTok{data =}\NormalTok{ dat)}
+\end{Highlighting}
+\end{Shaded}
+
+\setstretch{2.0}
+
+Intermediate
+
+\setstretch{1.0}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(rethinking)}
+\KeywordTok{ulam}\NormalTok{(}\KeywordTok{alist}\NormalTok{(}
+\NormalTok{  k }\OperatorTok{~}\StringTok{ }\KeywordTok{binomial}\NormalTok{(n, pi)}
+  \KeywordTok{logit}\NormalTok{(pi) <-}\StringTok{ }\NormalTok{(a }\OperatorTok{+}\StringTok{ }\NormalTok{aG1[G1] }\OperatorTok{+}\StringTok{ }\NormalTok{aG2[G2]) }\OperatorTok{+}\StringTok{ }\NormalTok{(b }\OperatorTok{+}\StringTok{ }\NormalTok{bG1[G1] }\OperatorTok{+}\StringTok{ }\NormalTok{bG2[G2]) }\OperatorTok{*}\StringTok{ }\NormalTok{x,}
+  
+\NormalTok{  a }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{),}
+\NormalTok{  aG1[G1] }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, sd_aG1),}
+\NormalTok{  aG2[G2] }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, sd_aG2),}
+  \KeywordTok{c}\NormalTok{(sd_aG1, sd_aG2) }\OperatorTok{~}\StringTok{ }\KeywordTok{half_cauchy}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{),}
+
+\NormalTok{  b }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{),}
+\NormalTok{  bG1[G1] }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, sd_bG1),}
+\NormalTok{  bG2[G2] }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, sd_bG2),}
+  \KeywordTok{c}\NormalTok{(sd_bG1, sd_bG2) }\OperatorTok{~}\StringTok{ }\KeywordTok{half_cauchy}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{), }\DataTypeTok{data =}\NormalTok{ dat, }\DataTypeTok{log_lik =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\setstretch{2.0}
+
+\setstretch{1.0}
+%==============================================================================26
+\backmatter
+%==============================================================================27
+\bibliography{ch3.bib}
+%==============================================================================28
+% Place here anything that you would like to come
+% after the appendix, references, etc
+%==============================================================================29
+\end{document}

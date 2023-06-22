@@ -1,7 +1,0 @@
-# CHAPTER HEADING
-
-lorem ipsum
-
-## CHAPTER SUBHEADING
-
-dolar sit amet
