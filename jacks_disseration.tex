@@ -153,7 +153,10 @@
 \fi
 %==============================================================================20
 \usepackage[]{natbib}
-\bibliographystyle{apalike}
+\usepackage[sectionbib]{natbib}
+\usepackage{chapterbib} 
+\renewcommand{\bibsection}{\section*{References}} % Change the name from "Bibliography" to "References"
+\bibliographystyle{apalike}% Change the name from "Bibliography" to "References"
 %==============================================================================21
 \frontmatter
 
@@ -258,7 +261,7 @@ Markus Kemmelmeier, Ph.D., Dean\\
 August, 2023
 \end{center}
 %---------- End Committee Approval Page
-
+\setlength{\parindent}{2em} % Set the paragraph indent to 1em (adjust the value as needed)
 
 % Begin ---------------
 \newpage
@@ -308,14 +311,25 @@ First and foremost, I'd like to thank my family. I've
 \chapter{Introduction}\label{ch1}}
 
 
-hello my name is....
+It is widely known that snow is a critical water resource for the western United States. However, our ability to accurately measure and monitor changes in snowpack, specifically its water equivalent, is challenged in mountain regions. Station-based measurements of snow water equivalent (SWE) are sparse, and spaceborne remote sensing does not yet have the capacity to directly measure SWE at the spatial resolution needed for water management applications. The overarching goal of this dissertation research is to progress our ability to track changes in SWE at a range of spatial and temporal scales. We will use two research themes to accomplish this goal: testing the feasibility of L-band interferometric synthetic aperture radar (InSAR) to measure SWE changes and conduct a novel geospatial analysis of climatic-scale SWE trends in the California Sierra Nevada. While these two methods are distinctive, they both work towards forwarding our ability to understand and monitor the dynamics of mountain snowpack. \par
+
+In the western US, the majority of precipitation in mountainous regions falls in the winter as snow \citep{serrezeCharacteristicsLargeSnowfall2001}, where it is stored in the mountain snowpack “water towers” until it begins to melt in the spring (Immerzeel et al., 2020; Viviroli et al., 2007). Snowmelt runoff provides as much as 70 \% of the total water for areas near mountains (Li et al., 2017) while filling reservoirs, irrigating agricultural fields, and providing habitat for aquatic species (Yarnell et al., 2010).
+The need to measure the distribution of snow water equivalent (SWE) from space has been well documented for decades within the hydrologic sciences community (Lettenmaier et al., 2015; Peters-Lidard et al., 2018). The most recent NASA Decadal Survey listed snow depth and SWE as target observables for future NASA missions and essential for both water resource forecasting and global land surface energy balance modeling (Space Studies Board et al., 2019). The need for these measurements becomes increasingly important as the areal and temporal extent of snowpacks are expected to decrease as climate warming intensifies (Fox-Kemper, et al., 2021; Siirila-Woodburn et al., 2021). \par
+
+No single sensor currently has the ability to directly measure SWE from space at a spatial scale suitable for water supply forecasting in mountain environments. Our ability to track other snowpack properties like snow-covered area (SCA), snow grain size, and snow albedo are mature and continually advancing with the launch of new optical sensors. However, the ability to accurately measure and monitor changes in SWE at required spatial and temporal resolution remains a challenge (A. W. Nolin, 2010; Bormann et al., 2018). While retrospective SWE reconstruction techniques have been shown to be accurate (Cline et al., 1998; Durand et al., 2008; Guan et al., 2013; Margulis et al., 2016; Molotch & Margulis, 2008; Raleigh & Lundquist, 2012; Rittger et al., 2016), they cannot help with real-time seasonal water supply forecasting. \par
+
+This calls for the use of innovative remote sensing techniques, computational tools, and data science methods to advance our ability to measure mountain snowpacks across a range of spatial and temporal scales (Dozier, 2011). The planned NASA-ISRO SAR Mission (NISAR) (to be launched in late 2023) will provide InSAR data at both L-band (20 cm) and S-band (10 cm) wavelengths. InSAR has shown promise in tracking changes in SWE (Deeb et al., 2011; Guneriussen et al., 2000; Rott et al., 2003) but lacked the proper orbital pattern, sufficient senor wavelength, and algorithmic capacities for operational use in SWE monitoring. \par
+
+Differential InSAR has traditionally been used in the Geology community to track movement of the Earth’s surface. The applications include tectonic events, landslides, ground subsidence, and volcanic dome expansion (Rosen et al., 2000). These processes are either event-based, whereas the event happens and the process stabilizes soon after or the surface movement is slow enough where a few measurements a year is sufficient.
+Snow is the most ephemeral naturally occurring material on the Earth’s land surface. Snowpack properties such as depth, density, and SWE can significantly change on the time scale of seconds to minutes depending on atmospheric properties such as wind speed, incoming solar radiation, and precipitation intensity. In order to accurately capture the variations in SWE using InSAR, we must continue to develop the InSAR workflow to better capture the spatial and temporal variation in snowpack properties.
+The progression of SWE monitoring capabilities will require data fusion-based approaches by leveraging the strengths of optical snow cover monitoring in combination with both InSAR and model-based data assimilation approaches (Durand et al., 2021). We will be testing data fusions approaches for InSAR and optical data, as well as utilizing a data assimilation based SWE reconstruction (Margulis et al., 2016) within the scope of this work.
 
 %==============================================================================2
 %==============================================================================
 %==============================================================================
 %==============================================================================
 \hypertarget{ch2}{%
-\chapter{Physiographic Controls on midwinter snowmelt in Sierra Nevada, CA}}\label{ch2}}
+\chapter{Physiographic Controls on midwinter snowmelt in Sierra Nevada, CA}\label{ch2}}
 
 \hypertarget{ch2-abstract}{\section{Abstract}\label{ch2-abstract}}
 \hypertarget{ch2-intro}{\section{Introduction}\label{ch2-intro}}
@@ -331,7 +345,7 @@ hello my name is....
 %==============================================================================
 
 \hypertarget{ch3-abstract}{\section{Abstract}\label{ch3-abstract}}
-  Snow is a critical water resource for the western United States and many regions across the globe. However, our ability to accurately measure and monitor changes in snow mass from satellite remote sensing, specifically its water equivalent, remains a challenge. To confront these challenges, NASA initiated the SnowEx program, a multiyear effort to address knowledge gaps in snow remote sensing. During SnowEx 2020, the Uninhabited Aerial Vehicle Synthetic Aperture Radar (UAVSAR) team acquired an L-band interferometric synthetic aperture radar (InSAR) data time series to evaluate the capabilities and limitations of repeat-pass L-band InSAR for tracking changes in snow water equivalent (SWE). The goal was to develop a more comprehensive understanding of where and when L-band InSAR can provide SWE change estimates, allowing the snow community to leverage the upcoming NASA--ISRO (NASA--Indian Space Research Organization) SAR (NISAR) mission. Our study analyzed three InSAR image pairs from the Jemez Mountains, NM, between 12 and 26~February 2020. We developed a snow-focused multi-sensor method that uses UAVSAR InSAR data synergistically with optical fractional snow-covered area (fSCA) information. Combining these two remote sensing datasets allows for atmospheric correction and delineation of snow-covered pixels within the radar swath. For all InSAR pairs, we converted phase change values to SWE change estimates between the three acquisition dates. We then evaluated InSAR-derived retrievals using a combination of fSCA, snow pits, meteorological station data, in situ snow depth sensors, and ground-penetrating radar (GPR). The results of this study show that repeat-pass L-band InSAR is effective for estimating both snow accumulation and ablation with the proper measurement timing, reference phase, and snowpack conditions.
+Snow is a critical water resource for the western United States and many regions across the globe. However, our ability to accurately measure and monitor changes in snow mass from satellite remote sensing, specifically its water equivalent, remains a challenge. To confront these challenges, NASA initiated the SnowEx program, a multiyear effort to address knowledge gaps in snow remote sensing. During SnowEx 2020, the Uninhabited Aerial Vehicle Synthetic Aperture Radar (UAVSAR) team acquired an L-band interferometric synthetic aperture radar (InSAR) data time series to evaluate the capabilities and limitations of repeat-pass L-band InSAR for tracking changes in snow water equivalent (SWE). The goal was to develop a more comprehensive understanding of where and when L-band InSAR can provide SWE change estimates, allowing the snow community to leverage the upcoming NASA--ISRO (NASA--Indian Space Research Organization) SAR (NISAR) mission. Our study analyzed three InSAR image pairs from the Jemez Mountains, NM, between 12 and 26~February 2020. We developed a snow-focused multi-sensor method that uses UAVSAR InSAR data synergistically with optical fractional snow-covered area (fSCA) information. Combining these two remote sensing datasets allows for atmospheric correction and delineation of snow-covered pixels within the radar swath. For all InSAR pairs, we converted phase change values to SWE change estimates between the three acquisition dates. We then evaluated InSAR-derived retrievals using a combination of fSCA, snow pits, meteorological station data, in situ snow depth sensors, and ground-penetrating radar (GPR). The results of this study show that repeat-pass L-band InSAR is effective for estimating both snow accumulation and ablation with the proper measurement timing, reference phase, and snowpack conditions.
 
 %==============================================================================
 %==============================================================================
@@ -624,31 +638,84 @@ where $\hat{n}$ is the surface normal. $\theta$ varies with respect to local top
 We generated new $\theta$ data using a snow-free lidar DEM (Fig.~8a) acquired in 2010 for the Catalina--Jemez Critical Zone Observatory (CZO) \citep{opentopographyJemezRiverBasin2012}. The high spatial resolution of 1\,m and elevation accuracy of 5--30\,cm provide a more reliable starting point to calculate $\theta$. By using the LKV and the lidar DEM, the new $\theta$ data better represent the bare ground surface of VG (Fig.~8c).
 
 
+%==============================================================================
+\hypertarget{ch3-methods-12}{\subsection{Calculating SWE change}\label{ch3-methods-12}}
+
+
+To begin the SWE change estimation, the three InSAR pairs were masked with Landsat fSCA data collected on 18~February 2020. All pixels with $>$\,15\,\% snow cover were included so as not to mistakenly exclude pixels in the forest where the snowpack is partially obstructed by forest canopy. Using Eq.~(2), $\Delta$SWE values were calculated on a pixel-wise basis with inputs of $\lambda$ (23.84\,cm), $\rho_\mathrm{s}$, $\epsilon_\mathrm{s}$, and the lidar-derived $\theta$. $\rho_\mathrm{s}$ and $\epsilon_\mathrm{s}$ are averages of the two snow pit values (Table~2) between the two acquisition dates.
+
+InSAR phase differences produce a relative measurement of change in SWE; therefore, these data need to be tied to a point on the ground to estimate absolute change. As there was near-zero SWE change at the HQ snow pit between the three UAVSAR acquisitions (Table~3), we used this location as our InSAR known change point. This SWE change of $-0$.1\,cm for 12--19~February and 0.2\,cm for 19--26~February is well within the margin of measurement error (10\,\%) for the snow pit observations. To account for error within GPS snow pit location, $\Delta$SWE values for the snow pit pixel and the eight surrounding pixels were averaged. This averaged value was subtracted to obtain an absolute change. To calculate the cumulative $\Delta$SWE, the two 7\,d pairs were masked, so only pixels that occurred in both scenes were considered, and then added together.
+
+%==============================================================================
+\hypertarget{ch3-results}{\section{Results}\label{ch3-results}}
+\hypertarget{ch3-results-1}{\section{InSAR $\Delta$SWE}\label{ch3-results-1}}
+
+
+InSAR $\Delta$SWE results are displayed in Fig.~9 for (a) 12--19~February, (b) 19--26~February, (c) 12--26~February, and (d) the 12--26~February cumulative change (CM) in the study area. Table~4 reports $\Delta$SWE mean, standard deviation (SD), median, and interquartile range (IQR), and it is split into four physiographic classes. First is the full study area (Fig.~2d), followed by the three classes defined in Fig.~2f: VG, north-facing slopes, and south-facing slopes. Figure~10 shows histograms of InSAR-derived $\Delta$SWE for the four aforementioned classes. We note that there was a greater mean estimated SWE loss for 19--26~February compared with 12--19~February for all physiographic regions (Fig.~10a, b, c, d).
+
+%f9
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/ch3_figs/fig09.pdf}
+\caption{InSAR-derived $\Delta$SWE results for \textbf{(a)}~12--19~February, \textbf{(b)}~19--26~February, \textbf{(c)}~12--26~February, \textbf{(d)}~and the cumulative change between 12 and 26~February generated by adding the data from panels~\textbf{(a)} and \textbf{(b)}~together. The triangles represent the BA (red) and HQ (black) snow pits.}
+\end{figure*}
+
+In Fig.~9a (12--19~February), the full study area has a mean $\Delta$SWE of $-$0.52\,cm, with VG showing a similar change of $-$0.62\,cm. In VG, the largest SWE losses occur in gullies and terrain depressions, with these areas showing visible SWE loss in all four pairs. The northeast corner of the study area shows a consistent increase in SWE, on the order of $<$\,1\,cm. There is a pattern of more SWE loss on the south-facing slopes (mean\,$ = -0$.58\,cm) than on the north-facing slopes (mean\,$= -0$.24\,cm) for this pair.
+
+Figure~9b (19--26~February) displays similar spatial patterns to those of Fig.~9a. Overall, the mean SWE loss was $-$1.24\,cm, with the VG losing on average $-$1.34\,cm. These SWE losses are over double that of 12--19~February. The highest elevation occurs in the northwest corner of the scene near Redondo Peak, and it is the only place to show consistent SWE increases. These increases are compared with in situ SWE data in the area (see Sect.~3.2). The pattern of more than double the SWE loss on south-facing slopes (mean\,$= -$1.45\,cm) compared with north-facing slopes (mean\,$= -$0.75\,cm) continues from the first pair.
+
+The 14\,d baseline pair, 12--26~February (Fig.~9c), has a mean $\Delta$SWE of $-$2.29\,cm. The 12--26~February CM (Fig.~9d), created by adding the values of Fig.~9a and b together, has a mean value of $-$1.70\,cm. While the IQR, SD, and histogram shape (Fig.~10d, e, f, h) are similar in all four physiographic sections of the 14\,d data, the mean of 12--26~February has a negative bias of $\sim$\,0.5\,cm compared with 12--26~February CM. This is likely due to variations in how these data were atmospherically corrected. The spatial patterns observed in the two 7\,d InSAR pairs become amplified in both Fig.~9c and d.
+
+As a first-order estimate of uncertainty within the technique, we calculated the $\Delta$SWE values for areas considered snow-free by the 18~February fSCA data (Fig.~4d). The $\Delta$SWE data from the three pairs (12--19, 19--26, and 12--26~February) were combined, and we report a snow-free $\Delta$SWE mean value of $-$2.06\,cm, an SD of 1.56\,cm, and an IQR of 2.14\,cm.
+
+%t04
+\begin{table}[t]
+\centering
+\caption{$\Delta$SWE (cm) mean, SD, median, and IQR from Fig.~9 for the four InSAR pairs analyzed. They are split into the same four physiographic classes (full study area, VG, north-facing slopes, and south-facing slopes) as Fig.~10. The 12--26~February cumulative (CM) is created by adding the SWE changes from the 12--19~February and 19--26~February pairs.}
+\begin{tabular}{lllll}
+\toprule
+\multicolumn{5}{c}{$\Delta$SWE (cm)} \\
+\middlehline
+Full study area & Mean & SD & Median & IQR \\
+\midrule
+12--19 Feb & $-$0.52 & 1.11 & $-$0.50 & 1.18\\
+19--26 Feb & $-$1.24 & 1.30 & $-$1.12 & 1.64\\
+12--26 Feb & $-$2.29 & 1.68 & $-$2.24 & 1.87\\
+12--26 Feb CM & $-$1.70 & 1.54 & $-$1.53 & 1.86\\
+\midrule
+VG \\
+\midrule
+12--19 Feb & $-$0.62 & 0.82 & $-$0.59 & 0.88\\
+19--26 Feb & $-$1.34 & 1.18 & $-$1.20 & 1.56\\
+12--26 Feb & $-$2.63 & 1.38 & $-$2.53 & 1.54\\
+12--26 Feb CM & $-$1.92 & 1.43 & $-$1.78 & 1.66\\
+\midrule
+North-facing slopes \\
+\midrule
+12--19 Feb & $-$0.24 & 0.98 & $-$0.23 & 1.04\\
+19--26 Feb & $-$0.75 & 1.26 & $-$0.62 & 1.45\\
+12--26 Feb & $-$1.46 & 1.51 & $-$1.58 & 1.78\\
+12--26 Feb CM & $-$0.97 & 1.27 & $-$0.83 & 1.47\\
+\midrule
+South-facing slopes \\
+\midrule
+12--19 Feb & $-$0.58 & 1.39 & $-$0.58 & 1.74\\
+19--26 Feb & $-$1.45 & 1.37 & $-$1.39 & 1.67\\
+12--26 Feb & $-$2.47 & 1.89 & $-$2.42 & 2.33\\
+12--26 Feb CM & $-$1.97 & 1.67 & $-$1.78 & 2.08\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%f10
+\begin{figure*}[t]
+\includegraphics[width=\textwidth]{figures/ch3_figs/fig10.pdf}
+\caption{The distribution of $\Delta$SWE values for the full study area, within VG, and for respective north-facing and south-facing slopes. Panels~(\textbf{a--d)} display the 12--19 and 12--26~February InSAR pairs, and panels~\textbf{(d--h)} show the 12--26 and 12--26~February CM InSAR pairs.}
+\end{figure*}
 
 \hypertarget{ch4}{%
 \chapter{Example Code}\label{ch4}}
 
-
-%example of r plot
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{docs/index_files/figure-html/rplot-1.png}} 
-
-\caption{My first figure}\label{fig:rplot}
-\end{figure}
-example of ggplot
-\begin{figure}
-{\centering \includegraphics[width=0.7\linewidth]{docs/index_files/figure-html/ggplot-1.png}} 
-\caption{My second figure}\label{fig:ggplot}
-\end{figure}
-
-example of included graphics
-
-\begin{figure}
-{\centering \includegraphics[width=0.7\linewidth]{figures/unr_logos/University Logo RGB_block_n_blue_877} }
-\caption{My third figure}\label{fig:png}
-\end{figure}
 
 
 \caption{\label{tab:my-table}THIS IS MY TABLE!}
@@ -674,86 +741,15 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 
 
 
-Example of equations
-
-\begin{equation}
-  Y \sim \textrm{Bernoulli}(\pi)
-  \label{eq:psyoutcome}
-\end{equation}
-
-\begin{equation}
-  \pi = P(Y=1 \vert x; \theta) = F(x; \theta)
-   \label{eq:bernprob1}
-\end{equation}
-
-\begin{equation}
-  P(Y=y | x; \theta) = F(x;\theta)^y(1-F(x;\theta))^{1-y}
-  \label{eq:bernproby}
-\end{equation}
-
-The likelihood function \(\mathcal{L}\) can be determined using equation \eqref{eq:bernproby}
-
-\begin{equation}
-  \begin{split}
-    \mathcal{L}(\theta | y, x) &= \prod_{i}^{N} P(y_i | x_i; \theta) \\
-    &= \prod_{i}^{N}F(x_i;\theta)^{y_i}(1-F(x_i;\theta))^{1-y_i}
-  \end{split}
-  \label{eq:bernlik}
-\end{equation}
-
-Equation \eqref{eq:bernlik} is commonly expressed in terms of its logarithm.
-
-\begin{equation}
-  \ln \mathcal{L}(\theta | y, x) = \sum_{i}^{N} y_i \ln\left(F(x_i;\theta)\right) + (1-y_i) \ln\left(F(x_i;\theta))\right)
-  \label{eq:bernloglik}
-\end{equation}
-
 \hypertarget{appendix-appendix}{%
 \appendix}
 
+append
 
 \hypertarget{supplementary-code}{%
-\chapter{Supplementary Code}\label{supplementary-code}}
+\chapter{Supplementary Material}\label{supplementary-code}}
 
-One model, Three Implementations. There are a few ways to specify a hierarchical model in R. Below I describe three common frameworks that require varying levels of mathematical and programmatic competence. Frameworks with lower barriers for entry are great for researchers in many fields, but they lack fine control over the parameters in a model. As the framework complexity increases, so too does the ability to generate complex models that are typically not possible.
-
-Novice
-\setstretch{1.0}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(rstanarm)}
-\KeywordTok{stan_glmer}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(k, n}\OperatorTok{-}\NormalTok{k) }\OperatorTok{~}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{x }\OperatorTok{|}\StringTok{ }\NormalTok{G1) }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{x }\OperatorTok{|}\StringTok{ }\NormalTok{G2), }
-           \DataTypeTok{family =} \KeywordTok{binomial}\NormalTok{(}\DataTypeTok{link =} \StringTok{"logit"}\NormalTok{),}
-           \DataTypeTok{data =}\NormalTok{ dat)}
-\end{Highlighting}
-\end{Shaded}
-
-\setstretch{2.0}
-
-Intermediate
-
-\setstretch{1.0}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(rethinking)}
-\KeywordTok{ulam}\NormalTok{(}\KeywordTok{alist}\NormalTok{(}
-\NormalTok{  k }\OperatorTok{~}\StringTok{ }\KeywordTok{binomial}\NormalTok{(n, pi)}
-  \KeywordTok{logit}\NormalTok{(pi) <-}\StringTok{ }\NormalTok{(a }\OperatorTok{+}\StringTok{ }\NormalTok{aG1[G1] }\OperatorTok{+}\StringTok{ }\NormalTok{aG2[G2]) }\OperatorTok{+}\StringTok{ }\NormalTok{(b }\OperatorTok{+}\StringTok{ }\NormalTok{bG1[G1] }\OperatorTok{+}\StringTok{ }\NormalTok{bG2[G2]) }\OperatorTok{*}\StringTok{ }\NormalTok{x,}
-  
-\NormalTok{  a }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{),}
-\NormalTok{  aG1[G1] }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, sd_aG1),}
-\NormalTok{  aG2[G2] }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, sd_aG2),}
-  \KeywordTok{c}\NormalTok{(sd_aG1, sd_aG2) }\OperatorTok{~}\StringTok{ }\KeywordTok{half_cauchy}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{),}
-
-\NormalTok{  b }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{),}
-\NormalTok{  bG1[G1] }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, sd_bG1),}
-\NormalTok{  bG2[G2] }\OperatorTok{~}\StringTok{ }\KeywordTok{normal}\NormalTok{(}\DecValTok{0}\NormalTok{, sd_bG2),}
-  \KeywordTok{c}\NormalTok{(sd_bG1, sd_bG2) }\OperatorTok{~}\StringTok{ }\KeywordTok{half_cauchy}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{)}
-\NormalTok{), }\DataTypeTok{data =}\NormalTok{ dat, }\DataTypeTok{log_lik =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+code
 
 \setstretch{2.0}
 
@@ -761,7 +757,9 @@ Intermediate
 %==============================================================================26
 \backmatter
 %==============================================================================27
-\bibliography{ch3.bib}
+\bibliographystyle{apalike}% Change the name from "Bibliography" to "References"
+\include{ch1}
+\include{ch3}
 %==============================================================================28
 % Place here anything that you would like to come
 % after the appendix, references, etc
