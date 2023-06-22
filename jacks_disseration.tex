@@ -394,7 +394,7 @@ This section (Sect.~2) is split into the following subsections: Sect.~2.1 provid
 
 InSAR is an active remote sensing technique that uses the differences in phase to map surface topography (single pass) \citep{zebkerTopographicMappingInterferometric1986} or various types of surface deformation (repeat pass) \citep{goldsteinInterferometricRadarMeasurement1987}. Using the precise location of the orbit or flight pattern, the phase difference between the two (repeat-pass) acquisitions can be used to calculate deformation at the centimeter scale. Traditionally, repeat-pass InSAR \citep{rosenSyntheticApertureRadar2000}, where the sensor scans the same area at two different times, has been used to monitor tectonic motion \citep{funningSurfaceDisplacementsSource2005}, geomorphic processes \citep{colesantiMonitoringLandslidesTectonic2003}, ice sheet velocity \citep{mouginotMappingIceMotion2012}, and volcanic activity \citep{polandVolcanoGeodesyUsing2022}.
 
-For snow applications, \citet{guneriussenInSAREstimationChanges2001} theorized a relationship between InSAR phase change and change in dry SWE between acquisitions. Dry snow has low attenuation of the radar signal, and the majority of the backscatter stems from the snow--soil interface at frequencies below 10 GHz \citep{marshallEstimatingAlpineSnowpack2005,ulabySnowcoverInfluenceBackscattering1984}. Dry snow and the atmosphere have different dielectric properties, causing a refraction or directional change in the radar propagation path and a decrease in speed when the signal propagates through the snow layer (Fig.~1). The refraction and wave speed are controlled by the refractive index of snow, which is governed by $\rho_\mathrm{s}$. We leverage these previous studies to develop a current workflow applied to UAVSAR data acquisitions.
+For snow applications, \citet{guneriussenInSAREstimationChanges2001} theorized a relationship between InSAR phase change and change in dry SWE between acquisitions. Dry snow has low attenuation of the radar signal, and the majority of the backscatter stems from the snow--soil interface at frequencies below 10 GHz \citep{marshallEstimatingAlpineSnowpack2005,ulabySnowcoverInfluenceBackscattering1984}. Dry snow and the atmosphere have different dielectric properties, causing a refraction or directional change in the radar propagation path and a decrease in speed when the signal propagates through the snow layer (Fig.~3.3.3.1). The refraction and wave speed are controlled by the refractive index of snow, which is governed by $\rho_\mathrm{s}$. We leverage these previous studies to develop a current workflow applied to UAVSAR data acquisitions.
 
 To isolate the SWE change impacts on the phase, other factors impacting phase must be identified and compensated for. Outlined in \citet{deebMonitoringSnowpackEvolution2011} and updated for suborbital acquisition considerations, total interferometric phase includes the following contributions:
 \begin{equation}
@@ -418,25 +418,27 @@ where $\Delta$SWE is the change in SWE between acquisitions, $\lambda$ is the ra
 \hypertarget{ch3-methods-3}{\subsection{Description of the study area}\label{ch3-methods-3}}
 
 
-Located in northern New Mexico, USA, the Jemez Mountains and Jemez River basin are on the southern extent of the Rocky Mountains (Fig.~2b). The UAVSAR swath encompasses portions of Valles Caldera National Preserve (VCNP; 35$^{\circ}$53' N, 106$^{\circ}$32' W) (Fig.~2a). This area is mainly a mountain conifer forest environment consisting of Douglas fir, white fur, and blue spruce. VCNP is surrounded by lower-elevation semiarid desert. Within the swath also lies the Valles Caldera, a 25 km wide volcanic structure dating back about 1.2 Myr. Within VCNP is Valle Grande (VG) (Fig.~2f), an extensive open grassland. Many resurgent lava domes form peaks over the grassy valleys, the highest of which is Redondo Peak (3430 m). About 50 \% of the total annual precipitation falls in the summer months as rain from convective monsoonal storms, and the rest falls in the winter as snow. The water in this area drains into the East Fork of the Jemez River and eventually to the Rio Grande. The nearby Quemazon Natural Resource Conservation Services (NRCS) Snow Telemetry (SNOTEL) site ($35^{\circ}55'$ N, 106$^{\circ}$24' W; 2898 m) has a 1980--2022 average peak SWE of 22.4 cm.
+Located in northern New Mexico, USA, the Jemez Mountains and Jemez River basin are on the southern extent of the Rocky Mountains (Fig.~3.3.2b). The UAVSAR swath encompasses portions of Valles Caldera National Preserve (VCNP; 35$^{\circ}$53' N, 106$^{\circ}$32' W) (Fig.~3.3.2a). This area is mainly a mountain conifer forest environment consisting of Douglas fir, white fur, and blue spruce. VCNP is surrounded by lower-elevation semiarid desert. Within the swath also lies the Valles Caldera, a 25 km wide volcanic structure dating back about 1.2 Myr. Within VCNP is Valle Grande (VG) (Fig.~3.3.2f), an extensive open grassland. Many resurgent lava domes form peaks over the grassy valleys, the highest of which is Redondo Peak (3430 m). About 50 \% of the total annual precipitation falls in the summer months as rain from convective monsoonal storms, and the rest falls in the winter as snow. The water in this area drains into the East Fork of the Jemez River and eventually to the Rio Grande. The nearby Quemazon Natural Resource Conservation Services (NRCS) Snow Telemetry (SNOTEL) site ($35^{\circ}55'$ N, 106$^{\circ}$24' W; 2898 m) has a 1980--2022 average peak SWE of 22.4 cm.
 
 %f2
 \begin{figure}[t]
 \centering\includegraphics[width=\textwidth]{figures/ch3_figs/fig02.pdf}
 \caption{\textbf{(a)}~DEM of the UAVSAR acquisition area provided by NASA, with a red rectangle outlining the study area. \textbf{(b)}~Map showing the area of the UAVSAR acquisition (black outline) in the Jemez Mountains, NM. \textbf{(c)}~A close-up of the GPR transect outlined by the black rectangle in panel~\textbf{(d)}, with the Headquarters Meteorologic station (HQ Met; blue triangle) and HQ snow pit (black triangle) displayed. Due to their close proximity, a single red triangle represents the Burned Area (BA) pit and Catalina--Jemez Critical Zone Observatory (CZO) snow depth sensors. Within the study area extent, panel~\textbf{(d)}~is the lidar DEM; panel~\textbf{(e)}~is the lidar-derived slope; panel~\textbf{(f)}~is the lidar aspect binned to north-facing (270--90$^{\circ}$, blue) and south-facing (90--270$^{\circ}$, orange) slopes, with the gray area representing the flat VG meadow where aspect values are not valid; and panel~\textbf{(g)}~is the NLCD canopy cover percentage.}
 \end{figure}
+\clearpage
 
-We focus our analysis on an 82.5 km$^{2}$ section of the UAVSAR swath that encompasses VG and the surrounding forested hillslopes. The study area is defined by the red rectangle in Fig.~2a, with inset maps showing elevation (Fig.~2d), slope (Fig.~2e), binned north and south aspects with VG delineated (Fig.~2f), and the 2016 National Land Cover Database (NLCD) canopy cover percentage (Fig.~2g).
+We focus our analysis on an 82.5 km$^{2}$ section of the UAVSAR swath that encompasses VG and the surrounding forested hillslopes. The study area is defined by the red rectangle in Fig.~3.3.2a, with inset maps showing elevation (Fig.~3.3.2d), slope (Fig.~3.3.2e), binned north and south aspects with VG delineated (Fig.~3.3.2f), and the 2016 National Land Cover Database (NLCD) canopy cover percentage (Fig.~3.3.2g).
 
 %==============================================================================
 \hypertarget{ch3-methods-4}{\subsection{Data description}\label{ch3-methods-4}}
-\hypertarget{ch3-methods-5}{\subsection{Description of the study area}\label{ch3-methods-5}}
+\hypertarget{ch3-methods-5}{\subsubsection{UAVSAR}\label{ch3-methods-5}}
 
 
 UAVSAR is a fully polarimetric L-band radar deployed on a NASA Gulfstream III aircraft, traditionally flown at $\sim$\,13\,700\,m with a 22\,km nominal swath width \citep{hensleyUAVSARInstrumentDescription2008, rosenUAVSARNewNASA2006}. Detailed technical specifications of the radar are provided at the top of Table~1. UAVSAR data were accessed using the uavsar\_pytools \citep{keskinenUavsarPytools2022} Python package. It uses the asf\_search application programming interface (\url{https://github.com/asfadmin/Discovery-asf_search}, last access: 2~March~2023) for easier downloading, formatting, and analysis of UAVSAR data. The flights used in this study occurred on the mornings of 12, 19, and 26~February~2020. The UAVSAR team at the NASA Jet Propulsion Laboratory (JPL) processed two 7\,d (12--19 and 19--26~February) and one 14\,d (12--26~February) ground-projected (GRD) InSAR pairs. They were unwrapped using the Integrated Correlation and Unwrapping (ICU) algorithm \citep{goldsteinSatelliteRadarInterferometry1988}. Processing parameters are outlined at the bottom of Table~1, and information about the specific products used is provided in the Supplement. For the three flights used in this study, the flight track baseline was maintained within $<$\,$\pm$3\,m, which is within the $<$\,$\pm$5\,m requirement \citep{hensleyUAVSARInstrumentDescription2008}.
 
 %t01
 \begin{table}[t]
+\centering
 \caption{Technical specifications of the UAVSAR L-band radar (top). InSAR processing and data parameters (bottom).}
 \begin{tabular}{ll}
 \toprule Parameter & Value \\
@@ -450,7 +452,7 @@ Radar look direction & Left \\
 Range swath width & 22\,km \\
 Average near-range look angle & 28.01$^{\circ}$\\
 Average far-range look angle & 68.9$^{\circ}$\\
-\middlehline
+\midrule
 Ground range pixel spacing & 6\,m \\
 Number of looks in range & 3 \\
 Number of looks in azimuth & 12 \\
@@ -465,36 +467,90 @@ Three interferometric products are produced for each InSAR pair: coherence, unwr
 
 When there is a significant change in the landscape scattering properties between InSAR acquisitions, phase noise and fringe discontinuities increase, coherence decreases, and the unwrapping algorithm performs less reliably \citep{balzterForestMappingMonitoring2001}. We analyzed the coherence and unwrapped phase products for the HH (horizontal--horizontal) and VV (vertical--vertical) polarizations to assess their quality before implementing the SWE change equation. We found that co-polarizations performed similarly (Table~2) and chose to utilize HH for our study.
 
-The right side of Fig.~3 shows the coherence values in the study area for (a)~12--19~February, (b)~19--26~February, and (c)~12--26~February. In the coherence maps, there are clear patterns with respect to topography and probable variations in snowpack LWC. The area of lowest coherence surrounds the main channel of the Jemez River (dotted red line) that flows through the southern central portion of VG. As seen in Fig.~3d, there is a variable area of low backscatter in all three amplitude images. This backscatter decrease is likely caused by snowpack LWC or subnivean surface water attenuating the radar signal. The spatial variability in backscatter values in this riparian area between acquisitions causes low coherence and the loss of pixels in the unwrapping processes for all three pairs. There are also horizontal streaks of low coherence and high backscatter within the images. These are likely a result of radio frequency interference (RFI) during the acquisitions. These lines do not propagate into the unwrapped phase data and, therefore, are not of concern.
+The right side of Fig.~3.3.3 shows the coherence values in the study area for (a)~12--19~February, (b)~19--26~February, and (c)~12--26~February. In the coherence maps, there are clear patterns with respect to topography and probable variations in snowpack LWC. The area of lowest coherence surrounds the main channel of the Jemez River (dotted red line) that flows through the southern central portion of VG. As seen in Fig.~3.3.3d, there is a variable area of low backscatter in all three amplitude images. This backscatter decrease is likely caused by snowpack LWC or subnivean surface water attenuating the radar signal. The spatial variability in backscatter values in this riparian area between acquisitions causes low coherence and the loss of pixels in the unwrapping processes for all three pairs. There are also horizontal streaks of low coherence and high backscatter within the images. These are likely a result of radio frequency interference (RFI) during the acquisitions. These lines do not propagate into the unwrapped phase data and, therefore, are not of concern.
 
-The left side of Fig.~3a--c displays the unwrapped phase values for the three InSAR pairs. The 12--19~February and 12--26~February pairs show the atmospherically corrected data, with this methodology discussed in Sect.~2.4. In the open VG meadow (dotted blue line), the unwrapping algorithm performs well, and most pixels are preserved except in the riparian area for the reasons described previously. The other source of low coherence and corresponding unwrapping pixel loss occurs on the forested hill slopes (outside of the dotted blue line) surrounding the VG meadow. Overall, the unwrapped data provide a high-quality input into the SWE change inversion equation.
-
-%f3
-\begin{figure*}[t]
-\includegraphics[width=14cm]{tc-2022-224-f03.jpg}
-\caption{The unwrapped phase and coherence data for the \textbf{(a)}~12--19~February, \textbf{(b)}~19--26~February, and \textbf{(c)}~12--26~February InSAR pairs. \textbf{(d)}~The amplitude data for the three UAVSAR flights. Both panels~\textbf{(a)} and \textbf{(c)} were atmospherically corrected. The gray area in the phase data represents pixels lost in the unwrapping processes. VG and Jemez River main channel are outlined by blue and red dotted lines, respectively. Triangles show the BA (red) and HQ (black) pits.}
-\end{figure*}
+The left side of Fig.~3.3.3a--c displays the unwrapped phase values for the three InSAR pairs. The 12--19~February and 12--26~February pairs show the atmospherically corrected data, with this methodology discussed in Sect.~2.4. In the open VG meadow (dotted blue line), the unwrapping algorithm performs well, and most pixels are preserved except in the riparian area for the reasons described previously. The other source of low coherence and corresponding unwrapping pixel loss occurs on the forested hill slopes (outside of the dotted blue line) surrounding the VG meadow. Overall, the unwrapped data provide a high-quality input into the SWE change inversion equation.
 
 %t02
-\begin{table*}[t]
-\caption{UAVSAR unwrapped phase (UNW) and coherence statistics for the full scene (FS) and study area (SA). UNW loss (\%) is the percentage of pixels lost in the unwrapping process.}
+\begin{table}[t]
+\centering
+\caption{UAVSAR unwrapped phase (UNW) and mean coherence (MC) statistics for the full scene (FS) and study area (SA). UNW loss (\%) is the percentage of pixels lost in the unwrapping process.}
 \begin{tabular}{l l l l l l}
-\tophline
-Pair & Polarization & FS mean coherence & SA mean coherence & FS UNW loss (\%) & SA UNW loss (\%) \\
-\middlehline
+\toprule
+Pair & Pol. & FS MC & SA MC & FS UNW loss (\%) & SA UNW loss (\%) \\
+\midrule
 12--19 Feb & HH & 0.53 & 0.50 & 9.4 & 7.7 \\
 12--19 Feb & VV & 0.54 & 0.50 & 8.9 & 12.8 \\
 19--26 Feb & HH & 0.55 & 0.52 & 5.0 & 4.1 \\
 19--26 Feb & VV & 0.57 & 0.54 & 4.3 & 3.7 \\
 12--26 Feb & HH & 0.50 & 0.48 & 8.3 & 6.6 \\
 12--26 Feb & VV & 0.53 & 0.51 & 6.7 & 5.5 \\
-
-\bottomhline
+\bottomrule
 \end{tabular}
+\end{table}
+
+%f3
+\begin{figure*}[t]
+\centering
+\includegraphics[width=14cm]{figures/ch3_figs/fig03.pdf}
+\caption{The unwrapped phase and coherence data for the \textbf{(a)}~12--19~February, \textbf{(b)}~19--26~February, and \textbf{(c)}~12--26~February InSAR pairs. \textbf{(d)}~The amplitude data for the three UAVSAR flights. Both panels~\textbf{(a)} and \textbf{(c)} were atmospherically corrected. The gray area in the phase data represents pixels lost in the unwrapping processes. VG and Jemez River main channel are outlined by blue and red dotted lines, respectively. Triangles show the BA (red) and HQ (black) pits.}
+\end{figure*}
+\clearpage
+
+
+%==============================================================================
+\hypertarget{ch3-methods-6}{\subsubsection{Landsat fSCA}\label{ch3-methods-6}}
+
+
+No current technique can confidently discriminate dry snow cover using solely L-band radar \citep{tsaiRemoteSensingSnow2019}. Our study aims to assess the ability of L-band InSAR to estimate spatiotemporal SWE changes. Therefore, our analysis requires the proper identification of snow-covered pixels within the UAVSAR swath, ensuring the radar signal interacts with mostly snow cover and not bare ground. To do this, we utilized Landsat~8 fSCA \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecenterCollection1LandsatLevel32018} data from 18~February and 5~March 2020 (Fig.~3.3.4). These data are generated using a spectral unmixing analysis based on the Snow Covered Area and Grain size (SCAG) algorithm developed for MODIS (Painter et al., 2009). The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023a}. Within the full UAVSAR swath, 29.7\,\% of pixels were entirely snow-free on 18~February (Fig.~3.3.4a), increasing to 38.1\,\% on 5~March (Fig.~3.3.4b). For just the study area, 4.1\,\% of pixels were snow-free on 18~February (Fig.~3.3.4d), with an increase to 9.1\,\% by 5~March (Fig.~3.3.4e).
+
+%f4
+\begin{figure*}[t]
+\includegraphics[width=\textwidth]{figures/ch3_figs/fig04.pdf}
+\caption{Landsat fSCA clipped to the UAVSAR swath extent (black outline) for \textbf{(a)}~18~February 2020 and \textbf{(b)}~5 March 2020. \textbf{(c)}~The pixel-wise percent fSCA change between the two dates, with the black area representing 0\,\% fSCA from 18~February 2020. The study area fSCA (red box) for \textbf{(d)}~18~February 2020 and \textbf{(e)}~5~March~2020 as well as \textbf{(f)}~the difference between the two dates. Landsat true-color image in the study area for \textbf{(g)}~18~February 2020 and \textbf{(h)}~5~March 2020.}
+\end{figure*}
+
+%==============================================================================
+\hypertarget{ch3-methods-8}{\subsubsection{Snow pit and meteorologic station data}\label{ch3-methods-8}}
+
+
+Snowpack information was collected at two pit locations during each of the three UAVSAR overflights. These data are stored in the SnowEx database \citep{johnsonSnowExSnowexDb2023}. The Headquarters Meteorologic station (HQ Met) pit was located at 35$^{\circ}$51'30''\,N, 106$^{\circ}$31'17''\,W at an elevation of 2650\,m. The Burned Area (BA) pit was located near Redondo Peak at 35$^{\circ}$53'18'\,N, 106$^{\circ}$31'57''\,W at an elevation of 3030\,m.
+
+%f5
+\begin{figure}[t]
+\centering
+\includegraphics[width=10cm]{figures/ch3_figs/fig05.pdf}
+\caption{\textbf{(a)}~A snow depth time series of the six CZO snow depth sensors (gray lines, $\sim$\,3030\,m) and HQ Met (black, 2650\,m). The shaded gray area represents a small storm registered by the sensors on Redondo Peak. HQ Met and RP Met (red, 3231\,m) time series of \textbf{(b)} average hourly temperature, \textbf{(c)}~average hourly wind speed, \textbf{(d)} and average hourly incoming solar radiation (insolation) from 11~February to 6~March. The vertical blue dotted lines represent the three UAVSAR flights (12, 19, and 26~February), and the vertical orange dotted lines represent the Landsat fSCA acquisitions (19~February and 5 March).}
+\end{figure}
+
+Measurements of snow depth, snow layer stratigraphy (grain size, grain shape, hand hardness, and manual wetness), $\rho_\mathrm{s}$, $\epsilon_\mathrm{s}$, and temperature were recorded for each pit. $\rho_\mathrm{s}$, $\epsilon_\mathrm{s}$, and temperature were measured in 10\,cm increments starting at the top of the pit. Stratigraphic layer size is variable and defined by the observer. In situ $\rho_\mathrm{s}$ measurements have been shown to have an uncertainty of $\sim$\,10\,\% \citep{congerComparisonDensityCutters2009, prokschIntercomparisonSnowDensity2016}. $\epsilon_\mathrm{s}$ was measured using an A2 Photonics WISe instrument \citep{A2PhotonicWISe2021}, which \citet{webbSituDeterminationDry2021} showed to have a mean absolute error (MAE) of 0.106 when compared to other in situ observations.
+
+Summary statistics from each pit are located in Table~3. Interval boards, which are small plastic manual precipitation gauges placed on the snow surface used to track new snow accumulation, were located in close proximity to both snow pits. The HQ pit data noted minor melting for both the 20 and 26~February, and it is important to clarify that the snow pits were collected $\sim$\,1--3\,h after the radar data acquisition.
+
+The Western Climate Research Center (WRCC) deployed two meteorologic stations that measured snow depth (Fig.~3.5a), air temperature (Fig.~3.5b), wind speed (Fig.~3.5c), and incoming solar radiation (Fig.~3.5d). The first station is the aforementioned HQ Met, and the second is located on Redondo Peak (RP Met; 35$^{circ}$53'02''\,N, 106$^{circ}$33'13''\,W). Six ultrasonic snow depth sensors ($\sim$\,3030\,m), originally installed by \citet{molotchEcohydrologicalControlsSnowmelt2009} and employed in subsequent studies \citep{musselmanEffectsVegetationSnow2008,harpoldSoilMoistureResponse2015}, were used to measure variations in snow depth near the BA pit. Ultrasonic snow depth sensors have a known uncertainty of $\pm$1\,cm \citep{ryanEvaluationUltrasonicSnow2008}.
+
+Figure~5 is a time series of in situ meteorologic data from HQ Met and RP Met. Figure~5a shows snow depths from seven ultrasonic sensors from 11~February to 6~March. The shaded gray area on the plot shows a small snowfall event starting the night of 22~February and ending 23~February. In situ snow depths were converted to SWE by multiplying by the bulk $\rho_\mathrm{s}$ (from snow pit observations) for the 12--19 and 12--26~February pairs. We used a $\rho_\mathrm{s}$ of 240\,kg\,m$^{-3}$ for new snow measured from the BA pit interval board for the 19--26~February pair.
+
+%t03
+\begin{table*}[t]
+\caption{Snow pit data collected for the UAVSAR time series. Bulk $\rho_\mathrm{s}$ and $\epsilon_\mathrm{s}$, which are an average of the 10\,cm segments, are reported. No $\epsilon_\mathrm{s}$ was collected at the BA pit. Data were collected on 20~February but not during the 19~February flight date. No BA pit was dug on 12~February. The 12~February SWE was estimated using 10 depth measurements around the pit area and the 20~February $\rho_\mathrm{s}$. }
+\begin{tabular}{lllllllll}
+\toprule
+Pit & Date &   {UAVSAR start} & {Pit start} & Depth &  {Bulk $\rho_\mathrm{s}$} & SWE & Bulk & Condition \\
+& (m/d) &(LT) &(LT) &(cm) &(kg\,m$^{-3}$) &(cm) &$\epsilon_\mathrm{s}$ & \\
+\midrule
+HQ & 2/12 & 09:46 & 13:05 & 78 & 261 & 20.3 & 1.26 & Mostly dry \\
+HQ & 2/20 & 10:10 & 11:56 & 67 & 302 & 20.2 & 1.39 & Melting \\
+HQ & 2/26 & 10:27 & 11:57 & 66 & 309 & 20.4 & 1.29 & Melting \\
+HQ & 3/04 & NA   & 11:05 & 57 & 342 & 19.5 & 1.56 & Melting \\
+BA & 2/12 & 09:46 & 13:37 & 82 & 290 & 23.8 & NA   & NA \\
+BA & 2/20 & 10:10 & 12:24 & 80 & 290 & 23.2 & NA   & Dry \\
+BA & 2/26 & 10:27 & 11:39 & 82 & 290 & 23.8 & NA   & Dry \\
+BA & 3/04 & NA   & 11:16 & 76 & 307 & 23.3 & NA   & Dry \\
+\bottomrule
+\end{tabular}
+\belowtable{NA: not available.}
 \end{table*}
-
-
-
 
 
 
