@@ -1,6 +1,10 @@
 \hypertarget{ch3}{%
 \chapter{Estimating snow accumulation and ablation with L-band interferometric synthetic aperture radar (InSAR)}\label{ch3}}
 
+This chapter has been previewed in and published in \emph{The Cryosphere}.
+
+\setstretch{1}{\noindent\textbf{Citation:} Tarricone, J., Webb, R. W., Marshall, H.-P., Nolin, A. W., \& Meyer, F. J. (2023). Estimating snow accumulation and ablation with L-band interferometric synthetic aperture radar (InSAR). The Cryosphere, 17(5), 1997–2019. https://doi.org/10.5194/tc-17-1997-2023}
+
 %==============================================================================
 %==============================================================================
 %==============================================================================
@@ -73,7 +77,7 @@ For snow applications, \citet{guneriussenInSAREstimationChanges2001} theorized a
 
 To isolate the SWE change impacts on the phase, other factors impacting phase must be identified and compensated for. Outlined in \citet{deebMonitoringSnowpackEvolution2011} and updated for suborbital acquisition considerations, total interferometric phase includes the following contributions:
 \begin{equation}
-\phi_\mathrm{total} =  \phi_\mathrm{flat} + \phi_\mathrm{topo} + \phi_\mathrm{atm} + \phi_{\mathrm{snow}} + \phi_\mathrm{random} +\phi_\mathrm{systematic},
+\phi_\mathrm{total} =  \phi_\mathrm{flat} + \phi_\mathrm{topo} + \phi_\mathrm{atm} + \phi_{\mathrm{snow}} + \phi_\mathrm{random} +\phi_\mathrm{systematic}
 \end{equation}
 where $\phi_\mathrm{flat}$ and $\phi_\mathrm{topo}$ are phase impacts from the flat Earth and local topography, respectively, which are both accounted for in the UAVSAR InSAR processing chain using the Shuttle Radar Topography Mission (SRTM) digital elevation model (DEM) as input. $\phi_\mathrm{random}$ is the random error, where the majority comes from temporal decorrelation \citep{zebkerAtmosphericEffectsInterferometric1997}. $\phi_\mathrm{systematic}$ represents the systematic error within the UAVSAR instrument. This error is mainly associated with uncertainty in the plane's position and deviations in the flight track between acquisitions. Variations in the plane's position are accounted for within the UAVSAR processing workflow as well as possible, but not all aircraft motion can be completely captured, which can leave residual phase change.
 
@@ -109,7 +113,7 @@ We focus our analysis on an 82.5 km$^{2}$ section of the UAVSAR swath that encom
 \hypertarget{ch3-methods-5}{\subsubsection{UAVSAR}\label{ch3-methods-5}}
 
 
-UAVSAR is a fully polarimetric L-band radar deployed on a NASA Gulfstream III aircraft, traditionally flown at $\sim$\,13\,700\,m with a 22\,km nominal swath width \citep{hensleyUAVSARInstrumentDescription2008, rosenUAVSARNewNASA2006}. Detailed technical specifications of the radar are provided at the top of Table~1. UAVSAR data were accessed using the uavsar\_pytools \citep{keskinenUavsarPytools2022} Python package. It uses the asf\_search application programming interface (\url{https://github.com/asfadmin/Discovery-asf_search}, last access: 2~March~2023) for easier downloading, formatting, and analysis of UAVSAR data. The flights used in this study occurred on the mornings of 12, 19, and 26~February~2020. The UAVSAR team at the NASA Jet Propulsion Laboratory (JPL) processed two 7\,d (12--19 and 19--26~February) and one 14\,d (12--26~February) ground-projected (GRD) InSAR pairs. They were unwrapped using the Integrated Correlation and Unwrapping (ICU) algorithm \citep{goldsteinSatelliteRadarInterferometry1988}. Processing parameters are outlined at the bottom of Table~1, and information about the specific products used is provided in the Supplement. For the three flights used in this study, the flight track baseline was maintained within $<$\,$\pm$3\,m, which is within the $<$\,$\pm$5\,m requirement \citep{hensleyUAVSARInstrumentDescription2008}.
+UAVSAR is a fully polarimetric L-band radar deployed on a NASA Gulfstream III aircraft, traditionally flown at $\sim$\,13,700\,m with a 22\,km nominal swath width \citep{hensleyUAVSARInstrumentDescription2008, rosenUAVSARNewNASA2006}. Detailed technical specifications of the radar are provided at the top of Table~1. UAVSAR data were accessed using the uavsar\_pytools \citep{keskinenUavsarPytools2022} Python package. It uses the asf\_search application programming interface (\url{https://github.com/asfadmin/Discovery-asf_search}, last access: 2~March~2023) for easier downloading, formatting, and analysis of UAVSAR data. The flights used in this study occurred on the mornings of 12, 19, and 26~February~2020. The UAVSAR team at the NASA Jet Propulsion Laboratory (JPL) processed two 7\,d (12--19 and 19--26~February) and one 14\,d (12--26~February) ground-projected (GRD) InSAR pairs. They were unwrapped using the Integrated Correlation and Unwrapping (ICU) algorithm \citep{goldsteinSatelliteRadarInterferometry1988}. Processing parameters are outlined at the bottom of Table~1, and information about the specific products used is provided in the Supplement. For the three flights used in this study, the flight track baseline was maintained within $<$\,$\pm$3\,m, which is within the $<$\,$\pm$5\,m requirement \citep{hensleyUAVSARInstrumentDescription2008}.
 
 %t01
 \begin{table}[t]
