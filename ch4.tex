@@ -1,0 +1,120 @@
+\hypertarget{ch4}{%
+\chapter{Towards a multisensor optical-radar approach for snow water equivalent retrievals}\label{ch4}}
+
+%==============================================================================
+%==============================================================================
+%==============================================================================
+
+\hypertarget{ch4-abstract}{\section{Abstract}\label{ch4-abstract}}
+
+
+%==============================================================================
+%==============================================================================
+%==============================================================================
+\hypertarget{ch4-intro}{\section{Introduction}\label{ch4-intro}}
+
+
+
+Measuring the spatial and temporal distribution of snow water equivalent (SWE) and snow depth in the world’s mountains is the preeminent unsolved challenge facing snow hydrology \citep{dozierEstimatingSpatialDistribution2016}. Despite the critical importance of these measurements, no single spaceborne sensor will be able to monitor SWE from all snow classes \citep{sturmSeasonalSnowCover1995, sturmRevisitingGlobalSeasonal2021} globally at scales relevant to basin-scale water resource management \citep{lettenmaierInroadsRemoteSensing2015}. Thus, breakthroughs in spaceborne SWE monitoring will require a multisensor approach \citep{durandAchievingBreakthroughsGlobal2021}, also known as sensor fusion, with the combination of optical and synthetic aperture radar (SAR) as a prime candidate. SAR will be at the forefront of future advancements in satellite remote sensing of SWE and snow depth, with multiple snow-focused SAR missions under development from NASA and the Canadian Space Agency (CSA) \citep{tsangReviewArticleGlobal2022, yuehSatelliteSyntheticAperture2021, garnaudQuantifyingSnowMass2019}. In addition, there are planned launches of L-band SARs such as the NASA-ISRO SAR (NISAR) in 2024 and the European Space Agencies (ESA) Radar Observation System for Europe in L-band (ROSE-L) near the end of the decade. L-band interferometric SAR (InSAR) shows promise for SWE change monitoring \citep{tarriconeEstimatingSnowAccumulation2023a, marshallLBandInSARDepth2021, naglerAirborneExperimentInsar2022}. Moreover, the launch of Sentinel-1C in 2023 reestablishes the two-satellite constellation and continues global C-band coverage (***rework this sentence***).  \par
+
+
+%%%%: topic: reviewing SAR-based dry snow cover algorithms and showing they're not sufficient
+Snowpack that is important for water resources mainly exists in complex mid-latitude mountain environments (cite). In the WUS, snow covered area (SCA) ranges between a median value of $\sim$3,000 km$^{2}$ at its summer minimum and $\sim$10$^{6}$ km$^{2}$ during the winter maximum \citep{rittgerSnowToday2022} (more here, possibly percentage of land area). Existing SAR-based techniques do not possess the capability to accurately delineate dry snow cover on their own \citep{tsaiRemoteSensingSnow2019}. There have been experimental attempts to use SAR at various frequencies and polarizations to detect dry (add varade) snow \citep{rottThematicStudiesAlpine1994, shiMappingSeasonalSnow1997}. Many studies employed a complex polarimetric decomposition (sen1 dual pol) (cite) or machine learning techniques (cite). While there has been progress in this area, none of these methods are mature enough for operational snow cover mapping. \par
+
+%%%% topic: a review of current operational snow cover products
+Contrarily, methods for passive microwave (PM), optical, and near-infrared (NIR) snow cover mapping are mature and routinely practiced \citep{dozierMultispectralHyperspectralRemote2004,saberiReviewSnowWater2020}. PM instruments produce data on the spatial scale of tens of kilometers, are only effective in dry snowpacks $<$ 1 m, and therefore are not suitable for mountain watershed snowpack applications (more citations here). Optical and NIR snow mapping methods date back to the earliest earth-observing satellites \citep{rangoSatellitePotentialsSnowcover1976a}. Numerous studies have utilized multi-spectral data in mountain environments from the Landsat 5-9 \citep{dozierSpectralSignatureAlpine1989} (more) and the Moderate Resolution Imaging Spectroradiometer (MODIS) \citep{painterRetrievalSubpixelSnowcovered2003, painterRetrievalSubpixelSnow2009, rittgerAssessmentMethodsMapping2013} (***rework, good start***). 
+
+These optical methods are the basis for various snow cover products. In the western US (WUS), there is a fractional snow covered area (fSCA) product from Landsat 8/9 \citep{selkowitzUSGSLandsatSnow2017}, and a Normalized Snow Difference Index (NDSI) \citep{dozierSpectralSignatureAlpine1989, hallDevelopmentMethodsMapping1995} product from the MODIS \citep{hallMODISSnowcoverProducts2002} and the Visible Infrared Imaging Radiometer Suite (VIIRS) \citep{justiceLandCryosphereProducts2013}. For Europe and various other parts of the world, Gascoin et al. \citep{gascoinTheiaSnowCollection2019a} created the Theia Snow collection, which uses Landsat 8 and Sentinel 2 A/B independently to map binary snow presence.
+
+%%%% topic: lidar from space won't work
+Previous research has explored various types of multisensor approaches for different snow monitoring applications. The Airborne Snow Observatory (ASO) \citep{painterAirborneSnowObservatory2016} leverages suborbital lidar altimetry \citep{deemsLidarMeasurementSnow2013}, hyperspectral imaging \citep{nolinMappingAlpineSnow1993}, and spatially distributed snow density modeling \citep{marksSpatiallyDistributedEnergy1999} to estimate basin-scale SWE at high resolutions (1--50 m). While this technique is now operational, there is no clear pathway to space for spatially distributed lidar retrievals. Currently, only linear transects from satellites such as NASA's Ice, Cloud and Land Elevation Satellite-2 (ICESat-2) \citep{abdalatiICESat2LaserAltimetry2010} and the Global Ecosystem Dynamics Investigation (GEDI) \citep{dubayahGlobalEcosystemDynamics2020} are possible. Moreover, even the sparse measurements from the aforementioned spaceborne lidars show uncertainties of 1--2 m for snow depth retrievals in complex terrain \citep{enderlinUncertaintyICESat2ATL062022, deschamps-bergerEvaluationSnowDepth2022}. \par
+
+%%%% topic: optical fusion
+*** Recently, NASA released the Harmonized Landsat and Sentinel-2 (HLS) data product which fuses the two sensors to produce lower temporal resolution surface reflectance data.
+Rittger et al. \citep{rittgerMultisensorFusionUsing2021} combined Landsat and MODIS with machine learning to achieve a spatiotemporally complete 30 m fSCA dataset over the Sierra Nevada Mountains, CA. ****
+
+%%%% topic: SAR/optical for SWE or depth fusion products
+Few studies have employed optical and SAR data synergistically for snow depth and SWE retrievals. Lievens et al. \citep{lievensSnowDepthVariability2019,lievensSentinel1SnowDepth2022} developed a Sentinel-1 C-band snow depth retrieval algorithm using the co-polarized and cross-polarized backscatter ratio. They identified snow cover using 1 km$^{2}$ binary snow cover information from the Interactive Multisensor Snow and Ice Mapping System (IMS) \citep{u.s.nationalicecenterIMSDailyNorthern2008, ramsayInteractiveMultisensorSnow1998, helfrichEnhancementsForthcomingDevelopments2007}, and fractional forest cover using the 1 km$^{2}$ global consensus land cover dataset \citep{tuanmuGlobal1kmConsensus2014}, at both European and Northern Hemispherical scales. These new methods are promising, especially as the physical mechanisms governing the retrievals continue to emerge \citep{zhuModelingScatteringDense2023}. \cite{tarriconeEstimatingSnowAccumulation2023a} utilized Landsat fSCA information with UAVSAR L-band InSAR data to estimate both snow ablation and accumulation in the Jemez Mountains, NM. They note the multifaceted importance of a multisensor approach for snow cover delineation and SAR atmospheric correction. \par
+
+These past studies have subjectively selected various products (e.g., fSCA, binary, NSDI), spatial resolutions ($\sim$ 1--1000 m), and temporal resolutions (1--16 d) without any systematic investigation of the uncertainties associated with each one. Our study aims to better understand the variability between common snow cover data products and how that uncertainty propagates into SAR-based SWE retrieval techniques. To do this, we analyze L-band InSAR SWE changes estimates from Uninhabited Aerial Vehicle Synthetic Aperture Radar (UAVSAR) collected by the NASA SnowEx 2020 \cite{marshallNASASnowEx20202019} campaign in the Upper San Joaquin (USJ) River basin in Sierra Nevada Mountains, CA. NISAR's upcoming launch in early 2024 makes the InSAR approach the most ***time sensitive*** of the SWE measurement techniques.
+
+% -Despite the previously stated importance of a multisensor snow depth and SWE monitoring approach, few works have explored the best combination of sensors.
+% - Herein, we will refer to our methodology as a ``multisensor" approach. Previous works (karl, add others) have used the term ``sensor fusion", which can be thought of as the same thing. Neither of these terms has concrete definitions, and therefore our word choice is subjective.
+
+
+%==============================================================================
+\hypertarget{ch4-methods}{\section{Methods}\label{ch4-methods}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data Overview}
+\hypertarget{ch4-methods}{\section{Data Overview}\label{ch4-methods}}
+There are two main SAR-based SWE and snow depth retrievals mechanisms, which depend on the wavelength; volume scattering (Ku-, X-, and C-band) and InSAR phase change (C-, L-, and P-band).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypertarget{ch4-methods-1}{\subsection{UAVSAR}\label{ch4-methods-1}}
+
+UAVSAR flights occurred on 26 February 2020 and 11 March 2011 2020, and covered an area of $\sim$1600 km$^{2}$ . These data were processed by the UAVSAR team at NASA's Jet Propulsion Laboratory (JPL) to create a single 14 d baseline 6 m ground projected InSAR pair. These products include unwrapped phase (herein referred to as phase), coherence, and incidence angle. The reader is referred to the supplementary material for information on UAVSAR on specific processing parameters. To better replicate the NISAR returns, we resampled the 6 m UAVSAR data to 80 m, which is the resolution NISAR data prodcuts will be produced. To do this, we used Sentinel-1 Geocoded Unwrapped Interferograms (S1 GUNW), produced in the same data format and spatial resolution (80 m) that NISAR data will be. These data are generated by NASA's Advanced Rapid Imaging and Analysis (ARIA) \cite{bekaertDevelopmentDisseminationStandardized2019,buzzangaSustainedMonitoringSubsidence2020} project and accessed via the Alaska Satellite Facility Distributed Active Archive Center (ASF DAAC).
+
+
+
+\begin{figure}[ht]
+\includegraphics[width=13cm]{figures/ch4_figs/data_section_plot_v3.png}
+\centering
+\caption{UAVSAR \textbf{(a)} coherence, \textbf{(b)} phase, \textbf{(c)} incidence angle from the 2/26--3/11 InSAR pair. The grey pixels in \textbf{(b)} are pixels lost in the unwrapping process, which is caused by low coherence values. The full extent of S-NISAR \textbf{(d)} phase and \textbf{(e)} coherence from the 2/22--3/05 InSAR pair. The USJ watershed boundary and UAVSAR swath are shown by black lines, with Lake Tahoe represented by the blue in the top left corner. The black dotted line is a 1500 m contour approximating the seasonal snow zone.}
+\end{figure}
+\clearpage
+
+\subsubsection{S-NISAR}
+S-NISAR data are generated by NASA's Advanced Rapid Imaging and Analysis (ARIA) \cite{bekaertDevelopmentDisseminationStandardized2019,buzzangaSustainedMonitoringSubsidence2020} project and accessed via the Alaska Satellite Facility Distributed Active Archive Center (ASF DAAC). The data are Sentinel-1 Geocoded Unwrapped Interferograms (S1 GUNW) produced in the same data format and spatial resolution (80 m) that NISAR data will be. 
+
+\subsubsection{Sentinel-1}
+The Lievens et al. \cite{lievensSnowDepthVariability2019} snow depth retrieval algorithm was recently recreated in an open-source Python library titled ``Spicy Snow" \cite{keskinenSpicySnow2023}. While this implementation of the technique is still in development, it provides C-band snow depth estimates starting at 10 m spatial resolution, which makes it suitable for mountain snowpack applications. These snow depth data were then aggregated to the native 80 m NISAR resolution using the ARIA GUNCNWNC simulated NISAR data products, part of the Getting Ready For NISAR *project*. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Snow Cover Data}
+This section outlines the different snow cover products used within our study.
+
+\begin{figure}[h]
+\includegraphics[width=10cm]{figures/fsca_usvar_v2.pdf}
+\centering
+\caption{fSCA from (a) IMS, (b) MODSCAG, (c), MODIS, (d) VIIRS, (e) FLM, and (f) Landsat. The dark gray represent areas with < 50f \% fSCA  }
+\end{figure}
+\clearpage
+
+\subsubsection{Landsat fSCA}
+
+
+
+\subsubsection{FLM}
+The fused Landsat-MODIS (FLM) product created by Rittger et al. \cite{rittgerMultisensorFusionUsing2021}
+
+\subsubsection{MODSCAG}
+\subsubsection{MODIS}
+\subsubsection{VIIRS}
+\subsubsection{IMS}
+The National Oceanic and Atmospheric Administration’s National Environmental Satellite Data and Information Service (NOAA/NESDIS) Interactive Multisensor Snow and Ice Mapping System (IMS) is a binary 1 km snow cover product originally created to help with numerical weather prediction 
+\cite{ramsayInteractiveMultisensorSnow1998, helfrichEnhancementsForthcomingDevelopments2007}.
+
+
+
+\section{Methods}
+\section{Results}
+-make plot of cc vs. fsca for USGS product, does not look good
+
+    Varibality arises from various sources
+
+\begin{figure}[t]
+\includegraphics[width=13cm]{figures/sd_vs_cc_map_v3.pdf}
+\centering
+\caption{Showing SD for blahhhh}
+\end{figure}
+
+
+%==============================================================================
+\hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
+
+
+%==============================================================================
+\hypertarget{ch4-discussion-3}{\section{Conclusions}\label{ch4-discussion-3}}
+
+\bibliographystyle{apalike}
+\bibliography{ch4.bib}
