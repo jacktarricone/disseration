@@ -149,11 +149,20 @@ CADWR pillows -- name them
 %==============================================================================
 %==============================================================================
 \hypertarget{ch4-methods}{\section{Methods}\label{ch4-methods}}
-\hypertarget{ch4-methods}{\subsection{InSAR $\Delta$SWE}\label{ch4-methods}}
+\hypertarget{ch4-methods}{\subsection{Calculating InSAR $\Delta$SWE}\label{ch4-methods}}
 
 
-We employ the InSAR $\Delta$SWE methodology described in Section \ref{ch3-methods-1}. Using \ref{} To find the  known change point to tether the initially relative InSAR values, we used three snow pillows (names here) from CADWR. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that station was within and the eith surrounding pixels.
+First, the UAVSAR phase data were masked with each of the six fSCA products. A threshold of $>$\,15\,\% fSCA was set for a pixel to be considered snow covered. We then employ the InSAR $\Delta$SWE methodology described in Sec.~\ref{ch3-methods-1}. The SnowEx in situ data collection within the Sierra flight line did not include a permittivity measurement. Therefore, permittivity was estimated using the density to permittivity equation from \cite{guneriussenInSAREstimationChanges2001}:
 
+\begin{equation}
+\epsilon_\mathrm{s} = 1 + 1.6 * \rho_\mathrm{s} + 1.8 * \rho_\mathrm{s}^3
+\label{eq:dens_to_perm}
+\end{equation}
+
+
+\noindent Using Eq.~\ref{eq:insar_dswe}, pixel-wise $\Delta$SWE values were calculated with inputs of $\lambda$ (23.84\,cm), $\rho_\mathrm{s}$ of 370 kg\,m$^{-3}$, $\epsilon_\mathrm{s}$ of 1.68, and $\theta$. 
+
+To find the known change point to tether the initially relative InSAR $\Delta$SWE values, we used three snow pillows (names here) from CADWR. The SnowEx $\Delta$SWE pit data could not be directly utilized because the phase values over the Mammoth CUES pit did not unwrap properly, resulting in the absence of any data. Additionally, the Panorama Dome pit was not dug during the study period. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that the snow pillow was within and the eight surrounding pixels. We then took a spatial average of the relative InSAR $\Delta$SWE and the three pillows $\Delta$SWE values and subtracted them to obtain an absolute change.
 
 %==============================================================================
 \hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
@@ -193,4 +202,6 @@ Variability arises from various sources
 
 
 \bibliographystyle{apalike}
+\setstretch{1}
 \bibliography{ch4.bib}
+\setstretch{1.5}

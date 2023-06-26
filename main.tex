@@ -152,11 +152,14 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 %==============================================================================20
+
 \usepackage[sectionbib]{natbib}
 \usepackage{chapterbib}
+\usepackage{setspace}
+\setlength{\bibsep}{0pt}
 \renewcommand{\bibsection}{\section*{References}} % Change the name from "Bibliography" to "References"
-\bibliographystyle{apalike}% Change the name from "Bibliography" to "References"
-\setlength{\bibsep}{0pt plus 0.3ex}
+\bibliographystyle{apalike}% Change the name from "Bibliography" to "References
+
 %==============================================================================21
 \frontmatter
 
@@ -312,7 +315,6 @@ I would be remiss not to mention the challenges of the last four years. I dealt 
 \include{ch2}
 \include{ch3}
 \include{ch4}
-
 \backmatter
 %% A list of publications can be created using this approach
 \include{ownpubs}
