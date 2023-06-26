@@ -44,8 +44,9 @@ These past studies have subjectively selected various products (e.g., fSCA, bina
 
 %==============================================================================
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypertarget{ch4-methods}{\section{Methods}\label{ch4-methods}}
 \hypertarget{ch4-methods}{\section{Data Overview}\label{ch4-methods}}
-In this section, we overview the UAVSAR data and the six different SCA products analyzed within this study.
+In this section, we overview UAVSAR and its data products, the six different snow cover products, the various snow cover to fSCA conversion methods, and the variety of in situ snowpack information used.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-1}{\subsection{UAVSAR}\label{ch4-methods-1}}
@@ -56,7 +57,7 @@ UAVSAR flights occurred on 26 February 2020 and 11 March 2011 2020 and covered a
 \begin{figure}[ht]
 \includegraphics[width=13cm]{figures/ch4_figs/data_section_plot_v3.png}
 \centering
-\caption{UAVSAR \textbf{(a)} coherence, \textbf{(b)} phase, \textbf{(c)} incidence angle from the 2/26--3/11 InSAR pair. The grey pixels in \textbf{(b)} are pixels lost in the unwrapping process, which is caused by low coherence values. The full extent of S-NISAR \textbf{(d)} phase and \textbf{(e)} coherence from the 2/22--3/05 InSAR pair. The USJ watershed boundary and UAVSAR swath are shown by black lines, with Lake Tahoe represented by the blue in the top left corner. The black dotted line is a 1500 m contour approximating the seasonal snow zone.}
+\caption{UAVSAR \textbf{(a)} coherence, \textbf{(b)} phase, \textbf{(c)} incidence angle from the 2/26--3/11 InSAR pair. The grey pixels in \textbf{(b)} are pixels lost in the unwrapping process, which is caused by low coherence values. The full extent of S1 GUNW \textbf{(d)} phase and \textbf{(e)} coherence from the 2/22--3/05 InSAR pair. The USJ watershed boundary and UAVSAR swath are shown by black lines, with Lake Tahoe represented by the blue in the top left corner. The black dotted line is a 1500 m contour approximating the seasonal snow zone.}
 \end{figure}
 \clearpage
 
@@ -76,7 +77,7 @@ Range swath width & 22\,km \\
 Average near-range look angle & 28.01$^{\circ}$\\
 Average far-range look angle & 68.9$^{\circ}$\\
 \midrule
-Ground range pixel spacing & 80\,m \\
+Native ground range pixel spacing & 80\,m \\
 Number of looks in range & 3 \\
 Number of looks in azimuth & 12 \\
 Phase unwrapping method & ICU \\
@@ -90,12 +91,15 @@ Phase unwrapping filter window size & 3~pixels\,$\times$\,3~pixels \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-2}{\subsection{Snow cover data}\label{ch4-methods-2}}
 
-Snow cover data is derived from the normalized snow difference index (NDSI) \citep{dozierSpectralSignatureAlpine1989} or spectral-mixture analysis 
+Optical snow cover information is traditionally derived using either the normalized snow difference index (NDSI) \citep{dozierSpectralSignatureAlpine1989} or spectral-mixture analysis \citep{rosenthalAutomatedMappingMontane1996,nolinMappingAlpineSnow1993}. While we provided a brief description of the methods below, the reader is referred to the aforementioned publications and \cite{stillingerLandsatMODISVIIRS2023} for a detailed description of the two techniques.
+
+Snow is highly reflective in the visible (VIS) wavelengths ($\sim$~0.4--0.7 $\mu$m) while demonstrating strong absorption characteristics in the shortwave infrared (SWIR) ($\sim$~1--4 $\mu$m) spectrum. This relationship is leveraged by the NSDI equation:
 
 \begin{equation}
-NDSI = \frac{{R_{VIS,\lambda} - R_{SWIR,\lambda}}}{{R_{VIS,\lambda} + R_{SWIR,\lambda}}}
+NDSI = \frac{VIS - SWIR}{VIS + SWIR}
 \end{equation}
 
+\noindent where the NDSI values range from $-$1 to $+$1. The exact band and wavelength will vary by remote sensing platform. 
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{figures/ch4_figs/fsca_usvar_v2.pdf}
@@ -113,13 +117,13 @@ The National Oceanic and Atmospheric Administration’s National Environmental S
 \hypertarget{ch4-methods-4}{\subsubsection{MODSCAG}\label{ch4-methods-4}}
 
 
-The MODIS Snow-Covered Area and Grain size (MODSCAG) \citep{painterRetrievalSubpixelSnow2009} is a spectral-mixing model that uses various end-members (e.g. rock, soil, snow, clouds, etc.) to produce estimates of fSCA, fractional vegetation (fVEG), snow grain size, and albedo.
+***The MODIS Snow-Covered Area and Grain size (MODSCAG) \citep{painterRetrievalSubpixelSnow2009} is a spectral-mixing model that uses various end-members (e.g. rock, soil, snow, clouds, etc.) to produce estimates of fSCA, fractional vegetation (fVEG), snow grain size, and albedo.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-5}{\subsubsection{MODIS}\label{ch4-methods-5}}
 
-The MODIS cloud-gap-filled (CGF) snow cover product \citep{hallEvaluationMODISVIIRS2019} provides daily NSDI values at 500 m spatial resolution from the Terra (MOD10A1F) and Aqua (MYD10A1F) satellites. These
+***The MODIS cloud-gap-filled (CGF) snow cover product \citep{hallEvaluationMODISVIIRS2019} provides daily NSDI values at 500 m spatial resolution from the Terra (MOD10A1F) and Aqua (MYD10A1F) satellites. These
 
 
 \hypertarget{ch4-methods-6}{\subsubsection{VIIRS}\label{ch4-methods-6}}
@@ -128,12 +132,11 @@ The Visible Infrared Imaging Radiometer Suite (VIIRS) on the Suomi National Pola
 
 \hypertarget{ch4-methods-7}{\subsubsection{FLM}\label{ch4-methods-7}}
 
-The fused Landsat-MODIS (FLM) product created by \cite{rittgerMultisensorFusionUsing2021}
+***The fused Landsat-MODIS (FLM) fSCA product created by \cite{rittgerMultisensorFusionUsing2021} is spatiotemporally continuous 30 m over the Sierra Nevada, CA. The goal of their data fusion methods was to create a product with the high spatial resolution of Landsat (30 m) with the high temporal resolution of MODIS (1 d), leveraging the strengths of both sensors. These data were created using a combination of 170 Landsat scenes, daily MOD09GA Collection 6 in a sinusoidal projection at 463 m, physiographic information, spectral mixture algorithms, and random forest algorithm. 
 
 \hypertarget{ch4-methods-8}{\subsubsection{Landsat fSCA}\label{ch4-methods-8}}
 
-Landsat~8 fSCA \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecenterCollection1LandsatLevel32018} data from 4~March 2020 (Fig.~4.2e). These data are generated using a spectral unmixing analysis based on the MODSCAG algorithm developed for MODIS (Painter et al., 2009). The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023}. As of 2021 (**check this), the data products include both viewable fSCA and total ground fSCA. To estimate total fSCA in areas with canopy cover, a moving window analysis algorithm is employed, and it selects 
-
+Landsat~8 fSCA \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecenterCollection1LandsatLevel32018}  data are generated using a spectral unmixing analysis based on the MODSCAG algorithm developed for MODIS (Painter et al., 2009). The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023}. As of 2021 (**check this), the data products include both viewable fSCA and total ground fSCA. To estimate total fSCA in areas with canopy cover, a moving window analysis algorithm is employed, and it selects. The data used in this study is from 4~March 2020 (Fig.~4.2e).
 
 % Within the full UAVSAR swath, 29.7\,\% of pixels were entirely snow-free on 18~February (Fig.~3.4a), increasing to 38.1\,\% on 5~March (Fig.~3.4b). For just the study area, 4.1\,\% of pixels were snow-free on 18~February (Fig.~3.4d), with an increase to 9.1\,\% by 5~March (Fig.~3.4e).
 
@@ -142,8 +145,16 @@ Landsat~8 fSCA \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecen
 Snow pit from the SnowEx campaign
 CADWR pillows -- name them
 
+%==============================================================================
+%==============================================================================
+%==============================================================================
 \hypertarget{ch4-methods}{\section{Methods}\label{ch4-methods}}
-\hypertarget{ch4-methods}{\subsection{InSAR}\label{ch4-methods}}
+\hypertarget{ch4-methods}{\subsection{InSAR $\Delta$SWE}\label{ch4-methods}}
+
+
+We employ the InSAR $\Delta$SWE methodology described in Section \ref{ch3-methods-1}. Using \ref{} To find the  known change point to tether the initially relative InSAR values, we used three snow pillows (names here) from CADWR. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that station was within and the eith surrounding pixels.
+
+
 %==============================================================================
 \hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
 \hypertarget{ch4-results}{\subsection{$\Delta$SWE Estimates}\label{ch4-results}}
