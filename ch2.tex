@@ -53,17 +53,66 @@ ANNE NOTES
 
  
 
-
 %==============================================================================
-\hypertarget{ch2-methods}{\section{Methods}\label{ch2-methods}}
-\hypertarget{ch2-methods}{\subsection{Study Area}\label{ch2-methods}}
+%==============================================================================
+%==============================================================================
+\hypertarget{ch2-sa}{\section{Study Area}\label{ch2-sa}}
+
+We choose three distinct river basins to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins are described below.
 
 %f12
 \begin{figure*}[t]
 \centering
 \includegraphics[width=14cm]{figures/ch2_figs/kuy_study_area_v2.png}
-\caption{\textbf{(a)} The full extent of the SNSR study domain with Yuba (orange), USJ (purple), and Kern (red) basins shown. The DEM, canopy cover (\%), and elvation zones (EZ) for the three study basins:  \textbf{(b)}~Kern, \textbf{(c)}~Yuba, \textbf{(d)}~USJ.}
+\caption{\textbf{(a)} The full extent of the SNSR study domain with Yuba (orange), USJ (purple), and Kern (red) basins shown. From left to right for the \textbf{(b)}~Kern, \textbf{(c)}~Yuba, \textbf{(d)}~USJ: elevation, canopy cover (\%), and elevation zones (EZs).}
 \end{figure*}
+%==============================================================================
+\hypertarget{ch2-sa-1}{\subsection{Yuba}\label{ch2-sa-1}}
+
+
+%==============================================================================
+\hypertarget{ch2-sa-2}{\subsection{USJ}\label{ch2-sa-2}}
+
+
+%==============================================================================
+\hypertarget{ch2-sa-3}{\subsection{Kern}\label{ch2-sa-3}}
+
+
+%==============================================================================
+%==============================================================================
+%==============================================================================
+\hypertarget{ch2-do-1}{\section{Data Overview}\label{ch2-do-1}}
+
+In this section we describe the data products used in this study.
+
+%==============================================================================
+\hypertarget{ch2-do-2}{\subsubsection{SNSR}\label{ch2-do-2}}
+
+
+The Sierra Nevada SWE Reanalysis (SNSR) \citep{margulisLandsatEraSierraNevada2016} is a 90~m gridded daily SWE product for California Sierra Nevada from water year (WY) 1985--2016. These data were created using a Bayesian particle batch smoother data assimilation (DA) technique to retroactively assimilate Landsat fractional snow-covered area (fSCA) with downscaled National Land Data Assimilation System (NLDAS) meteorologic forcing. The MSWE estimates were validated with over 9000 years of snow pillow and snow course data. Detailed information on the development and implementation of this methodology can be found in a series of past publications: \cite{durandBayesianApproachSnow2008, girottoExaminingSpatialTemporal2014, girottoProbabilisticSWEReanalysis2014, margulisParticleBatchSmoother2015}. A recent analysis from \citep{yangIntercomparisonSnowWater2023} evaluated the uncertainty of various SWE products using ASO lidar data. They found that the SNSR performed the best according to various error metrics, making it a well-suited dataset for our analysis.
+
+\hypertarget{ch2-do-2}{\subsubsection{SNOTEL data}\label{ch2-do-2}}
+\hypertarget{ch2-do-2}{\subsubsection{gridMET Data}\label{ch2-do-2}}
+
+We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGriddedSurface2013} to calculate annual (1985--2016) cold season values from October 1 to March 31 (ONDJFM) for four meteorologic variables: mean temperature(T\textsubscript{mean}), relative humidity (RH\textsubscript{mean}), incoming solar radiation (insolation), absolute humidity (AH). Daily ONDJFM where averaged to create the annual metrics. Since gridMET does not include a T\textsubscript{mean} or RH\textsubscript{mean} value, only the daily maximum and minimum, these values were averaged to create the two mean variables. Insolation from gridMET is estimated with respect to a planar surface and not topographically corrected. AH in g~cm$^{-3}$ was calculated using T\textsubscript{mean}, RH\textsubscript{mean}, and a function based off the ideal gas law:
+
+\begin{equation}
+\text{AH} = \frac{{6.112 \times \exp(\left(\frac{{17.67 \times \text{T}\textsubscript{mean}}}{{\text{T}\textsubscript{mean} + 243.5}}\right) \times \text{RH}\textsubscript{mean} \times 2.1674}}){{273.15 + \text{T}\textsubscript{mean}}}
+\label{eq:ah}
+\end{equation}
+
+All meteorological data were bilinearly downscaled to the 90 m SNSR resolution.
+
+\hypertarget{ch2-do-2}{\subsubsection{Clear sky insolation}\label{ch2-do-2}}
+We calculated a 90~m spatially distributed mean clear sky ONDJFM SWin estimate using the R package “insol”, which is based off of the Bird model (Bird & Hulstrom, 1981). The model uses the SNSR 90 m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. We held these values constant, with information on specific parametrization included in the supplement***. To calculate the mean ONDJFM SWin, average daily SWin values were calculated, and then a mean of the entire time series was taken. See
+
+%==============================================================================
+%==============================================================================
+%==============================================================================
+\hypertarget{ch2-methods}{\section{Methods}\label{ch2-methods}}
+
+
+
 
 %==============================================================================
 %==============================================================================
