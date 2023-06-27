@@ -97,14 +97,18 @@ The Sierra Nevada SWE Reanalysis (SNSR) \citep{margulisLandsatEraSierraNevada201
 We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGriddedSurface2013} to calculate annual (1985--2016) cold season values from October 1 to March 31 (ONDJFM) for four meteorologic variables: mean temperature(T\textsubscript{mean}), relative humidity (RH\textsubscript{mean}), incoming solar radiation (insolation), absolute humidity (AH). Daily ONDJFM where averaged to create the annual metrics. Since gridMET does not include a T\textsubscript{mean} or RH\textsubscript{mean} value, only the daily maximum and minimum, these values were averaged to create the two mean variables. Insolation from gridMET is estimated with respect to a planar surface and not topographically corrected. AH in g~cm$^{-3}$ was calculated using T\textsubscript{mean}, RH\textsubscript{mean}, and a function based off the ideal gas law:
 
 \begin{equation}
-\text{AH} = \frac{{6.112 \times \exp(\left(\frac{{17.67 \times \text{T}\textsubscript{mean}}}{{\text{T}\textsubscript{mean} + 243.5}}\right) \times \text{RH}\textsubscript{mean} \times 2.1674}}){{273.15 + \text{T}\textsubscript{mean}}}
+\text{AH} = \frac{{6.112 \times e^{\left(\frac{{17.67 \times \text{T}\textsubscript{mean}}}{{\text{T}\textsubscript{mean} + 243.5}} \right)} \times \text{RH}\textsubscript{mean} \times 2.1674}} {{273.15 + \text{T}\textsubscript{mean}}}
 \label{eq:ah}
 \end{equation}
 
 All meteorological data were bilinearly downscaled to the 90 m SNSR resolution.
 
+%==============================================================================
 \hypertarget{ch2-do-2}{\subsubsection{Clear sky insolation}\label{ch2-do-2}}
-We calculated a 90~m spatially distributed mean clear sky ONDJFM SWin estimate using the R package “insol”, which is based off of the Bird model (Bird & Hulstrom, 1981). The model uses the SNSR 90 m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. We held these values constant, with information on specific parametrization included in the supplement***. To calculate the mean ONDJFM SWin, average daily SWin values were calculated, and then a mean of the entire time series was taken. See
+
+
+We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar radiation (CS insolation) using the R package “insol”, which is based on the Bird model \citep{birdReviewEvaluationImprovement1981}. The model uses the SNSR 90 m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. We held these values constant, with information on the specific model parametrization included in the supplement***. To calculate CS insolation the daily values were averaged in the same fashion as the gridMET data. This produced a single estimate not a time series like gridMET data.
+
 
 %==============================================================================
 %==============================================================================
