@@ -134,7 +134,9 @@ We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar rad
 \label{kuy_study_area}
 \end{figure*}
 
-Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. We focused on our analysis on the seasonal snow zone, or areas that receive snow that majority of years. To do this, an annual accumulation threshold of 26~mm ($\sim$1~in) was of SWE for a given pixel to be considered. Then, within the 32-year time series, a pixel must meet this condition at least 27 of the 32 years. ***See Appendix 1 for figures showing the full SNSR study area***. 
+Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. MSWE is defined as the maximum amount (mm) of SWE in a given pixel for WY, while DOM is the last day of water year which the pixel has the amount. FM is the fraction of ablation (melt, wind transport, sublimation) that occurs before April 1st, while MWA is the amount of SWE lost in (mm). Reporting both FM and MWA allows for a more complete understanding of midwinter melt dynamics, as gives two different values to melt across the landscape (***rework***).
+
+We focused on our analysis on the seasonal snow zone, or areas that receive snow that majority of years. To do this, an annual accumulation threshold of 26~mm ($\sim$1~in) was of SWE for a given pixel to be considered. Then, within the 32-year time series, a pixel must meet this condition at least 27 of the 32 years. ***See Appendix 1 for figures showing the full SNSR study area***. 
 
 SNSR values were selected by the specific pixel in which the station fell. These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 station years (Figure \ref{kuy_study_area}). Two correlation coefficients (R and R$^{2}$), root-mean-square error (RMSE), mean absolute error (MAE), mean error (ME), and percent bias (PB) are in Table \ref{tab:snow_metrics_val_table}.
 
@@ -164,9 +166,16 @@ Spearman's Rho, a non-parametric measure of statistical dependence between varia
 \hypertarget{ch2-results}{\section{Results}\label{ch2-results}}
 \hypertarget{ch2-results-1}{\subsection{Snow metric physiography}\label{ch2-results-1}}
 
-The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} and the boxplots in Fig.\ref{fig:snow_boxplots}. We also report physiographic distribution of the the four (meteorologic variables 
+The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} and the boxplots in Fig.\ref{fig:snow_boxplots}. We also report physiographic distribution of the the four meteorologic variables in Table \ref{tab:met_metric_table} and Fig. \ref{fig:met_boxplots}.
 
-For all of the snow metrics in all three basins, there are marked differences between the north and south facing slopes \ref{fig:snow_boxplots}. Overall the Kern, the southern most basin, has the greatest mean FM values (Fig. \ref{fig:snow_boxplots}a) for all elevation bands. It also has the largest mean FM percent difference between south and north facing slopes of 69.6\%. Yet, shown in Fig. \ref{fig:met_boxplots} and Table \ref{tab:met_metric_table}, the Kern has either similar or colder T\textsubscript{mean} values (Fig. \ref{fig:met_boxplots}a). 
+For all of the snow metrics in all three basins, there are marked differences between the north and south facing slopes \ref{fig:snow_boxplots}. Overall the Kern, the southern most basin, has the greatest mean FM values (Fig. \ref{fig:snow_boxplots}a) for all elevation bands when compared to the Yuba and the USJ. Additionally, it had largest mean FM percent difference between south and north facing slopes of 69.6~\%. Yet, shown in Fig. \ref{fig:met_boxplots} and Table \ref{tab:met_metric_table}, the Kern has either similar or colder T\textsubscript{mean} values (Fig. \ref{fig:met_boxplots}a) than the Yuba and the USJ. These difference can be explained by the insolation values in the Kern (Fig. \ref{fig:snow_boxplots}c) being greater by $\sim$15--25 $\mathrm{W~m}^{-2}$ across all EZs.
+
+For MWA
+
+The two midwinter ablation metrics (FM and MWA) impact both MSWE and DOM for all basins and EZs. Across the three basins, south facing slopes reach DOM 16.1~d earlier, with the greatest mean difference of 25 d occuring in the USJ between 3100--4361~m.
+
+
+For the gridMET derived metrics (T\subsection{mean}, RH***, insolation) there are no significant difference between the north facing and south facing slopes. This makes sense considering griMET's 4~km spatial resolution, thus not capturing the topographic heterogeneity of the 90~m SNSR data. CS insolation shows vast differences in the amount insolation received by the two aspects. Across all basins and EZs, South facing slopes have a mean daily value of 234 $\mathrm{W~m}^{-2}$, while north facing's is 43 $\mathrm{W~m}^{-2}$. Since these are static clear sky estimates, the values say consistent across the three study basins and EZs
 
 Clear elevational and aspect patterns emerge. For the two ablation metrics (MWA and FM), we see stark differences, which are ampflied as elevation increases.
 
