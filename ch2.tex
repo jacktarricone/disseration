@@ -34,6 +34,14 @@ Previous studies characterized snowpack metrics with respect to physiography. \c
 
 To better understand how snowpack will react to warming temperatures, we must quantify the physiographic controls on hydrologically important snowpack metrics. Here, we utilize the Sierra Nevada Snow Reanalysis (SNSR), a 90 m spatiotemporally continuous SWE data set from 1985–2016 (32 years), for a comparison of how snowpack metrics change with physiography, specifically aspect and elevation. We analyze three common snowpack metrics: max SWE (MSWE), day of max SWE (DOM), fraction of snow ablation before 1 April (FM) (Musselman et al., 2021), and amount of snow ablation (MWA). We then compare these metrics against annual temperature and a clear sky shortwave radiation (herein SWin) and perform a Spearman’s Rho (SR) (Yue et al., 2002).
 
+NEW THOUGHTS
+The magnitude of insolation absorbed at the snow surface is a function of various physical factors. Aspect is a first-order control and the directness and total magnitude of insolation received in a given area. Thus, impacts the snow albedo, with south facing slopes having recieve more insolation a lower albedo***. The type and density of vegetation overlaying the snow surface can significantly impact the amount of insolation received at the snow surface (cite roth) canopy, with dense conifers shading nearly all incoming radiation. The energy input and hydrologic variabilty between aspects inturn effect vegetation (webb et al. 2023), soil moist  and  These differences vary temporally with seasons as the solar declines and inclines, the with the winter months having the most marked differences and radiative inputs.
+
+
+Canopy cover variations, from either disturbance or management, was not specifically addressed in the SNSR modeling framework.  
+
+
+
 ANNE NOTES
 - it is key to disaggregate by physiographic parameters which serve as key controls on snowpack energy balance, thus we focus the effects slope and aspect on key snow metrics. \
 
@@ -126,7 +134,7 @@ We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar rad
 \label{kuy_study_area}
 \end{figure*}
 
-Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. We focused on our analysis on the seasonal snow zone, or areas that receive snow that majority of years. To do this, we used an annual threshold of 26~mm ($\sim$1~in) of SWE for a given pixel to be considered. Then, within the 32-year time series, a pixel must meet this condition at least 27 of the 32 years. ***See Appendix 1 for figures showing the full SNSR study area***. 
+Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. We focused on our analysis on the seasonal snow zone, or areas that receive snow that majority of years. To do this, an annual accumulation threshold of 26~mm ($\sim$1~in) was of SWE for a given pixel to be considered. Then, within the 32-year time series, a pixel must meet this condition at least 27 of the 32 years. ***See Appendix 1 for figures showing the full SNSR study area***. 
 
 SNSR values were selected by the specific pixel in which the station fell. These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 station years (Figure \ref{kuy_study_area}). Two correlation coefficients (R and R$^{2}$), root-mean-square error (RMSE), mean absolute error (MAE), mean error (ME), and percent bias (PB) are in Table \ref{tab:snow_metrics_val_table}.
 
@@ -156,7 +164,9 @@ Spearman's Rho, a non-parametric measure of statistical dependence between varia
 \hypertarget{ch2-results}{\section{Results}\label{ch2-results}}
 \hypertarget{ch2-results-1}{\subsection{Snow metric physiography}\label{ch2-results-1}}
 
-The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south facing slopes and elevation zones---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} and the boxplots in Fig.\ref{snow_boxplots}. For all of the snow metrics in all three basins, there are marked differences between the north and south facing slopes. \ref{snow_boxplots}.
+The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} and the boxplots in Fig.\ref{fig:snow_boxplots}. We also report physiographic distribution of the the four (meteorologic variables 
+
+For all of the snow metrics in all three basins, there are marked differences between the north and south facing slopes \ref{fig:snow_boxplots}. Overall the Kern, the southern most basin, has the greatest mean FM values (Fig. \ref{fig:snow_boxplots}a) for all elevation bands. It also has the largest mean FM percent difference between south and north facing slopes of 69.6\%. Yet, shown in Fig. \ref{fig:met_boxplots} and Table \ref{tab:met_metric_table}, the Kern has either similar or colder T\textsubscript{mean} values (Fig. \ref{fig:met_boxplots}a). 
 
 Clear elevational and aspect patterns emerge. For the two ablation metrics (MWA and FM), we see stark differences, which are ampflied as elevation increases.
 
@@ -168,7 +178,7 @@ FM and MWA impact both MSWE and DOM
 \centering
 \includegraphics[width=\textwidth]{figures/ch2_figs/snow4_boxplot_v5.png}
 \caption{Boxplots for \textbf{(a)} MSWE, \textbf{(b)} MWA, \textbf{(c)} FM, \textbf{(d)} DOM, for the 32-year study period. The data are grouped by the five EZs and colored the three basins: Kern (gray), USJ (orange), Yuba (green). The colors shading represents north facing (darker) and south facing (lighter) slopes for the respective basin.}
-\label{snow_boxplots}
+\label{fig:snow_boxplots}
 \end{figure*}
 
 \begin{table}[htbp]
@@ -208,7 +218,7 @@ We classified the meteroglofic metrics
 \centering
 \includegraphics[width=\textwidth]{figures/ch2_figs/met4_boxplot_v4.png}
 \caption{Boxplots for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} AH, \textbf{(c)} insolation, and \textbf{(d)} CS insolation for the 32-year study period. The data are grouped by the five EZs and colored the three basins: Kern (gray), USJ (orange), Yuba (green). The colors shading represents north facing (darker) and south facing (lighter) slopes for the respective basin.}
-\label{snow_boxplots}
+\label{fig:met_boxplots}
 \end{figure*}
 
 
