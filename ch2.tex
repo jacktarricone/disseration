@@ -5,13 +5,13 @@
 %==============================================================================
 %==============================================================================
 
-\hypertarget{ch1-abstract}{\section{Abstract}\label{ch1-abstract}}
+\hypertarget{ch2-abstract}{\section{Abstract}\label{ch2-abstract}}
 
 
 %==============================================================================
 %==============================================================================
 %==============================================================================
-\hypertarget{ch1-intro}{\section{Introduction}\label{ch1-intro}}
+\hypertarget{ch2-intro}{\section{Introduction}\label{ch2-intro}}
 
 
 Water resource management plans in the western US (WUS) are formulated around the assumption that the timing and magnitude of spring snowmelt is stable within the bounds of the interannual variability \citep{livnehDroughtLessPredictable2020}. Climate warming is affecting the stationarity of different processes in the hydrologic cycle all over the world \citep{millyStationarityDeadWhither2008}. In WUS, this means more cold season precipitation falling as rain, and warmer winter temperatures causing midseason melt.
@@ -69,6 +69,8 @@ ANNE NOTES
 We choose three distinct river basins to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins are described below.
 
 - mean temp, cc, how many elevation zones, slope, aspect, ect,
+
+fraction of area of NF and SF per basin
 
 %f1
 \begin{figure*}[t]
@@ -182,7 +184,7 @@ For all of the snow metrics in all three basins, there are marked differences be
 
 The two midwinter ablation metrics (FM and MWA) impact both MSWE and DOM for all basins and EZs. Across the three basins, south facing slopes reach DOM 16.1~d earlier, with the greatest mean difference of 25 d occuring in the USJ between 3100--4361~m.
 
-For EZ4 (2700--3100~m) and EZ5 (3100--4361~m), the USJ and Kern showed particularly stark differences in both midwinter ablation metrics with respect to aspect. The mean FM and MWA values for the two basins in these elevation zones on north facing slopes were 0.07 and 39~mm, respectively. In contrast, south facing slopes had markedly higher values, with mean FM and MWA values of 0.29 and 151~mm. This means there is approximately 4 times more FM and MWA on south facing slopes at elevations above 3100~m. Furthermore, the T\textsubscript{mean} values are below 0$^{circ}$ for these errors. This suggests insolation as a driving factor in midwinter ablation.
+For EZ4 (2700--3100~m) and EZ5 (3100--4361~m), the USJ and Kern showed particularly stark differences in both midwinter ablation metrics with respect to aspect. The mean FM and MWA values for the two basins in these elevation zones on north facing slopes were 0.07 and 39~mm, respectively. In contrast, south facing slopes had markedly higher values, with mean FM and MWA values of 0.29 and 151~mm. This means there is approximately 4 times more FM and MWA on south facing slopes at elevations above 3100~m. Furthermore, the T\textsubscript{mean} values are below 0$^{\circ}$ for these errors. This suggests insolation as a driving factor in midwinter ablation.
 
 
 For the gridMET derived metrics (T\textsubscript{mean}, RH***, insolation) there are no significant difference between the north facing and south facing slopes (Figure \ref{fig:met_boxplots}.a--c). This makes sense considering griMET's 4~km spatial resolution, thus not capturing the topographic heterogeneity of the 90~m SNSR data. CS insolation shows vast differences in the amount insolation received by the two aspects. Across all basins and EZs, South facing slopes have a mean daily value of 234 $\mathrm{W~m}^{-2}$, while north facing's is 43 $\mathrm{W~m}^{-2}$. Since these are static clear sky estimates, the values say consistent across the three study basins and EZs.
@@ -225,6 +227,13 @@ Yuba & 2700--3100 m & 1660 & 1193 & -467 & 196 & 178 & -18 & 0.04 & 0.15 & 0.11 
 \hypertarget{ch2-results-1}{\subsection{met}\label{ch2-results-1}}
 
 helllo
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/ch2_figs/aspect_temp_mwa_fum_full_boxplots_v2.png}
+\caption{Boxplots comparing FM (left) and MWA (right) on north facing (blue) and south facing (red) slopes for the \textbf{(a)} Yuba, \textbf{(b)} USJ, \textbf{(c)} Kern.}
+\label{fig:aspec_mwa_fm_bp}
+\end{figure*}
 
 \begin{figure*}[h]
 \centering
@@ -285,6 +294,11 @@ It's imporant to note impacts of forest strucutre on the eneryg balance and ther
 While not specifically paramterized*** in the SNSR, wind transport can substaintally effecst the distrubitoin of snowpack. Depending on the pervailing wind direction (westerly in the sierra), lee facing slopes tend to have 
 
 While south vs. north facing slopes patterns are well-established and visible throughout many mountain ranges accross the globe, our study is the first the quanity the variations in accumulation season snow dynamitcs across various basins in a socioeconomic important mountain region. 
+
+While the course scale of the meteorological data does not capture complex microclimates, previous works suggest that temperatures is warmer on south facing aspects.
+
+
+-pomeroy (2009) long wave effects on cannopy
 
 The gridMET SRAD data shows both an elevational and latiditunal gradident in values. Our CS insolation model does not account for these variations, and would likely amplify the findings presented herin.
 
