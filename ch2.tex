@@ -68,6 +68,8 @@ ANNE NOTES
 
 We choose three distinct river basins to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins are described below.
 
+- mean temp, cc, how many elevation zones, slope, aspect, ect,
+
 %f1
 \begin{figure*}[t]
 \centering
@@ -166,29 +168,30 @@ Spearman's Rho, a non-parametric measure of statistical dependence between varia
 \hypertarget{ch2-results}{\section{Results}\label{ch2-results}}
 \hypertarget{ch2-results-1}{\subsection{Snow metric physiography}\label{ch2-results-1}}
 
-The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} and the boxplots in Fig.\ref{fig:snow_boxplots}. We also report physiographic distribution of the the four meteorologic variables in Table \ref{tab:met_metric_table} and Fig. \ref{fig:met_boxplots}.
+The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} and the boxplots showing the distribution in Fig.\ref{fig:snow_boxplots}. We also report the physiographic distribution of the four meteorologic variables in Table \ref{tab:met_metric_table} and Fig. \ref{fig:met_boxplots}.
 
-For all of the snow metrics in all three basins, there are marked differences between the north and south facing slopes \ref{fig:snow_boxplots}. Overall the Kern, the southern most basin, has the greatest mean FM values (Fig. \ref{fig:snow_boxplots}a) for all elevation bands when compared to the Yuba and the USJ. Additionally, it had largest mean FM percent difference between south and north facing slopes of 69.6~\%. Yet, shown in Fig. \ref{fig:met_boxplots} and Table \ref{tab:met_metric_table}, the Kern has either similar or colder T\textsubscript{mean} values (Fig. \ref{fig:met_boxplots}a) than the Yuba and the USJ. These difference can be explained by the insolation values in the Kern (Fig. \ref{fig:snow_boxplots}c) being greater by $\sim$15--25 $\mathrm{W~m}^{-2}$ across all EZs.
+%f1
+\begin{figure*}[t]
+\includegraphics[width=\textwidth]{figures/ch2_figs/snow4_boxplot_v5.png}
+\caption{Boxplots for \textbf{(a)} MSWE, \textbf{(b)} MWA, \textbf{(c)} FM, \textbf{(d)} DOM, for the 32-year study period. The data are grouped by the five EZs and colored the three basins: Kern (gray), USJ (orange), Yuba (green). The colors shading represents north facing (darker) and south facing (lighter) slopes for the respective basin.}
+\label{fig:snow_boxplots}
+\end{figure*}
 
-For MWA
+
+For all of the snow metrics in all three basins, there are marked differences between the north and south facing slopes \ref{fig:snow_boxplots}. Overall the Kern, the southern most basin, has the greatest mean FM values (Fig. \ref{fig:snow_boxplots}a) for all elevation bands when compared to the Yuba and the USJ. Additionally, it had largest mean FM percent difference between south and north facing slopes of 69.6~\%. Yet, shown in Fig. \ref{fig:met_boxplots} and Table \ref{tab:met_metric_table}, the Kern has either similar or colder T\textsubscript{mean} values (Fig. \ref{fig:met_boxplots}a) than the Yuba and the USJ. These difference can be explained by the insolation values in the Kern (Fig. \ref{fig:snow_boxplots}c) being greater by $\sim$15--25 $\mathrm{W~m}^{-2}$ across all EZs. General elevation trends exist between all basins, yet in different magnitudes, for all three basins. As expected, MSWE and DOM increase with elevation, while FM and MWA broadly decrease.
 
 The two midwinter ablation metrics (FM and MWA) impact both MSWE and DOM for all basins and EZs. Across the three basins, south facing slopes reach DOM 16.1~d earlier, with the greatest mean difference of 25 d occuring in the USJ between 3100--4361~m.
 
+For EZ4 (2700--3100~m) and EZ5 (3100--4361~m), the USJ and Kern showed particularly stark differences in both midwinter ablation metrics with respect to aspect. The mean FM and MWA values for the two basins in these elevation zones on north facing slopes were 0.07 and 39~mm, respectively. In contrast, south facing slopes had markedly higher values, with mean FM and MWA values of 0.29 and 151~mm. This means there is approximately 4 times more FM and MWA on south facing slopes at elevations above 3100~m. Furthermore, the T\textsubscript{mean} values are below 0$^{circ}$ for these errors. This suggests insolation as a driving factor in midwinter ablation.
 
-For the gridMET derived metrics (T\subsection{mean}, RH***, insolation) there are no significant difference between the north facing and south facing slopes. This makes sense considering griMET's 4~km spatial resolution, thus not capturing the topographic heterogeneity of the 90~m SNSR data. CS insolation shows vast differences in the amount insolation received by the two aspects. Across all basins and EZs, South facing slopes have a mean daily value of 234 $\mathrm{W~m}^{-2}$, while north facing's is 43 $\mathrm{W~m}^{-2}$. Since these are static clear sky estimates, the values say consistent across the three study basins and EZs
+
+For the gridMET derived metrics (T\textsubscript{mean}, RH***, insolation) there are no significant difference between the north facing and south facing slopes (Figure \ref{fig:met_boxplots}.a--c). This makes sense considering griMET's 4~km spatial resolution, thus not capturing the topographic heterogeneity of the 90~m SNSR data. CS insolation shows vast differences in the amount insolation received by the two aspects. Across all basins and EZs, South facing slopes have a mean daily value of 234 $\mathrm{W~m}^{-2}$, while north facing's is 43 $\mathrm{W~m}^{-2}$. Since these are static clear sky estimates, the values say consistent across the three study basins and EZs.
 
 Clear elevational and aspect patterns emerge. For the two ablation metrics (MWA and FM), we see stark differences, which are ampflied as elevation increases.
 
 
 FM and MWA impact both MSWE and DOM
 
-%f1
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/ch2_figs/snow4_boxplot_v5.png}
-\caption{Boxplots for \textbf{(a)} MSWE, \textbf{(b)} MWA, \textbf{(c)} FM, \textbf{(d)} DOM, for the 32-year study period. The data are grouped by the five EZs and colored the three basins: Kern (gray), USJ (orange), Yuba (green). The colors shading represents north facing (darker) and south facing (lighter) slopes for the respective basin.}
-\label{fig:snow_boxplots}
-\end{figure*}
 
 \begin{table}[htbp]
 \centering
@@ -197,40 +200,38 @@ FM and MWA impact both MSWE and DOM
 \tiny % Reduce font size to \small
 \begin{tabular}{llrrrrrrrrrrrr}
 \toprule
-& & \multicolumn{3}{c}{MSWE (mm)} & \multicolumn{3}{c}{DOM} & \multicolumn{3}{c}{FM} & \multicolumn{3}{c}{MWA (mm)} \\
+& & \multicolumn{3}{c}{MSWE (mm)} & \multicolumn{3}{c}{DOM (DOWY)} & \multicolumn{3}{c}{FM} & \multicolumn{3}{c}{MWA (mm)} \\
 \cmidrule(c){3-5} \cmidrule(lr){6-8} \cmidrule(lr){9-11} \cmidrule(lr){12-14} 
 Basin & EZ & NF & SF & Diff & NF & SF & Diff & NF & SF & Diff & NF & SF & Diff \\
 \midrule
-Kern & 1500-1900 m & 151 & 116 & -35 & 138 & 127 & -11 & 0.78 & 0.87 & 0.09 & 178 & 201 & 23 \\
-Kern & 1900-2300 m & 269 & 191 & -78 & 149 & 133 & -16 & 0.58 & 0.79 & 0.21 & 171 & 238 & 67 \\
-Kern & 2300-2700 m & 414 & 301 & -113 & 164 & 143 & -21 & 0.34 & 0.62 & 0.28 & 119 & 222 & 103 \\
-Kern & 2700-3100 m & 518 & 375 & -143 & 178 & 156 & -22 & 0.15 & 0.47 & 0.32 & 56 & 177 & 121 \\
-Kern & 3100-4361 m & 744 & 555 & -189 & 195 & 173 & -22 & 0.04 & 0.25 & 0.21 & 25 & 123 & 98 \\
-USJ & 1500-1900 m & 267 & 219 & -48 & 146 & 136 & -10 & 0.65 & 0.78 & 0.13 & 218 & 262 & 44 \\
-USJ & 1900-2300 m & 505 & 411 & -94 & 163 & 149 & -14 & 0.35 & 0.56 & 0.21 & 172 & 282 & 110 \\
-USJ & 2300-2700 m & 745 & 614 & -131 & 178 & 162 & -16 & 0.14 & 0.35 & 0.21 & 87 & 221 & 134 \\
-USJ & 2700-3100 m & 927 & 771 & -156 & 191 & 172 & -19 & 0.06 & 0.24 & 0.18 & 43 & 170 & 127 \\
-USJ & 3100-4361 m & 1068 & 808 & -260 & 204 & 179 & -25 & 0.03 & 0.18 & 0.15 & 31 & 133 & 102 \\
-Yuba & 1500-1900 m & 637 & 531 & -106 & 166 & 153 & -13 & 0.31 & 0.5 & 0.19 & 203 & 335 & 132 \\
-Yuba & 1900-2300 m & 960 & 809 & -151 & 176 & 168 & -8 & 0.15 & 0.31 & 0.16 & 136 & 272 & 136 \\
-Yuba & 2300-2700 m & 1210 & 1020 & -190 & 184 & 174 & -10 & 0.08 & 0.21 & 0.13 & 85 & 221 & 136 \\
-Yuba & 2700-3100 m & 1660 & 1193 & -467 & 196 & 178 & -18 & 0.04 & 0.15 & 0.11 & 61 & 178 & 117 \\
+Kern & 1500--1900 m & 151 & 116 & -35 & 138 & 127 & -11 & 0.78 & 0.87 & 0.09 & 178 & 201 & 23 \\
+Kern & 1900--2300 m & 269 & 191 & -78 & 149 & 133 & -16 & 0.58 & 0.79 & 0.21 & 171 & 238 & 67 \\
+Kern & 2300--2700 m & 414 & 301 & -113 & 164 & 143 & -21 & 0.34 & 0.62 & 0.28 & 119 & 222 & 103 \\
+Kern & 2700--3100 m & 518 & 375 & -143 & 178 & 156 & -22 & 0.15 & 0.47 & 0.32 & 56 & 177 & 121 \\
+Kern & 3100--4361 m & 744 & 555 & -189 & 195 & 173 & -22 & 0.04 & 0.25 & 0.21 & 25 & 123 & 98 \\
+USJ & 1500--1900 m & 267 & 219 & -48 & 146 & 136 & -10 & 0.65 & 0.78 & 0.13 & 218 & 262 & 44 \\
+USJ & 1900--2300 m & 505 & 411 & -94 & 163 & 149 & -14 & 0.35 & 0.56 & 0.21 & 172 & 282 & 110 \\
+USJ & 2300--2700 m & 745 & 614 & -131 & 178 & 162 & -16 & 0.14 & 0.35 & 0.21 & 87 & 221 & 134 \\
+USJ & 2700--3100 m & 927 & 771 & -156 & 191 & 172 & -19 & 0.06 & 0.24 & 0.18 & 43 & 170 & 127 \\
+USJ & 3100--4361 m & 1068 & 808 & -260 & 204 & 179 & -25 & 0.03 & 0.18 & 0.15 & 31 & 133 & 102 \\
+Yuba & 1500--1900 m & 637 & 531 & -106 & 166 & 153 & -13 & 0.31 & 0.5 & 0.19 & 203 & 335 & 132 \\
+Yuba & 1900--2300 m & 960 & 809 & -151 & 176 & 168 & -8 & 0.15 & 0.31 & 0.16 & 136 & 272 & 136 \\
+Yuba & 2300--2700 m & 1210 & 1020 & -190 & 184 & 174 & -10 & 0.08 & 0.21 & 0.13 & 85 & 221 & 136 \\
+Yuba & 2700--3100 m & 1660 & 1193 & -467 & 196 & 178 & -18 & 0.04 & 0.15 & 0.11 & 61 & 178 & 117 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+\hypertarget{ch2-results-1}{\subsection{met}\label{ch2-results-1}}
 
-\hypertarget{ch2-results-2}{\subsection{met}\label{ch2-results-2}}
+helllo
 
-We classified the meteroglofic metrics 
-\begin{figure*}[t]
+\begin{figure*}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/ch2_figs/met4_boxplot_v4.png}
-\caption{Boxplots for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} AH, \textbf{(c)} insolation, and \textbf{(d)} CS insolation for the 32-year study period. The data are grouped by the five EZs and colored the three basins: Kern (gray), USJ (orange), Yuba (green). The colors shading represents north facing (darker) and south facing (lighter) slopes for the respective basin.}
+\caption{ Boxplots for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} AH, \textbf{(c)} insolation, and \textbf{(d)} CS insolation for the 32-year study period. The data are grouped by the five EZs and colored the three basins: Kern (gray), USJ (orange), Yuba (green). The colors shading represents north facing (darker) and south facing (lighter) slopes for the respective basin.}
 \label{fig:met_boxplots}
 \end{figure*}
-
-
 
 
 
@@ -268,12 +269,22 @@ Yuba & 2700-3100 m & 0.69 & 0.7 & 0.01 & 2.91 & 2.91 & 0 & 140 & 140 & 0 & 56 & 
 %==============================================================================
 %==============================================================================
 \hypertarget{ch2-discussion}{\section{Discussion}\label{ch2-discussion}}
+\hypertarget{ch2-discussion-1}{\section{Key Findings}\label{ch2-discussion-1}}
 
 
-RH can be high for multiple reasons!~1
 
-Discussion:
--	-warmer temps increase rate of snow metamorphism (grain growth), increase temp gradients within snowpack (and snowpack and atm), and further increase rate. (Colbeck, Jennings). Larger grain size amplifies the absorption of shorwate (wiscomb and warren, 1980, warren 1980). Midwinter ablation increases the concentration of any light absorbing impurities that may be on the surface (hatchet, gleason, skiles/painter). Hatchet et al. document the increase frequence and length of mid winter dry spells in the sierras. 
+Our results show substantial differences between all the snow metrics across basins and elevation bands with respect to aspect. These results show the complexity and variability of mountain snowpack even within relatively confined areas and suggest that physiographic relationship play an important roll in the physical mechanisms governing snow ablation and accumulations. However, these factors are both sptatial and temporally variable.
+
+At lower elevations warmer temps increase the rate of snow metamorphism (grain growth), increase temp gradients within snowpack (and snowpack and atm), and further increase rate. (Colbeck, Jennings). 
+
+Larger grain size amplifies the absorption of shorwate (wiscomb and warren, 1980, warren 1980). Midwinter ablation increases the concentration of any light absorbing impurities that may be on the surface (hatchet, gleason, skiles/painter). Hatchet et al. document the increase frequence and length of mid winter dry spells in the sierras. 
+
+It's imporant to note impacts of forest strucutre on the eneryg balance and therefore snowpack dynamics (roth \& nolin). Aspect is a key control on incoming radiation, thus impact the ecohydrlogic composition of the hill slope, and therefore the snowpack energy balance. South facing hillslopes having a higher energy environment, causing a more evaporatioion, less plant available water, and decrease both the type and density of vegetation of SF slopes. Less overlaying vegetation causes more insolation to interacting with the snow surface, and explains why. Whereas northing slopes have dense vegetation, obsturcuting much of the insolation, and therefore shield north facing slopes to significant winter ablation. At the forest gap scale, these same north vs. south gap patterns are also seen (mussleman 2012, webb 2020)
+
+
+While not specifically paramterized*** in the SNSR, wind transport can substaintally effecst the distrubitoin of snowpack. Depending on the pervailing wind direction (westerly in the sierra), lee facing slopes tend to have 
+
+While south vs. north facing slopes patterns are well-established and visible throughout many mountain ranges accross the globe, our study is the first the quanity the variations in accumulation season snow dynamitcs across various basins in a socioeconomic important mountain region. 
 
 The gridMET SRAD data shows both an elevational and latiditunal gradident in values. Our CS insolation model does not account for these variations, and would likely amplify the findings presented herin.
 
