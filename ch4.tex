@@ -172,28 +172,37 @@ To find the known change point to tether the initially relative InSAR $\Delta$SW
 \hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
 \hypertarget{ch4-results}{\subsection{$\Delta$SWE Estimates}\label{ch4-results}}
 
-\begin{figure}[t]
+
+\clearpage
+\begin{figure}[h]
 \centering
-\includegraphics[width=14cm]{figures/ch4_figs/dswe_stats_new_v8.png}
-\centering
+\label{fig:dswe_bar_graph}
+\includegraphics[width=14cm]{figures/ch4_figs/dswe_stats_new_v10.png}
 \caption{UAVSAR InSAR derived $\Delta$SWE estimates with snow cover data from \textbf{(a)} IMS, \textbf{(b)} MODSCAG, \textbf{(c)} MODIS, \textbf{(d)} VIIRS, \textbf{(e)} FLM, and \textbf{(f)} Landsat. The dark gray represents areas with < 15 \% fSCA and the black represents pixels lost in the unwrapping process.}
 \end{figure}
 
-\begin{tabular}{lccc}
+\begin{table}
 \centering
+\caption{Caption of the table}
+\label{tab:dswe_stats}
+\begin{tabular}{lccc}
 \toprule
-& \multicolumn{3}{c}{$\Delta$SWE 10$^{6}$ m$^{6}$}
-\cmidrule(c){2-4} \
+& \multicolumn{3}{c}{$\Delta$SWE (10$^{6}$ m$^{6}$)} \\
+\cmidrule(c){2-4}
 fSCA Product & Gain & Loss & Net \\
 \midrule
-IMS & 2.33 & -18.14 & -15.81 \\
-MODSCAG & 3.65 & -18.87 & -15.22 \\
-MODIS & 3.84 & -19.09 & -15.25 \\
-VIIRS & 3.41 & -18.65 & -15.23 \\
-FLM & 3.47 & -18.63 & -15.15 \\
-Landsat & 2.11 & -12.87 & -10.75 \\
-\hline
+IMS & 2.33 & $-$18.14 & $-$15.81 \\
+MODSCAG & 3.65 & $-$18.87 & $-$15.22 \\
+MODIS & 3.84 & $-$19.09 & $-$15.25 \\
+VIIRS & 3.41 & $-$18.65 & $-$15.23 \\
+FLM & 3.47 & $-$18.63 & $-$15.15 \\
+Landsat & 2.11 & $-$12.87 & $-$10.75 \\
+\midrule
+Mean	& 3.14 & $-$17.71 &	$-$14.57 \\
+\bottomrule
 \end{tabular}
+\end{table}
+
 
 \begin{figure}[t]
 \centering
@@ -236,7 +245,7 @@ Variability arises from various sources
 
 
 
-
+\clearpage
 \bibliographystyle{apalike}
 \setstretch{1}
 \bibliography{ch4.bib}
