@@ -198,7 +198,7 @@ To find the known change point to tether the initially relative InSAR $\Delta$SW
 
 To understand how the various fSCA products impacted the scene wide $\Delta$SWE, we performed a summing moving window analysis of the six UAVSAR-derived $\Delta$SWE datasets. The variability in the $\Delta$SWE data products solely comes from which pixels are considered snow covered and which are not. Therefore, a pixel-wise analysis and not an apt solution, as this would be comparing pixel with values to NA values.
 
-For the analysis, these data were split in SWE loss and gains, so that opposite signs within an area did not cancel out the patterns. The SWE gain and SWE loss data was summed using a 55 $\times$ 55 pixel moving window. While this window size is relatively large, it accounts up to a 55 pixel square area that were considered NA in a given fSCA data product.
+For the analysis, these data were split in SWE loss and gains, so that opposite signs within an area did not cancel out the patterns. The pixel-wise SWE changes The SWE gain and SWE loss data was summed using a 55 $\times$ 55 pixel moving window. While this window size is relatively large, it accounts up to a 55 pixel square area that were considered NA in a given fSCA data product.
 
 
 \hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
@@ -207,14 +207,12 @@ For the analysis, these data were split in SWE loss and gains, so that opposite 
 The spatially distributed UAVSAR $\Delta$SWE estimates for each of the six fSCA products are shown in Fig.~\ref{fig:uavsar_dswe}. The black areas represent pixels lost in the unwrapping process (Fig. \ref{fig:uavsar_data}b), and are static throughout Fig.~\ref{fig:uavsar_dswe}a--e. The gray area represents pixels not considered snow covered by the given fSCA product, and these areas spatially variable in the six scenes. Overall, the six scenes show a mean net SWE of $-$14.57~hm$^{3}$, with a mean gain of $-$3.14~hm$^{3}$ and loss of $-$17.71~hm$^{3}$ (Table~\ref{tab:dswe_stats}). These values are consistent with in situ snow pillow data in this area, as there was a prolonged dry spell during 26 February to March 4 time span (add appendix figure here).
 
 When disaggregated to SWE gains and losses, MODIS shows the greatest SWE gain of 3.84~hm$^{3}$. Landsat estimated the least (2.11~hm$^{3}$) with IMS showing a similar low value of 2.33~hm$^{3}$. The SWE gain values from MODSCAG, VIIRS, and FLM were quite similar to MODIS, with no product differing more than 0.4~hm$^{3}$.
-MODIS also produced the greatest SWE loss ($-$19.09~hm$^{3}$), with Landsat again providing a low value of $-$12.87~hm$^{3}$. IMS, MODSCAG, VIIRS, and FLM again provided consistent estimates, with the standard deviation of these five data products SWE loss being 0.35~hm$^{3}$. Compared to mean SWE loss of $-$18.68~hm$^{3}$ five other products Landsat was 5.81~hm$^{3}$ greater, which is a percent difference of 36.80~\%.
+MODIS also produced the greatest SWE loss ($-$19.09~hm$^{3}$), with Landsat again providing a low value of $-$12.87~hm$^{3}$. IMS, MODSCAG, VIIRS, and FLM again provided consistent estimates, with the standard deviation of these five data products SWE loss being only 0.35~hm$^{3}$. Landsat's SWE loss was 5.81~hm$^{3}$ greater when compared to the five other data products mean SWE loss of $-$18.68~hm$^{3}$. This is a percent difference of 36.80~\%.
 
-
-\clearpage
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \label{fig:dswe_bar_graph}
-\includegraphics[width=12cm]{figures/ch4_figs/dswe_stats_new_v10.png}
+\includegraphics[width=10cm]{figures/ch4_figs/dswe_stats_new_v10.png}
 \caption{UAVSAR InSAR-derived $\Delta$SWE estimates masked with snow cover data from \textbf{(a)} IMS, \textbf{(b)} MODSCAG, \textbf{(c)} MODIS, \textbf{(d)} VIIRS, \textbf{(e)} FLM, and \textbf{(f)} Landsat. The dark gray represents areas with < 15 \% fSCA and the black represents pixels lost in the unwrapping process.}
 \end{figure}
 
@@ -244,7 +242,7 @@ Mean	& 3.14 & $-$17.71 &	$-$14.57 \\
 \begin{figure}[h]
 \centering
 \label{fig:dswe_moving_window}
-\includegraphics[width=\textwidth]{figures/ch4_figs/dswe_mw_full_v3.png}
+\includegraphics[width=\textwidth]{figures/ch4_figs/dswe_mw_full_dam3_v1.png}
 \caption{$\Delta$SWE moving window analysis for.....}
 \end{figure}
 
@@ -257,7 +255,7 @@ Variability arises from various sources
 \begin{figure}[t]
 \centering
 \label{fig:dswe_standard_deviation}
-\includegraphics[width=\textwidth]{figures/ch4_figs/sd_vs_cc_map_55x55.png}
+\includegraphics[width=\textwidth]{figures/ch4_figs/swe_sd_bp_dam3_41x41_v1.png}
 \caption{Showing SD for blahhhh}
 \end{figure}
 
