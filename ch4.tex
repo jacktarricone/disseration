@@ -152,7 +152,7 @@ CADWR pillows -- name them
 %==============================================================================
 %==============================================================================
 \hypertarget{ch4-methods}{\section{Methods}\label{ch4-methods}}
-\hypertarget{ch4-methods}{\subsection{Calculating InSAR $\Delta$SWE}\label{ch4-methods}}
+\hypertarget{ch4-methods-1}{\subsection{Calculating InSAR $\Delta$SWE}\label{ch4-methods-1}}
 
 
 First, the UAVSAR phase data were masked with each of the six fSCA products. A threshold of $>$\,15\,\% fSCA was set for a pixel to be considered snow covered. We then employ the InSAR $\Delta$SWE methodology described in Sec.~\ref{ch3-methods-1}. The SnowEx in situ data collection within the Sierra flight line did not include a permittivity measurement. Therefore, permittivity was estimated using the density to permittivity equation from \cite{guneriussenInSAREstimationChanges2001}:
@@ -168,6 +168,12 @@ First, the UAVSAR phase data were masked with each of the six fSCA products. A t
 To find the known change point to tether the initially relative InSAR $\Delta$SWE values, we used three snow pillows (vlc, mhp, ubc, wwc) from CADWR. The SnowEx $\Delta$SWE pit data could not be directly utilized because the phase values over the Mammoth CUES pit did not unwrap properly, resulting in the absence of any data. Additionally, the Panorama Dome pit was not dug during the study period. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that the snow pillow was within and the eight surrounding pixels. We then took a spatial average of the relative InSAR $\Delta$SWE and the three pillows $\Delta$SWE values and subtracted them to obtain an absolute change.
 
 %==============================================================================
+%==============================================================================
+%==============================================================================
+\hypertarget{ch4-methods-2}{\subsection{Quantifying $\Delta$SWE Variability}\label{ch4-methods-1}}
+
+To understand how the various fSCA products impacted the scene wide $\Delta$SWE calculations, we performed a 17 $\times$ 17 moving window analysis. To do this, these data were split in SWE loss and gains, so that opposite signs within an area did not cancel out the patterns. ***
+
 \hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
 \hypertarget{ch4-results}{\subsection{$\Delta$SWE Estimates}\label{ch4-results}}
 
@@ -210,8 +216,6 @@ Mean	& 3.14 & $-$17.71 &	$-$14.57 \\
 \caption{UAVSAR InSAR derived $\Delta$SWE estimates with snow cover data from \textbf{(a)} IMS, \textbf{(b)} MODSCAG, \textbf{(c)} MODIS, \textbf{(d)} VIIRS, \textbf{(e)} FLM, and \textbf{(f)} Landsat. The dark gray represents areas with < 15 \% fSCA and the black represents pixels lost in the unwrapping process.}
 \end{figure}
 
-
-
 \hypertarget{ch4-results}{\subsection{$\Delta$SWE Variability}\label{ch4-results}}
 
 Variability arises from various sources
@@ -219,7 +223,7 @@ Variability arises from various sources
 \clearpage
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/ch4_figs/sd_vs_cc_map_17x17.png}
+\includegraphics[width=\textwidth]{figures/ch4_figs/sd_vs_cc_map_55x55.png}
 \centering
 \caption{Showing SD for blahhhh}
 \end{figure}
@@ -227,9 +231,9 @@ Variability arises from various sources
 \clearpage
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/ch4_figs/swe_sd_bp_17x17.png}
+\includegraphics[width=\textwidth]{figures/ch4_figs/swe_sd_bp_55x55.png}
 \centering
-\caption{Boxplots showing the relationship between CC \% SWE SD for \textbf{(a)} gain and \textbf{(b)} loss.}
+\caption{Boxplots showing the relationship between CC \% and SWE SD for \textbf{(a)} gain and \textbf{(b)} loss. Note the variation in y-axis scale so the data could be more clearly vizualized.}
 \end{figure}
 
 %==============================================================================
@@ -238,6 +242,10 @@ Variability arises from various sources
 \hypertarget{ch5-discussion}{\section{Discussion}\label{ch4-discussion}}
 
 -Paragraph on the need to incorporate Very-High-Resolution (VHR) commercial satellite imagery: sources are \citep{huImprovingMountainSnow2022, thalerEstimatingSnowCover2023,yangHighresolutionMappingSnow2023,johnHighResolutionSnowCoveredArea2022}
+
+
+-Our variability analysis was an imperfect comparison between the fix data products. While we used a 55$\times$55 moving window, the IMS data had a large continuous snow free area in the northeast corner. These pixels were then omitted from the standard deviation analysis, propagating uncertainty in the calculation as one dataset was no used.
+
 
 %==============================================================================
 %==============================================================================
