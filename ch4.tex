@@ -45,7 +45,7 @@ These past studies have subjectively selected various products (e.g., fSCA, bina
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods}{\section{Study area}\label{ch4-methods}}
 
-The USJ is 
+The USJ is *** insert boilder plate information here *****
 
 \hypertarget{ch4-methods}{\section{Methods \& data overview}\label{ch4-methods}}
 In this section, we overview UAVSAR and its data products, the six different snow cover products, the various snow cover to fSCA conversion methods, and the variety of in situ snowpack information used.
@@ -59,6 +59,7 @@ UAVSAR flights occurred on 26 February 2020 and 11 March 2011 2020 and covered a
 \begin{figure}[ht]
 \includegraphics[width=13cm]{figures/ch4_figs/data_section_plot_v3.png}
 \centering
+\label{fig:uavsar_data}
 \caption{UAVSAR \textbf{(a)} coherence, \textbf{(b)} phase, \textbf{(c)} incidence angle from the 2/26--3/11 InSAR pair. The grey pixels in \textbf{(b)} are pixels lost in the unwrapping process, which is caused by low coherence values. The full extent of S1 GUNW \textbf{(d)} phase and \textbf{(e)} coherence from the 2/22--3/05 InSAR pair. The USJ watershed boundary and UAVSAR swath are shown by black lines, with Lake Tahoe represented by the blue in the top left corner. The black dotted line is a 1500 m contour approximating the seasonal snow zone.}
 \label{table:uavsar_proc}
 \end{figure}
@@ -91,14 +92,15 @@ Phase unwrapping filter window size & 3~pixels\,$\times$\,3~pixels \\
 \end{table}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-2}{\subsection{Snow cover data}\label{ch4-methods-2}}
 
 Optical snow cover information is traditionally derived using either the normalized snow difference index (NDSI) \citep{dozierSpectralSignatureAlpine1989} or spectral-mixture analysis \citep{rosenthalAutomatedMappingMontane1996,nolinMappingAlpineSnow1993}. While we provided a brief description of the methods below, the reader is referred to the aforementioned publications and \cite{stillingerLandsatMODISVIIRS2023} for a detailed description of the two techniques.
 
-Snow is highly reflective in the visible (VIS) wavelengths ($\sim$0.4--0.7 $\mu$m) while demonstrating strong absorption characteristics in the shortwave infrared (SWIR) ($\sim$1--4 $\mu$m) spectrum. This relationship is leveraged by the NSDI equation:
+Snow is highly reflective in the visible (VIS) wavelengths ($\sim$0.4--0.7~$\mu$m) while demonstrating strong absorption characteristics in the shortwave infrared (SWIR) ($\sim$1--4~$\mu$m) spectrum. This relationship is leveraged by the NSDI equation:
 
 \begin{equation}
+\label{eq:ndsi}
 NDSI = \frac{VIS - SWIR}{VIS + SWIR}
 \end{equation}
 
@@ -108,6 +110,9 @@ NDSI = \frac{VIS - SWIR}{VIS + SWIR}
 \includegraphics[width=\textwidth]{figures/ch4_figs/fsca_usvar_v2.pdf}
 \caption{fSCA from \textbf{(a)} IMS, \textbf{(b)} MODSCAG, \textbf{(c)} MODIS, \textbf{(d)} VIIRS, \textbf{(e)} FLM, and \textbf{(f)} Landsat. The dark gray represents areas with < 15 \% fSCA}
 \end{figure}
+
+The data selected for our study have a range of spatial, temporal, and spectral resolutions. 
+
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-3}{\subsubsection{IMS}\label{ch4-methods-3}}
@@ -122,16 +127,24 @@ The National Oceanic and Atmospheric Administration’s National Environmental S
 
 ***The MODIS Snow-Covered Area and Grain size (MODSCAG) \citep{painterRetrievalSubpixelSnow2009} is a spectral-mixing model that uses various end-members (e.g. rock, soil, snow, clouds, etc.) to produce estimates of fSCA, fractional vegetation (fVEG), snow grain size, and albedo.
 
+- add info on NSDI to fsca conversion \citep{salomonsonEstimatingFractionalSnow2004}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-5}{\subsubsection{MODIS}\label{ch4-methods-5}}
 
-***The MODIS cloud-gap-filled (CGF) snow cover product \citep{hallEvaluationMODISVIIRS2019} provides daily NSDI values at 500 m spatial resolution from the Terra (MOD10A1F) and Aqua (MYD10A1F) satellites. These
+The MODIS cloud-gap-filled (CGF) snow cover product \citep{hallEvaluationMODISVIIRS2019} provides daily NSDI values at 500 m spatial resolution from the Terra (MOD10A1F) and Aqua (MYD10A1F) satellites. These data account for cloud cover by excluded pixels  flagged as clouds and refilling them with NDSI from the last cloud free day. This process only goes on for **eight** days of cloud cover until the pixel is marked as NA. NDSI can be used to directly estimate fSCA \citep{salomonsonEstimatingFractionalSnow2004, salomonsonDevelopmentAquaMODIS2006,stillingerLandsatMODISVIIRS2023}. We estimated MODIS fSCA using the Eq. \ref{eq:fsca}:
+
+\begin{equation}
+\label{eq:fsca}
+\text{fSCA} = 0.01 + (1.45 \times NDSI)
+\end{equation}
 
 
 \hypertarget{ch4-methods-6}{\subsubsection{VIIRS}\label{ch4-methods-6}}
 
-The Visible Infrared Imaging Radiometer Suite (VIIRS) on the Suomi National Polar Partnership (S-NPP) produces a daily CGF NDSI product at 375 m spatial resolution \citep{hallEvaluationMODISVIIRS2019}.
+The Visible Infrared Imaging Radiometer Suite (VIIRS) on the Suomi National Polar Partnership (S-NPP) produces a daily CGF NDSI product (VNP10A1F) at 375 m spatial resolution \citep{hallEvaluationMODISVIIRS2019}. These data are generated and gap filled using the same methods as the MODIS CFG data outlined in Section \ref{ch4-methods-5}. We converted the VIIRS NSDI values to fCSA using Eq. \ref{eq:fsca}.
+
 
 \hypertarget{ch4-methods-7}{\subsubsection{FLM}\label{ch4-methods-7}}
 
@@ -139,14 +152,17 @@ The Visible Infrared Imaging Radiometer Suite (VIIRS) on the Suomi National Pola
 
 \hypertarget{ch4-methods-8}{\subsubsection{Landsat fSCA}\label{ch4-methods-8}}
 
-Landsat~8 fSCA \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecenterCollection1LandsatLevel32018}  data are generated using a spectral unmixing analysis based on the MODSCAG algorithm developed for MODIS (Painter et al., 2009). The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023}. As of 2021 (**check this), the data products include both viewable fSCA and total ground fSCA. To estimate total fSCA in areas with canopy cover, a moving window analysis algorithm is employed, and it selects. The data used in this study is from 4~March 2020 (Fig.~4.2e).
+Landsat~8 fSCA \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecenterCollection1LandsatLevel32018} data are generated using a spectral unmixing analysis based on the MODSCAG algorithm developed for MODIS (Painter et al., 2009). The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023}. As of 2021 (**check this), the data products include both viewable fSCA and total ground fSCA. To estimate total fSCA in areas with canopy cover, a moving window analysis algorithm is employed, and it selects. The data used in this study is from 4~March 2020 (Fig.~4.2e).
 
-% Within the full UAVSAR swath, 29.7\,\% of pixels were entirely snow-free on 18~February (Fig.~3.4a), increasing to 38.1\,\% on 5~March (Fig.~3.4b). For just the study area, 4.1\,\% of pixels were snow-free on 18~February (Fig.~3.4d), with an increase to 9.1\,\% by 5~March (Fig.~3.4e).
 
 \hypertarget{ch4-methods-8}{\subsection{In situ snow data}\label{ch4-methods-8}}
 
 Snow pit from the SnowEx campaign
 CADWR pillows -- name them
+
+\hypertarget{ch4-methods-9}{\subsubsection{Canopy Cover}\label{ch4-methods-9}}
+
+We used 2016 NLCD canopy cover.... blah blah
 
 %==============================================================================
 %==============================================================================
@@ -165,34 +181,50 @@ First, the UAVSAR phase data were masked with each of the six fSCA products. A t
 
 \noindent Using Eq.~\ref{eq:insar_dswe}, pixel-wise $\Delta$SWE values were calculated with inputs of $\lambda$ (23.84\,cm), $\rho_\mathrm{s}$ of 370 kg\,m$^{-3}$, $\epsilon_\mathrm{s}$ of 1.68, and $\theta$. 
 
-To find the known change point to tether the initially relative InSAR $\Delta$SWE values, we used three snow pillows (vlc, mhp, ubc, wwc) from CADWR. The SnowEx $\Delta$SWE pit data could not be directly utilized because the phase values over the Mammoth CUES pit did not unwrap properly, resulting in the absence of any data. Additionally, the Panorama Dome pit was not dug during the study period. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that the snow pillow was within and the eight surrounding pixels. We then took a spatial average of the relative InSAR $\Delta$SWE and the three pillows $\Delta$SWE values and subtracted them to obtain an absolute change.
+To find the known change point to tether the initially relative InSAR $\Delta$SWE values, we used three snow pillows (vlc, mhp, ubc, wwc) from CADWR. The SnowEx $\Delta$SWE pit data could not be directly utilized because the phase values over the Mammoth CUES pit did not unwrap properly, resulting in the absence of any data. Additionally, the Panorama Dome pit was not dug during the study period. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that the snow pillow was within and the eight surrounding pixels. We then took a spatial average of the relative InSAR $\Delta$SWE and the three pillows $\Delta$SWE values and subtracted them to obtain an absolute change. We report our data in units of cubic hectometers (hm$^{3}$). A cubic hectometer is equal to 10$^{6}$ m$^{3}$, 10$^{-3}$ km$^{3}$, or $\sim$810 acre-feet.
 
 %==============================================================================
 %==============================================================================
 %==============================================================================
 \hypertarget{ch4-methods-2}{\subsection{Quantifying $\Delta$SWE Variability}\label{ch4-methods-1}}
 
-To understand how the various fSCA products impacted the scene wide $\Delta$SWE calculations, we performed a 17 $\times$ 17 moving window analysis. To do this, these data were split in SWE loss and gains, so that opposite signs within an area did not cancel out the patterns. ***
+\clearpage
+\begin{figure}[t]
+\label{fig:uavsar_dswe}
+\includegraphics[width=\textwidth]{figures/ch4_figs/dswe_uavsar_v2.png}
+\centering
+\caption{UAVSAR InSAR derived $\Delta$SWE estimates with snow cover data from \textbf{(a)} IMS, \textbf{(b)} MODSCAG, \textbf{(c)} MODIS, \textbf{(d)} VIIRS, \textbf{(e)} FLM, and \textbf{(f)} Landsat. The dark gray represents areas with < 15 \% fSCA and the black represents pixels lost in the unwrapping process.}
+\end{figure}
+
+To understand how the various fSCA products impacted the scene wide $\Delta$SWE, we performed a summing moving window analysis of the six UAVSAR-derived $\Delta$SWE datasets. The variability in the $\Delta$SWE data products solely comes from which pixels are considered snow covered and which are not. Therefore, a pixel-wise analysis and not an apt solution, as this would be comparing pixel with values to NA values.
+
+For the analysis, these data were split in SWE loss and gains, so that opposite signs within an area did not cancel out the patterns. The SWE gain and SWE loss data was summed using a 55 $\times$ 55 pixel moving window. While this window size is relatively large, it accounts up to a 55 pixel square area that were considered NA in a given fSCA data product.
+
 
 \hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
 \hypertarget{ch4-results}{\subsection{$\Delta$SWE Estimates}\label{ch4-results}}
+
+The spatially distributed UAVSAR $\Delta$SWE estimates for each of the six fSCA products are shown in Fig.~\ref{fig:uavsar_dswe}. The black areas represent pixels lost in the unwrapping process (Fig. \ref{fig:uavsar_data}b), and are static throughout Fig.~\ref{fig:uavsar_dswe}a--e. The gray area represents pixels not considered snow covered by the given fSCA product, and these areas spatially variable in the six scenes. Overall, the six scenes show a mean net SWE of $-$14.57~hm$^{3}$, with a mean gain of $-$3.14~hm$^{3}$ and loss of $-$17.71~hm$^{3}$ (Table~\ref{tab:dswe_stats}). These values are consistent with in situ snow pillow data in this area, as there was a prolonged dry spell during 26 February to March 4 time span (add appendix figure here).
+
+When disaggregated to SWE gains and losses, MODIS shows the greatest SWE gain of 3.84~hm$^{3}$. Landsat estimated the least (2.11~hm$^{3}$) with IMS showing a similar low value of 2.33~hm$^{3}$. The SWE gain values from MODSCAG, VIIRS, and FLM were quite similar to MODIS, with no product differing more than 0.4~hm$^{3}$.
+MODIS also produced the greatest SWE loss ($-$19.09~hm$^{3}$), with Landsat again providing a low value of $-$12.87~hm$^{3}$. IMS, MODSCAG, VIIRS, and FLM again provided consistent estimates, with the standard deviation of these five data products SWE loss being 0.35~hm$^{3}$. Compared to mean SWE loss of $-$18.68~hm$^{3}$ five other products Landsat was 5.81~hm$^{3}$ greater, which is a percent difference of 36.80~\%.
 
 
 \clearpage
 \begin{figure}[h]
 \centering
 \label{fig:dswe_bar_graph}
-\includegraphics[width=14cm]{figures/ch4_figs/dswe_stats_new_v10.png}
-\caption{UAVSAR InSAR derived $\Delta$SWE estimates with snow cover data from \textbf{(a)} IMS, \textbf{(b)} MODSCAG, \textbf{(c)} MODIS, \textbf{(d)} VIIRS, \textbf{(e)} FLM, and \textbf{(f)} Landsat. The dark gray represents areas with < 15 \% fSCA and the black represents pixels lost in the unwrapping process.}
+\includegraphics[width=12cm]{figures/ch4_figs/dswe_stats_new_v10.png}
+\caption{UAVSAR InSAR-derived $\Delta$SWE estimates masked with snow cover data from \textbf{(a)} IMS, \textbf{(b)} MODSCAG, \textbf{(c)} MODIS, \textbf{(d)} VIIRS, \textbf{(e)} FLM, and \textbf{(f)} Landsat. The dark gray represents areas with < 15 \% fSCA and the black represents pixels lost in the unwrapping process.}
 \end{figure}
 
 \begin{table}
 \centering
-\caption{Caption of the table}
+\caption{Displaying the total sum of $\Delta$SWE gains, losses, and overall net for the six different fSCA products in Fig~\ref{fig:uavsar_dswe}.}
 \label{tab:dswe_stats}
 \begin{tabular}{lccc}
 \toprule
-& \multicolumn{3}{c}{$\Delta$SWE (10$^{6}$ m$^{6}$)} \\
+& \multicolumn{3}{c}{$\Delta$SWE (hm$^{3}$)} \\
 \midrule
 fSCA Product & Gain & Loss & Net \\
 \midrule
@@ -209,12 +241,13 @@ Mean	& 3.14 & $-$17.71 &	$-$14.57 \\
 \end{table}
 
 \clearpage
-\begin{figure}[t]
+\begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{figures/ch4_figs/dswe_uavsar_v2.png}
-\centering
-\caption{UAVSAR InSAR derived $\Delta$SWE estimates with snow cover data from \textbf{(a)} IMS, \textbf{(b)} MODSCAG, \textbf{(c)} MODIS, \textbf{(d)} VIIRS, \textbf{(e)} FLM, and \textbf{(f)} Landsat. The dark gray represents areas with < 15 \% fSCA and the black represents pixels lost in the unwrapping process.}
+\label{fig:dswe_moving_window}
+\includegraphics[width=\textwidth]{figures/ch4_figs/dswe_mw_full_v3.png}
+\caption{$\Delta$SWE moving window analysis for.....}
 \end{figure}
+
 
 \hypertarget{ch4-results}{\subsection{$\Delta$SWE Variability}\label{ch4-results}}
 
@@ -223,26 +256,20 @@ Variability arises from various sources
 \clearpage
 \begin{figure}[t]
 \centering
+\label{fig:dswe_standard_deviation}
 \includegraphics[width=\textwidth]{figures/ch4_figs/sd_vs_cc_map_55x55.png}
-\centering
 \caption{Showing SD for blahhhh}
 \end{figure}
 
 \clearpage
 \begin{figure}[t]
 \centering
+\label{fig:dswe_boxplots}
 \includegraphics[width=\textwidth]{figures/ch4_figs/swe_sd_bp_55x55.png}
-\centering
 \caption{Boxplots showing the relationship between CC \% and SWE SD for \textbf{(a)} gain and \textbf{(b)} loss. The y-axis set individually for each plot for data visualization purposes.}
 \end{figure}
 
-\clearpage
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/ch4_figs/dswe_mw_full_v2.png}
-\centering
-\caption{$\Delta$SWE moving window analysis for.....}
-\end{figure}
+
 
 
 
