@@ -67,7 +67,11 @@ ANNE NOTES
 %==============================================================================
 \hypertarget{ch2-sa}{\section{Study Area}\label{ch2-sa}}
 
-We choose three distinct river basins to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins are described below.
+We choose three distinct river basins to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins were selected as they display a variety of different latitudes, hydroclimatology, forest cover, and elevation ranges ***. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5(3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
+
+The basins were then segmented in north facing (315--45$^{\circ}$) and south facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we ensure that only complex mountain terrain, and flatter areas. The north south 
+
+
 
 - mean temp, cc, how many elevation zones, slope, aspect, ect,
 
@@ -161,9 +165,15 @@ SNSR values were selected by the specific pixel in which the station fell. These
   \end{tabular}
 \end{table}
 
-\hypertarget{ch2-methods-2}{\subsection{Spearman correlations}\label{ch2-methods-2}}
+\hypertarget{ch2-methods-2}{\subsection{Physiographic disaggregation}\label{ch2-methods-2}}
 
-Spearman's Rho, a non-parametric measure of statistical dependence between variables, was computed to assess the relationship between FM and the three meteorological variables across the EZs and three study basins. The goal of this analysis was to characterize the snow metric sensitivity to the meteorologic data.
+We disaggregated the basins by their physiographic characteristics (elevation, slope, and aspect) in order to understand the relationship between these physical attributes, snow metrics, and climate. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5(3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
+
+The basins were then segmented in north facing (315--45$^{\circ}$) and south facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we focus our analysis on only complex mountain terrain and flatter areas which still technically have aspect value. We did not include east facing and west facing slopes in this study, as our focus is on the variations in direct insolation between north and south facing slopes
+
+\hypertarget{ch2-methods-3}{\subsection{Spearman correlations}\label{ch2-methods-3}}
+
+Spearman's Rho, a non-parametric measure of statistical dependence between variables, was computed to assess the relationship between FM and the three meteorological variables across the EZs and three study basins. The goal of this analysis was to characterize the snow metric sensitivity to the meteorologic data. The analysis was conducted on a pixel-wise basis for the 32-year study period, with each pixel producing p and Spearman's $\rho$ values. As there are $\sim$10$^4$ pixels in each elevation zone, we calculated the percentage of pixels that displayed significant trends ($p < .05$).
 
 %==============================================================================
 %==============================================================================
@@ -274,14 +284,18 @@ Yuba & 2700-3100 m & 0.69 & 0.7 & 0.01 & 2.91 & 2.91 & 0 & 140 & 140 & 0 & 56 & 
 \end{tabular}
 \end{table}
 
-\hypertarget{ch2-results-3}{\subsection{Snow metrics Sensativity}\label{ch2-results-3}}
+\hypertarget{ch2-results-3}{\subsection{Snow metric climate sensitivity}\label{ch2-results-3}}
+
+Fig.~\ref{fig:heat_map} displays the results of our Spearman correlations between FM on north and south facing slopes and three meteorological variables: T\textsubscript{mean}, RH, and insolation. Overall, FM in the Yuba is highly sensitive to the three variables tested on both south facing slopes in all EZs. For the three lowest EZs, spanning 1500--3100~m, a minimum of 90~\% of the land area shows significant relationships between FM and T\textsubscript{mean}. 
+
+The Kern and the USJ display similar patterns for the various relationships, therefore we report the mean value of their results below. For the top two EZs (2700--4361~m) in the Kern and USJ, the temperature sensitivity on north and south facing slopes begins to diverge. Seen on the right side of Fig.~\ref{fig:heat_map}, the USJ and Kern have a mean of 14.5~\% of the area that is temperature sensitive, while south facing slopes show a markedly greater mean value of 70~\%. In contrast, this relationship reverses for the EZ1 and EZ1.***
 
 
 \begin{figure*}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/ch2_figs/metvars_fm_heatmaps_v4.png}
-\caption{Heat maps of the displaying percentage of area in each EZ with significant trends (p $< .05$) for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} RH, \textbf{(c)} insolation for the 32-year study period. The panels are split into north (left), south facing (center) slopes, and the difference between the two (right). The color bars correspond to the values within a given panel.}
-\label{fig:met_boxplots}
+\caption{Heat maps of the displaying percentage of area in each EZ with significant trends ($p < .05$) for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} RH, \textbf{(c)} insolation for the 32-year study period. The panels are split into north (left), south facing (center) slopes, and the difference between the two (right). The color bars correspond to the values within a given panel. Elevation in the Yuba doesn't rise above 3100~m, shown by a gray value in the heatmap.}
+\label{fig:heat_map}
 \end{figure*}
 
 %==============================================================================
