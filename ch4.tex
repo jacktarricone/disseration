@@ -35,6 +35,10 @@ Rittger et al. \citep{rittgerMultisensorFusionUsing2021} combined Landsat and MO
 %%%% topic: SAR/optical for SWE or depth fusion products
 Few studies have employed optical and SAR data synergistically for snow depth and SWE retrievals. \cite{lievensSnowDepthVariability2019,lievensSentinel1SnowDepth2022} developed a Sentinel-1 C-band snow depth retrieval algorithm using the co-polarized and cross-polarized backscatter ratio. They identified snow cover using 1 km$^{2}$ binary snow cover information from the Interactive Multisensor Snow and Ice Mapping System (IMS) \citep{u.s.nationalicecenterIMSDailyNorthern2008, ramsayInteractiveMultisensorSnow1998, helfrichEnhancementsForthcomingDevelopments2007}, and fractional forest cover using the 1 km$^{2}$ global consensus land cover dataset \citep{tuanmuGlobal1kmConsensus2014}, at both European and Northern Hemispherical scales. These new methods are promising, especially as the physical mechanisms governing the C-band retrievals continue to emerge \citep{zhuModelingScatteringDense2023}. \cite{tarriconeEstimatingSnowAccumulation2023a} utilized Landsat fSCA information with UAVSAR \citep{hensleyUAVSARInstrumentDescription2008} L-band InSAR data to estimate both snow ablation and accumulation in the Jemez Mountains, NM. They note the multifaceted importance of a optical-radar multisensor approach for snow cover delineation and SAR atmospheric correction. 
 
+-add (ma et al. 2022) p-band work
+-other radar studies looking to advance radar remote sensing of swe don't explicity address the idea of fSCA identification.
+
+
 These past studies have subjectively selected various products (e.g., fSCA, binary, NSDI), spatial resolutions ($\sim$ 1--1000 m), and temporal resolutions (1--16 d) without any systematic investigation of the uncertainties associated with each. Our study aims to better understand the variability between common snow cover data products and how that uncertainty propagates into SAR-based SWE retrieval techniques. To do this, we analyze L-band InSAR SWE changes estimates from UAVSAR collected by the NASA SnowEx 2020 \cite{marshallNASASnowEx20202019} campaign in the Upper San Joaquin (USJ) River basin in Sierra Nevada Mountains, CA. NISAR's upcoming launch in early 2024 makes the InSAR approach the most ***time sensitive*** of the SWE measurement techniques.
 
 % -Despite the previously stated importance of a multisensor snow depth and SWE monitoring approach, few works have explored the best combination of sensors.
@@ -182,22 +186,21 @@ First, the UAVSAR phase data were masked with each of the six fSCA products. A t
 
 \noindent Using Eq.~\ref{eq:insar_dswe}, pixel-wise $\Delta$SWE values were calculated with inputs of $\lambda$ (23.84\,cm), $\rho_\mathrm{s}$ of 370 kg\,m$^{-3}$, $\epsilon_\mathrm{s}$ of 1.68, and $\theta$. 
 
-To find the known change point to tether the initially relative InSAR $\Delta$SWE values, we used three snow pillows (vlc, mhp, ubc, wwc) from CADWR. The SnowEx $\Delta$SWE pit data could not be directly utilized because the phase values over the Mammoth CUES pit did not unwrap properly, resulting in the absence of any data. Additionally, the Panorama Dome pit was not dug during the study period. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that the snow pillow was within and the eight surrounding pixels. We then took a spatial average of the relative InSAR $\Delta$SWE and the three pillows $\Delta$SWE values and subtracted them to obtain an absolute change. We report our data in units of cubic hectometers (dam$^{3}$). A cubic hectometer is equal to 10$^{6}$ m$^{3}$, 10$^{-3}$ km$^{3}$, or $\sim$810 acre-feet.
+To find the known change point to tether the initially relative InSAR $\Delta$SWE values, we used three snow pillows (vlc, mhp, ubc, wwc) from CADWR. The SnowEx $\Delta$SWE pit data could not be directly utilized as the phase values over the Mammoth CUES pit did not unwrap properly, resulting in the absence of any data. Additionally, the Panorama Dome pit was not dug during the study period. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that the snow pillow was within and the eight surrounding pixels. We then took a spatial average of the relative InSAR $\Delta$SWE and the three pillows $\Delta$SWE values and subtracted them to obtain an absolute change. We report our volumetric $\Delta$ SWE results in units of cubic decameters (dam$^{3}$). A cubic decameter is equal to 1000~m$^{3}$ or $\sim$0.81~acre-feet.
 
 %==============================================================================
 %==============================================================================
 %==============================================================================
 \hypertarget{ch4-methods-2}{\subsection{Quantifying $\Delta$SWE Variability}\label{ch4-methods-1}}
 
-
-To understand how the various fSCA products impacted the scene wide $\Delta$SWE estimates, we performed a summing moving window analysis of the six UAVSAR-derived $\Delta$SWE datasets. The variability in the $\Delta$SWE data products solely comes from which pixels are considered snow covered and which are not. Therefore, a pixel-wise analysis and not an apt solution, as this would be comparing pixel with values to NA values.
+To understand how the various fSCA products impacted the scene wide $\Delta$SWE estimates, we performed a summing moving window analysis of the six UAVSAR-derived $\Delta$SWE datasets. The variability in the $\Delta$SWE data products solely comes from which pixels are considered snow covered and which are not. Therefore, a pixel-wise analysis and not an apt solution, as this would be comparing pixels with values to NA values.
 
 For the analysis, the $\Delta$SWE data were separated loss and gains to prevent the cancellation of patterns caused by opposite signs within an area. The pixel-wise SWE changes were then summed using a 41 $\times$ 41 pixel moving window. Next, the standard deviation (SD) of the six moving window summed products was calculated. The relatively large window size was selected to minimize the of NA (not available) pixels in the SD calculation, where only datasets with 41-pixel squared areas of no snow will produced NA values. Summed pixels with NA values were not included in the SD calculations. This is important for the IMS data as the northeast corner has a large continuous swath of NA values.
 
 \hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
 \hypertarget{ch4-results}{\subsection{$\Delta$SWE Estimates}\label{ch4-results}}
 
-The spatially distributed UAVSAR $\Delta$SWE estimates for each of the six fSCA products are shown in Fig.~\ref{fig:uavsar_dswe}. The black areas represent pixels lost in the unwrapping process (Fig. \ref{fig:uavsar_cor_inc_phase_plot}b), and are static throughout Fig.~\ref{fig:uavsar_dswe}a--e. The gray area represents pixels not considered snow covered by the given fSCA product, and these areas spatially variable in the six scenes. Overall, the six scenes show a mean net SWE of $-$14,600~dam$^{3}$, with a mean gain of $-$3,100~dm$^{3}$ and loss of $-$17,800~dam$^{3}$ (Table~\ref{tab:dswe_stats}, \ref{fig:dswe_bar_graph}). These values are consistent with in situ snow pillow data in this area, as there was a prolonged dry spell during 26 February to March 4 time span (***add appendix figure here).
+The spatially distributed 80~m UAVSAR $\Delta$SWE estimates for each of the six fSCA products are shown in Fig.~\ref{fig:uavsar_dswe}. The black areas represent pixels lost in the unwrapping process (Fig. \ref{fig:uavsar_cor_inc_phase_plot}b), and are static throughout Fig.~\ref{fig:uavsar_dswe}a--e. The gray area represents pixels not considered snow covered by the given fSCA product, and these areas spatially variable in the six scenes. Overall, the six scenes show a mean net SWE of $-$14,600~dam$^{3}$, with a mean gain of $-$3,100~dm$^{3}$ and loss of $-$17,800~dam$^{3}$ (Table~\ref{tab:dswe_stats}, Fig.~\ref{fig:dswe_bar_graph}). These values are consistent with in situ snow pillow data in this area, as there was a prolonged dry spell during 26 February to March 4 time span (***add appendix figure here).
 
 \clearpage
 \begin{figure}[t]
@@ -247,7 +250,9 @@ Mean & 3,100 & $-$17,800 & $-$14,600 \\
 
 Fig.~\ref{fig:dswe_moving_window} shows the moving window sums of the $\Delta$SWE gains and losses. The majority of the SWE gains are recorded in the northeast and southeast portions of the swatch. The SWE gain spatial patterns between the datasets are similar expect for the northeast corner of the IMS data. This area is shown as no snow while while MODSCAG, MODIS, VIIRS, and FLM display SWE gains on the order of 100--150~dam$^{3}$. Landsat shows SWE gain in this area as well, but with a lesser magnitude of $\sim$50~dam$^{3}$. All datasets other than Landsat show consistent spatial patterns and SWE loss magnitudes. Landsat's patterns are similar, yet less extensive. This is driven by the fSCA data not being spatiotemporally continuous, hence the $\Delta$SWE sums being of a lesser magnitude. The large are of NA values in the IMS data is not of concern as this area was considered SWE gain by the data. In the center left of the swath, all datasets show a lower elevation snow free area except for IMS. However, most of the $\Delta$SWE values in that area and relatively small, therefore not significantly biasing the results.
 
-The 41 $\times$ 41 moving window pixel-wise SD of SWE gains and losses are compared to canopy cover percentage in Fig.~\ref{fig:dswe_standard_deviation}. The area with the greatest SD of 30--50~dam$^{3}$ was in the northeast corner of swath. The sharp transition from red to green is driven by the NA values in the IMS data. Large SWE loss variability was centered around lower elevation area in the center of the scene. This $\Delta$SWE SD was then comparied to canopy over percent in the boxplots in Fig.~\ref{fig:dswe_boxplots}
+The 41 $\times$ 41 moving window pixel-wise SD of SWE gains and losses are compared to canopy cover percentage in Fig.~\ref{fig:dswe_standard_deviation}. The area with the greatest SD of 30--50~dam$^{3}$ was in the northeast corner of swath. The sharp transition from red to green is driven by the NA values in the IMS data. Large SWE loss variability was centered around lower elevation area in the middle of the scene. These $\Delta$SWE SD was then compared to canopy cover percent in Fig.~\ref{fig:dswe_boxplots}. Generally, the SD for SWE gains and SWE losses increases as canopy cover increases. This is caused by the different fSCA products treat under canopy snow estimation.
+
+-add mor info about lower elevation snow line being a source of uncertainty. 
 
 \clearpage
 \begin{figure}[h]
@@ -263,7 +268,7 @@ The 41 $\times$ 41 moving window pixel-wise SD of SWE gains and losses are compa
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/ch4_figs/sd_vs_cc_map_dam3_41x41.png}
-\caption{Showing SD for blahhhh}
+\caption{Showing SD for blahhhh *****FIX UNTIS ON (B)}
 \label{fig:dswe_standard_deviation}
 \end{figure}
 
@@ -285,11 +290,30 @@ The 41 $\times$ 41 moving window pixel-wise SD of SWE gains and losses are compa
 %==============================================================================
 \hypertarget{ch5-discussion}{\section{Discussion}\label{ch4-discussion}}
 
+
+
+
+Our study did not aim to validate the given data products with respect to a "truth". Many past studies have used Landsat, with various spectral unmixing approaches, as their validation data set. While it's impossible to confidently say whether or not subcanopy area is completely snow covered, we assume that the high elevation parts of the USJ were snow covered. This suggests that Landsat was under estimating fSCA and $\Delta$, as it had far greater amount of pixels considered NA.
+
+We originally hypothesized FLM would provide the most realistic results as it uses information from both Landsat and MODIS to products it's dataset. While the coarser native resolution values of MODIS and MODSCAG (500~m) and VIIRS (375~m) create block results around the snowline, these difference don't significantly impact the overall $\Delta$SWE results when compared to FLM. It extremely promising that fSCA derived from MODIS and VIIRS NDSI data, currently produced in near-real-time by NSIDC, can generate fSCA estimates for SAR-based SWE retrievals that yield nearly identical values (\ref{tab:dswe_stats}) to that of the more complex spectral unmixing and machine learning methods employed by MODSCAG and FLM. These products are also the only research based products are not currenly hosted openly on a NASA DAAC.** This means that upon the launch of NISAR in early 2024, VIIRS seems the best candidate as it was indentical to FLM**.
+
+However, future work should continue to focus estimate fSCA at finer spatial resolutions. The incorporation Very-High-Resolution (VHR) commercial satellite imagery: sources are \citep{huImprovingMountainSnow2022, thalerEstimatingSnowCover2023,yangHighresolutionMappingSnow2023,johnHighResolutionSnowCoveredArea2022}
+
+
+-- \cite{stillingerLandsatMODISVIIRS2023} recent analysis provides further confidence in the accuracy of the fSCA products. However, we found diverging results with respect to the Landsat data product. Then found a posative bias 
+
+We employed a 15\% fSCA threshold to determine the inclusion of pixels as snow-covered. This is a subjective choice based off the minimum threshold set in \cite{painterRetrievalSubpixelSnow2009}. While not the main focus of this study, future work should focus on the uncertainties associated with all SAR-based SWE retrievals techniques. Whether it's the InSAR phase-based technique presented here with L-band 
+
+As seen the in the Landsat fSCA data used in this study, very few 80~m square areas are completely snow covered. There are bare areas driven by prevailing wind patterns (cite**) and aspect-based solar radiation variations, as well at large areas of the swath consistent conifer forest canopy.
+
 -Paragraph on the need to incorporate Very-High-Resolution (VHR) commercial satellite imagery: sources are \citep{huImprovingMountainSnow2022, thalerEstimatingSnowCover2023,yangHighresolutionMappingSnow2023,johnHighResolutionSnowCoveredArea2022}
 
 
--Our variability analysis was an imperfect comparison between the fix data products. While we used a 55$\times$55 moving window, the IMS data had a large continuous snow free area in the northeast corner. These pixels were then omitted from the standard deviation analysis, propagating uncertainty in the calculation as one dataset was no used.
+-Our variability analysis was an imperfect comparison between the six data products. While we used a 41 $\times$ 41 moving window, the IMS data had a large continuous snow free area in the northeast corner. These pixels were then omitted from the standard deviation analysis, propagating uncertainty in the calculation as one dataset was not used.
 
+
+
+These results suggest that spectral unmixing in not a completely necessary step for the multisensor SAR-optical approach. While these methods are highly useful, especially energy balance modeling....
 
 %==============================================================================
 %==============================================================================
