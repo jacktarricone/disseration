@@ -32,8 +32,12 @@ Previous research has explored various types of multisensor approaches for diffe
 *** Recently, NASA released the Harmonized Landsat and Sentinel-2 (HLS) data product which fuses the two sensors to produce lower temporal resolution surface reflectance data.
 Rittger et al. \citep{rittgerMultisensorFusionUsing2021} combined Landsat and MODIS with machine learning to achieve a spatiotemporally complete 30 m fSCA dataset over the Sierra Nevada Mountains, CA. ****
 
+%%
+Recently, \cite{stillingerLandsatMODISVIIRS2023a} performed an uncertainty analysis of various fSCA products from MODIS, VIIRS, and Landsat using airborne lidar-based fSCA as validation. They found some variability in the fSCA products, with the spectrally unmixed data performing better, but overall modest differences. \cite{bairHowTradeoffsSatellite2023}
+
+
 %%%% topic: SAR/optical for SWE or depth fusion products
-Few studies have employed optical and SAR data synergistically for snow depth and SWE retrievals. \cite{lievensSnowDepthVariability2019,lievensSentinel1SnowDepth2022} developed a Sentinel-1 C-band snow depth retrieval algorithm using the co-polarized and cross-polarized backscatter ratio. They identified snow cover using 1 km$^{2}$ binary snow cover information from the Interactive Multisensor Snow and Ice Mapping System (IMS) \citep{u.s.nationalicecenterIMSDailyNorthern2008, ramsayInteractiveMultisensorSnow1998, helfrichEnhancementsForthcomingDevelopments2007}, and fractional forest cover using the 1 km$^{2}$ global consensus land cover dataset \citep{tuanmuGlobal1kmConsensus2014}, at both European and Northern Hemispherical scales. These new methods are promising, especially as the physical mechanisms governing the C-band retrievals continue to emerge \citep{zhuModelingScatteringDense2023}. \cite{tarriconeEstimatingSnowAccumulation2023a} utilized Landsat fSCA information with UAVSAR \citep{hensleyUAVSARInstrumentDescription2008} L-band InSAR data to estimate both snow ablation and accumulation in the Jemez Mountains, NM. They note the multifaceted importance of a optical-radar multisensor approach for snow cover delineation and SAR atmospheric correction. 
+Few studies have employed optical and SAR data synergistically for snow depth and SWE retrievals. \cite{lievensSnowDepthVariability2019,lievensSentinel1SnowDepth2022} developed a Sentinel-1 C-band snow depth retrieval algorithm using the co-polarized and cross-polarized backscatter ratio. They identified snow cover using 1 km$^{2}$ binary snow cover information from the Interactive Multisensor Snow and Ice Mapping System (IMS) \citep{u.s.nationalicecenterIMSDailyNorthern2008, ramsayInteractiveMultisensorSnow1998, helfrichEnhancementsForthcomingDevelopments2007}, and fractional forest cover using the 1 km$^{2}$ global consensus land cover dataset \citep{tuanmuGlobal1kmConsensus2014}, at both European and Northern Hemispherical scales. These new methods are promising, especially as the physical mechanisms governing the C-band retrievals continue to emerge \citep{zhuModelingScatteringDense2023}. \cite{tarriconeEstimatingSnowAccumulation2023a} utilized Landsat fSCA information with UAVSAR \citep{hensleyUAVSARInstrumentDescription2008} L-band InSAR data to estimate both snow ablation and accumulation in the Jemez Mountains, NM. They note the multifaceted importance of an optical-radar multisensor approach for snow cover delineation and SAR atmospheric correction. 
 
 -add (ma et al. 2022) p-band work
 -other radar studies looking to advance radar remote sensing of swe don't explicity address the idea of fSCA identification.
@@ -289,24 +293,36 @@ The 41 $\times$ 41 moving window pixel-wise SD of SWE gains and losses are compa
 %==============================================================================
 %==============================================================================
 \hypertarget{ch5-discussion}{\section{Discussion}\label{ch4-discussion}}
+\hypertarget{ch5-discussion-1}{\section{Key Findings}\label{ch4-discussion}}
 
 
-
+- talk about how many of the products were very similar
 
 Our study did not aim to validate the given data products with respect to a "truth". Many past studies have used Landsat, with various spectral unmixing approaches, as their validation data set. While it's impossible to confidently say whether or not subcanopy area is completely snow covered, we assume that the high elevation parts of the USJ were snow covered. This suggests that Landsat was under estimating fSCA and $\Delta$, as it had far greater amount of pixels considered NA.
 
-We originally hypothesized FLM would provide the most realistic results as it uses information from both Landsat and MODIS to products it's dataset. While the coarser native resolution values of MODIS and MODSCAG (500~m) and VIIRS (375~m) create block results around the snowline, these difference don't significantly impact the overall $\Delta$SWE results when compared to FLM. It extremely promising that fSCA derived from MODIS and VIIRS NDSI data, currently produced in near-real-time by NSIDC, can generate fSCA estimates for SAR-based SWE retrievals that yield nearly identical values (\ref{tab:dswe_stats}) to that of the more complex spectral unmixing and machine learning methods employed by MODSCAG and FLM. These products are also the only research based products are not currenly hosted openly on a NASA DAAC.** This means that upon the launch of NISAR in early 2024, VIIRS seems the best candidate as it was indentical to FLM**.
+We originally hypothesized FLM would provide the most realistic results as it uses information from both Landsat and MODIS to products its dataset. While the coarser native resolution values of MODIS and MODSCAG (500~m) and VIIRS (375~m) create block results around the snowline, these differences don't significantly impact the overall $\Delta$SWE results when compared to FLM. It extremely promising that fSCA derived from MODIS and VIIRS NDSI data, currently produced in near-real-time by NSIDC, can generate fSCA estimates for SAR-based SWE retrievals that yield nearly identical values (\ref{tab:dswe_stats}) to that of the more complex spectral unmixing and machine learning methods employed by MODSCAG and FLM. These products are also the only research based products are not currently hosted openly on a NASA DAAC. This means that upon the launch of NISAR in early 2024, VIIRS seems the best candidate as it was nearly identical to FLM.
+
+
+These results suggest that spectral unmixing is not completely necessary for the multisensor SAR-optical approach. While \cite{stillingerLandsatMODISVIIRS2023a} showed these methods are more accurate than NDSI-based approaches, these are research based products that are not currently produced by a NASA DAAC. 
 
 However, future work should continue to focus estimate fSCA at finer spatial resolutions. The incorporation Very-High-Resolution (VHR) commercial satellite imagery: sources are \citep{huImprovingMountainSnow2022, thalerEstimatingSnowCover2023,yangHighresolutionMappingSnow2023,johnHighResolutionSnowCoveredArea2022}
 
 
 -- \cite{stillingerLandsatMODISVIIRS2023} recent analysis provides further confidence in the accuracy of the fSCA products. However, we found diverging results with respect to the Landsat data product. Then found a posative bias 
 
-We employed a 15\% fSCA threshold to determine the inclusion of pixels as snow-covered. This is a subjective choice based off the minimum threshold set in \cite{painterRetrievalSubpixelSnow2009}. While not the main focus of this study, future work should focus on the uncertainties associated with all SAR-based SWE retrievals techniques. Whether it's the InSAR phase-based technique presented here with L-band 
+\hypertarget{ch5-discussion-2}{\section{Limitations and Future Work}\label{ch4-discussion-2}}
 
+% study area and short time period
+The UAVSAR flight line was over a high elevation (mean XXXX~m) portion of the USJ where majority of the swath was snow covered. During the two-week study period, there were no large precipitation events, and therefore snow cover was relatively constant. In future satellite-based full basin scale analyses, there will be a greater range of fSCA values, as well as more lower elevation forest cover. Additionally, large atmospheric river type storms in the Sierra can significantly shift the snow line. This presents challenges for the Landsat data especially.
+
+We used an average SWE change between three snow pillows to set the InSAR known change point. As seen in **Appendix Table 1, there was disagreement between the UAVSAR predict SWE change and the in situ values. 
+
+
+
+We employed a 15\% fSCA threshold to determine the inclusion of pixels as snow-covered. This is a subjective choice based off the minimum threshold set in \cite{painterRetrievalSubpixelSnow2009}. While not the main focus of this study, future work should focus on the uncertainties associated with all SAR-based SWE retrievals techniques. Whether it's the InSAR phase-based technique presented here with L-ban 
+-coreh20 line?
 As seen the in the Landsat fSCA data used in this study, very few 80~m square areas are completely snow covered. There are bare areas driven by prevailing wind patterns (cite**) and aspect-based solar radiation variations, as well at large areas of the swath consistent conifer forest canopy.
 
--Paragraph on the need to incorporate Very-High-Resolution (VHR) commercial satellite imagery: sources are \citep{huImprovingMountainSnow2022, thalerEstimatingSnowCover2023,yangHighresolutionMappingSnow2023,johnHighResolutionSnowCoveredArea2022}
 
 
 -Our variability analysis was an imperfect comparison between the six data products. While we used a 41 $\times$ 41 moving window, the IMS data had a large continuous snow free area in the northeast corner. These pixels were then omitted from the standard deviation analysis, propagating uncertainty in the calculation as one dataset was not used.
