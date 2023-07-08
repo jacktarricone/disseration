@@ -41,21 +41,19 @@ Mountain snowpack will continue to change, with more uncertainty expected as cli
 \begin{enumerate}
    \item Mountain hydroclimatology
    \begin{itemize}
-    \item number one   
-    
-    \item number two
-    
-    \item number three
+     \item We investigated the controls and sensitivities of midwinter melt metrics in the Sierra. Future work should focus on ablation season metrics such as snowmelt rate and melt season length. Yet, due to positive biases for melt season dynamics, the SNSR data isn't well suited for this analysis. Additionally, this type of sensitivity analysis could be scaled to the WUS using new SWE reanalysis from \citep{fangWesternUnitedStates2022}.
    \end{itemize}
 
    % sar
    \item Radar remote sensing of snow
    \begin{itemize}
-     \item one
 
-     \item two
+     % various other
+     \item For continental to global scale implementation of the L-band InSAR SWE retrievals, the two main uncertainties must be addressed: atmospheric correction in complex mountain terrain and methods for confidently identifying the correct reference phase. A near-real-time atmospheric correction method that works in all of the diverse meteorologic conditions of mountain environments will be exceedingly difficult. Snowpack variations and atmospheric signals scale will elevation, entangling these two signals together.
 
-    \item three
+     \item We used L-band InSAR to estimate snowpack variations. However, this technique will not work in melting conditions, **steep topography, A complete understanding of global SWE distribution will require the implementation of various spaceborne SAR wavelengths and retrieval techniques and the continued use of airborne lidar surveys. Work towards a snow-focused satellite mission -- currently being proposed at either Ku-band \citep{tsangReviewArticleGlobal2022, garnaudQuantifyingSnowMass2019} or P-band \citep{shahRemoteSensingSnow2017} --- is of the utmost importance.
+
+    \item No SAR-based SWE retrieval technique will be able to provide spatially complete data. The shorter wavelengths (Ku-band and C-band) will be significantly impacted by the forest canopy. While P-band can penetrate forest canopy, the satellite would provide a few (2--6) narrow swaths ($\sim$1~km) and not spatially complete data. Therefore, for spatiotemporally complete data, assimilation of the SWE retrievals land surface models will be required for all SAR-based SWE retrievals \citep{girottoDataAssimilationImproves2020}. Assimilation methodologies have been demonstrated at Ku-band \citep{wrzesienDevelopmentNatureRun2022, choEvaluatingUtilityActive2022}, P-band \citep{maEstimatingSpatiotemporallyContinuous2023}, and C-band \citep{girottoIdentifyingSnowfallElevation2023, brangersSentinel1SnowDepth}, yet not for L-band. This should be the focus of future studies.
     
    \end{itemize}
 \end{enumerate}
