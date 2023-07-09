@@ -35,7 +35,9 @@ modeling** \citep{mazzottiCanopyStructureTopography2023, lopez-morenoEffectSlope
 
 % and the physical mechanisms that govern snowpack snow accumulation and ablation.
 \subsection{Study Overview}
-Here, we use the Sierra Nevada Snow Reanalysis (SNSR), a 90-m spatiotemporally continuous SWE data set from 1985–-2016 (32 years), for a comparison of how snowpack metrics change with physiography, specifically aspect and elevation. We analyze four snowpack metrics: MSWE, day of max SWE (DOM), fraction of snow ablation before 1 April (FM) \citep{musselmanWinterMeltTrends2021}, and midwinter ablation mount of snow ablation (MWA) \citep{harpoldHumidityDeterminesSnowpack2018}. We then quantify the physiographic controls across three basins and perform a sensitivity analysis against meteorological forcings.
+Here, we use the Sierra Nevada Snow Reanalysis (SNSR), a 90-m spatiotemporally continuous SWE data set from 1985--2016 (32 years), for a comparison of how snowpack metrics change with physiography, specifically aspect and elevation.
+
+We analyze four snowpack metrics: MSWE, day of max SWE (DOM), fraction of snow ablation before 1 April (FM) \citep{musselmanWinterMeltTrends2021}, and midwinter ablation mount of snow ablation (MWA) \citep{harpoldHumidityDeterminesSnowpack2018}. We then quantify the physiographic controls across three basins and perform a sensitivity analysis against meteorological forcings.
 % *** compare these metrics against annual temperature and a clear sky shortwave radiation (herein SWin) and perform a Spearman’s Rho (SR) (Yue et al., 2002).
 
 
@@ -66,7 +68,7 @@ Here, we use the Sierra Nevada Snow Reanalysis (SNSR), a 90-m spatiotemporally c
 
 \hypertarget{ch2-sa}{\subsection{Study Area}\label{ch2-sa}}
 
-We selected three river basins to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins were selected as they span a range of latitudes, hydroclimatology, forest cover, and elevations ***. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5(3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
+We selected three watersheds to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins were selected as they span a range of latitudes, hydroclimatology, forest cover, and elevations ***. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5(3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
 
 The basins were then segmented in north facing (315--45$^{\circ}$) and south facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we ensure that only complex mountain terrain, and flatter areas. The north south 
 
@@ -104,21 +106,15 @@ In this section, we describe the gridded snow reanalysis, meteorologic data, and
 \hypertarget{ch2-do-2}{\subsubsection{SNSR}\label{ch2-do-2}}
 
 
-The Sierra Nevada SWE Reanalysis (SNSR) \citep{margulisLandsatEraSierraNevada2016} is a 90~m gridded daily SWE product for California Sierra Nevada from water year (WY) 1985--2016. These data were created using a Bayesian particle batch smoother data assimilation (DA) technique to retroactively assimilate Landsat fractional snow-covered area (fSCA) with downscaled National Land Data Assimilation System (NLDAS) meteorologic forcing. The MSWE estimates were validated with over 9000 years of snow pillow and snow course data. Detailed information on the development and implementation of this methodology can be found in a series of past publications: \cite{durandBayesianApproachSnow2008, girottoExaminingSpatialTemporal2014, girottoProbabilisticSWEReanalysis2014, margulisParticleBatchSmoother2015}. A recent analysis from \citep{yangIntercomparisonSnowWater2023} evaluated the uncertainty of various SWE products using ASO lidar data. They found that the SNSR performed the best according to various error metrics, making it a well-suited dataset for our analysis.
+The SNSR \citep{margulisLandsatEraSierraNevada2016} is a 90~m gridded daily SWE product for California Sierra Nevada from water year (WY) 1985--2016. These data were created using a Bayesian particle batch smoother data assimilation (DA) technique to retroactively assimilate Landsat fractional snow-covered area (fSCA) with downscaled National Land Data Assimilation System (NLDAS) meteorologic forcing. The MSWE estimates were validated with over 9000 years of snow pillow and snow course data. Detailed information on the development and implementation of this methodology can be found in a series of past publications: \cite{durandBayesianApproachSnow2008, girottoExaminingSpatialTemporal2014, girottoProbabilisticSWEReanalysis2014, margulisParticleBatchSmoother2015}. A recent analysis from \citep{yangIntercomparisonSnowWater2023} evaluated the uncertainty of various SWE products using ASO lidar data. They found that the SNSR performed the best according to various error metrics, making it a well-suited dataset for our analysis.
 
 \hypertarget{ch2-do-2}{\subsubsection{SNOTEL data}\label{ch2-do-2}}
 
-We used snow pillow data from 29 SNOTEL sites totaling $\sim$840 station years (Fig. \ref{}(**UPDATE map with SNOTEL LOCATIONS AND ASPECTS). Operated by the United States Department of Agriculture's Natural Resources Conservation Service (NRCS), it is a comprehensive network of remote, long-term, automated sites spread across the western United States and Alaska. These data are quality controlled by the NRCS.
+We used snow pillow data from 29 SNOTEL sites totaling $\sim$840 station years (Fig. \ref{kuy_study_area}(**UPDATE map with SNOTEL LOCATIONS AND ASPECTS). Operated by the United States Department of Agriculture's Natural Resources Conservation Service (NRCS), it is a comprehensive network of remote, long-term, automated sites spread across the western United States and Alaska. These data are quality controlled by the NRCS.
 
 \hypertarget{ch2-do-2}{\subsubsection{gridMET Data}\label{ch2-do-2}}
 
-We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGriddedSurface2013} to calculate annual (1985--2016) cold season values from October 1 to March 31 (ONDJFM) for four meteorologic variables: mean temperature(T\textsubscript{mean}), relative humidity (RH\textsubscript{mean}), incoming solar radiation (insolation), absolute humidity (AH). Daily ONDJFM where averaged to create the annual metrics. These data were bilinearly downscaled to the 90 m SNSR resolution.Since gridMET does not include a T\textsubscript{mean} or RH\textsubscript{mean} value, only the daily maximum and minimum, these values were averaged to create the two mean variables. Insolation from gridMET is estimated with respect to a planar surface and not topographically corrected. AH in g~cm$^{-3}$ was calculated using T\textsubscript{mean}, RH\textsubscript{mean}, and a function based off the ideal gas law:
-
-\begin{equation}
-\text{AH} = \frac{{6.112 \times e^{\left(\frac{{17.67 \times \text{T}\textsubscript{mean}}}{{\text{T}\textsubscript{mean} + 243.5}} \right)} \times \text{RH}\textsubscript{mean} \times 2.1674}} {{273.15 + \text{T}\textsubscript{mean}}}
-\label{eq:ah}
-\end{equation}
-
+We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGriddedSurface2013} to calculate annual (1985--2016) cold season values from October 1 to March 31 (ONDJFM) for four meteorologic variables: mean temperature(T\textsubscript{mean}), relative humidity (RH\textsubscript{mean}), incoming solar radiation (insolation), absolute humidity (AH). Daily ONDJFM where averaged to create the annual metrics. These data were bilinearly downscaled to the 90 m SNSR resolution. Since gridMET does not include a T\textsubscript{mean} or RH\textsubscript{mean} value, only the daily maximum and minimum, these values were averaged to create the two mean variables. Insolation from gridMET is estimated with respect to a planar surface and not topographically corrected. 
 
 %==============================================================================
 \hypertarget{ch2-do-2}{\subsubsection{Clear sky insolation}\label{ch2-do-2}}
@@ -178,7 +174,7 @@ Spearman's Rho, a non-parametric measure of statistical dependence between varia
 \hypertarget{ch2-results}{\section{Results}\label{ch2-results}}
 \hypertarget{ch2-results-1}{\subsection{Snow metric physiography}\label{ch2-results-1}}
 
-The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} and the boxplots showing the distribution in Fig.\ref{fig:snow_boxplots}. We also report the physiographic distribution of the four meteorologic variables in Table \ref{tab:met_metric_table} and Fig. \ref{fig:met_boxplots}.
+The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} with Fig.\ref{fig:snow_boxplots} showing the distributions. We also report the physiographic distribution of the four meteorologic variables in Table \ref{tab:met_metric_table} and Fig. \ref{fig:met_boxplots}.
 
 %f1
 \begin{figure*}[t]
@@ -188,12 +184,16 @@ The four snowpack metrics varied significantly with patterns emerging with respe
 \end{figure*}
 
 
-For all of the snow metrics in all three basins, there are marked differences between the north and south facing slopes (Fig.~\ref{fig:snow_boxplots}. Overall the Kern, which is the southern most basin, has the greatest mean FM values (Fig.~\ref{fig:snow_boxplots}a) for all elevation bands when compared to the Yuba and the USJ. Additionally, it had the highest mean FM percent difference between south and north facing slopes of 69.6~\%. Yet, shown in Fig. \ref{fig:met_boxplots} and Table \ref{tab:met_metric_table}, the Kern has either similar or colder T\textsubscript{mean} values (Fig. \ref{fig:met_boxplots}a) than the Yuba and the USJ. These differences are possibly explained by the insolation values in the Kern (Fig. \ref{fig:snow_boxplots}c) being greater by $\sim$15--25 $\mathrm{W~m}^{-2}$ across all EZs. Elevation trends are consistently observed across all three basins for each of the four metrics, although the magnitude of the differences varies incongruently among the basins. As expected, MSWE and DOM increase with elevation, while FM and MWA broadly decrease. The two midwinter ablation metrics (FM and MWA) impact both MSWE and DOM for all basins and EZs. Across the three basins, south facing slopes reach DOM 16.1~d earlier, with the greatest mean difference of 25 d occuring in the USJ between 3100--4361~m. MSWE on north facing slopes is on average 154~mm greater across all basins and EZs. North vs. south facing disparities are amplified by increasing elevation, with a maximum difference of 467~mm in EZ4 of the Yuba.
+For all of the snow metrics in all three basins, there are marked differences between the north and south facing slopes (Fig.~\ref{fig:snow_boxplots}). Overall the Kern, which is the southern most basin, has the greatest mean FM values (Fig.~\ref{fig:snow_boxplots}a) for all elevation bands when compared to the Yuba and the USJ. Additionally, it had the highest mean FM percent difference between south and north facing slopes of 69.6~\%. Yet, shown in Fig. \ref{fig:met_boxplots} and Table \ref{tab:met_metric_table}, the Kern has either similar or colder T\textsubscript{mean} values (Fig. \ref{fig:met_boxplots}a) than the Yuba and the USJ. These differences are possibly explained by the insolation values in the Kern (Fig. \ref{fig:snow_boxplots}c) being greater by $\sim$15--25 $\mathrm{W~m}^{-2}$ across all EZs. 
+
+Elevation trends are consistently observed across all three basins for each of the four metrics, although the magnitude of the differences varies incongruently among the basins. As expected, MSWE and DOM increase with elevation, while FM and MWA broadly decrease. The two midwinter ablation metrics (FM and MWA) impact both MSWE and DOM for all basins and EZs. Across the three basins, south facing slopes reach DOM on average 16.1~d earlier, with the greatest mean difference of 25 d occuring in the USJ between 3100--4361~m. MSWE on north facing slopes is on average 154~mm greater across all basins and EZs. North vs. south facing disparities are amplified by increasing elevation, with a maximum difference of 467~mm in EZ4 of the Yuba.
 
 For EZ4 (2700--3100~m) and EZ5 (3100--4361~m), the USJ and Kern showed particularly stark differences in both midwinter ablation metrics with respect to aspect. The mean FM and MWA values for the two basins in these elevation zones on north facing slopes were 0.07 and 39~mm, respectively. In contrast, south facing slopes had markedly higher values, with mean FM and MWA values of 0.29 and 151~mm. This means there is approximately 4 times more FM and MWA on south facing slopes at elevations above 3100~m. Furthermore, the T\textsubscript{mean} values are below 0$^{\circ}$ for these errors. This suggests insolation as a driving factor in midwinter ablation.
 
 
 For the gridMET derived metrics (T\textsubscript{mean}, RH***, insolation) there are no significant difference between the north facing and south facing slopes (Figure \ref{fig:met_boxplots}.a--c). This makes sense considering griMET's native 4~km spatial resolution, thus not capturing the topographic heterogeneity of the 90~m SNSR data. CS insolation shows vast differences in the amount insolation received by the two aspects. Across all basins and EZs, south facing slopes have a mean daily value of 234 $\mathrm{W~m}^{-2}$, while north facing's is 43 $\mathrm{W~m}^{-2}$. Since these are static clear sky estimates, the values say consistent across the three study basins and EZs.
+
+Fig.~\ref{fig:aspec_mwa_fm_bp} shows T\textsubscript{mean}---split into 0.5 C$^{\circ}$ boxplots ---plotted against FM (left) and MWA (right) for the three study basins.
 
 \begin{table}[htbp]
 \centering
@@ -243,7 +243,7 @@ Yuba & 2700--3100 m & 1660 & 1193 & -467 & 196 & 178 & -18 & 0.04 & 0.15 & 0.11 
 
 \begin{table}[htbp]
 \centering
-\caption{The mean values of the T\textsubscript{mean}, AH, insolation, and CS insolation for the three study basins. Each basin is split into north facing (NF) and south facing (SF) with the difference between the two also shown.}
+\caption{******UPDATE:REMOVE AH****** The mean values of the T\textsubscript{mean}, AH, insolation, and CS insolation for the three study basins. Each basin is split into north facing (NF) and south facing (SF) with the difference between the two also shown.}
 \label{tab:met_metric_table}
 \tiny 
 \begin{tabular}{llrrrrrrrrrrrr}
