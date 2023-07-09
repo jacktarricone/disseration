@@ -66,7 +66,7 @@ Here, we use the Sierra Nevada Snow Reanalysis (SNSR), a 90-m spatiotemporally c
 
 \hypertarget{ch2-sa}{\subsection{Study Area}\label{ch2-sa}}
 
-We choose three distinct river basins to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins were selected as they display a variety of different latitudes, hydroclimatology, forest cover, and elevation ranges ***. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5(3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
+We selected three river basins to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins were selected as they span a range of latitudes, hydroclimatology, forest cover, and elevations ***. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5(3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
 
 The basins were then segmented in north facing (315--45$^{\circ}$) and south facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we ensure that only complex mountain terrain, and flatter areas. The north south 
 
@@ -98,7 +98,7 @@ The basins were then segmented in north facing (315--45$^{\circ}$) and south fac
 %==============================================================================
 \hypertarget{ch2-do-1}{\subsection{Data Overview}\label{ch2-do-1}}
 
-In this section we describe the data products used in this study.
+In this section, we describe the gridded snow reanalysis, meteorologic data, and in situ snow data.
 
 %==============================================================================
 \hypertarget{ch2-do-2}{\subsubsection{SNSR}\label{ch2-do-2}}
@@ -108,7 +108,7 @@ The Sierra Nevada SWE Reanalysis (SNSR) \citep{margulisLandsatEraSierraNevada201
 
 \hypertarget{ch2-do-2}{\subsubsection{SNOTEL data}\label{ch2-do-2}}
 
-We used snow pillow data form 29....
+We used snow pillow data from 29 SNOTEL sites totaling $\sim$840 station years (Fig. \ref{}(**UPDATE map with SNOTEL LOCATIONS AND ASPECTS). Operated by the United States Department of Agriculture's Natural Resources Conservation Service (NRCS), it is a comprehensive network of remote, long-term, automated sites spread across the western United States and Alaska. These data are quality controlled by the NRCS.
 
 \hypertarget{ch2-do-2}{\subsubsection{gridMET Data}\label{ch2-do-2}}
 
@@ -140,9 +140,9 @@ We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar rad
 \label{kuy_study_area}
 \end{figure*}
 
-Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. MSWE is defined as the maximum amount (mm) of SWE in a given pixel for WY, while DOM is the last day of water year which the pixel has the amount. FM is the fraction of ablation (melt, wind transport, sublimation) that occurs before April 1st, while MWA is the amount of SWE lost in (mm). Reporting both FM and MWA allows for a more complete understanding of midwinter melt dynamics, as gives two different values to melt across the landscape (***rework***).
+Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. MSWE is defined as the maximum amount (mm) of SWE in a given pixel for WY, while DOM is the last day of the water year in which the pixel has the amount. FM is the fraction of ablation (melt, wind transport, sublimation) that occurs before April 1st, while MWA is the amount of SWE lost in (mm). Reporting both FM and MWA allows for a more complete understanding of midwinter melt dynamics, as gives two different values to melt across the landscape (***rework***).
 
-We focused on our analysis on the seasonal snow zone, or areas that receive snow that majority of years. To do this, an annual accumulation threshold of 26~mm ($\sim$1~in) was of SWE for a given pixel to be considered. Then, within the 32-year time series, a pixel must meet this condition at least 27 of the 32 years. ***See Appendix 1 for figures showing the full SNSR study area***. 
+We focused on our analysis on the seasonal snow zone, or areas that receive snow the majority of years. To do this, an annual accumulation threshold of 26~mm ($\sim$1~in) was of SWE for a given pixel to be considered. Then, within the 32-year time series, a pixel must meet this condition at least 27 of the 32 years. ***See Appendix 1 for figures showing the full SNSR study area***. 
 
 SNSR values were selected by the specific pixel in which the station fell. These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 station years (Figure \ref{kuy_study_area}). Two correlation coefficients (R and R$^{2}$), root-mean-square error (RMSE), mean absolute error (MAE), mean error (ME), and percent bias (PB) are in Table \ref{tab:snow_metrics_val_table}.
 
@@ -166,7 +166,7 @@ SNSR values were selected by the specific pixel in which the station fell. These
 
 We disaggregated the basins by their physiographic characteristics (elevation, slope, and aspect) in order to understand the relationship between these physical attributes, snow metrics, and climate. This segmenting also controls for precipitation inputs, where we assume that snowfall amounts are relatively constant throughout the EZs. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5 (3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
 
-The basins were then segmented in north facing (315--45$^{\circ}$) and south facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we focus our analysis on only complex mountain terrain and flatter areas which still technically have aspect value. We did not include east facing and west facing slopes in this study, as our focus is on the variations in direct insolation between north and south facing slopes
+The basins were then segmented in north facing (315--45$^{\circ}$) and south facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we focus our analysis on only complex mountain terrain and flatter areas, which still technically have aspect value. We did not include east facing and west facing slopes in this study, as our focus is on the variations in direct insolation between north and south facing slopes
 
 \hypertarget{ch2-methods-3}{\subsection{Spearman correlations}\label{ch2-methods-3}}
 
