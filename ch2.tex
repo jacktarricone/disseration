@@ -11,7 +11,7 @@
 Seasonal snowmelt from midlatitude mountain environments is the main source of water for nearly a billion people across the globe \citep{sturmWaterLifeSnow2017}.
 Climate warming is affecting the stationarity of various hydroclimatic processes \citep{millyStationarityDeadWhither2008}. In the Western US (WUS), this means warmer winter temperatures \cite{gergelEffectsClimateChange2017}, more cold season precipitation falling as rain \citep{knowlesTrendsSnowfallRainfall2006}, which in turn impact snow accumulation and ablation processes \citep{kapnickCausesRecentChanges2012}. These snowpack variations influence streamflow timing \citep{stewartChangesSnowmeltRunoff2004} and affect the magnitude of streamflow overall \citep{barnhartSnowmeltRateDictates2016}. (***rework). Hydroclimatic changes pose significant implications for water resources management in an uncertain future \citep{livnehDroughtLessPredictable2020}.
 
-Common snow metrics like April 1st snow water equivalent (SWE) and maximum SWE (MSWE) are used to estimate spring flows (**cite). With recent climate change, midwinter melt events caused by snow droughts \citep{harpoldDefiningSnowDrought2017} and dry spells \citep{hatchettMidwinterDrySpells2023} are becoming more common. This melt impacts MSWE, ablation season processes, and streamflow generation. Both \cite{harpoldHumidityDeterminesSnowpack2018} and \cite{musselmanWinterMeltTrends2021} showed the importance of midwinter melt, but their studies relied on station data. Specifically, \cite{musselmanWinterMeltTrends2021} states that to better understand the impact of anthropogenic warming on snow, it is important to continue investigating the relationship between climatology, physiography, and snowpack. This allows for more insight into how snowpack will react to warming temperatures across spatial scales. Therefore, we must quantify the physiographic controls and climatological sensitivities of hydrologically important snowpack metrics.
+Common snow metrics like April 1st snow water equivalent (SWE) and maximum SWE (MSWE) are used to estimate spring flows (**cite). With recent climate change, midwinter melt events caused by snow droughts \citep{harpoldDefiningSnowDrought2017} and dry spells \citep{hatchettMidwinterDrySpells2023} are becoming more common. This melt impacts MSWE, ablation season processes, and streamflow generation. Both \cite{harpoldHumidityDeterminesSnowpack2018} and \cite{musselmanWinterMeltTrends2021} showed the importance of midwinter melt, but their studies relied on station data. Specifically, \cite{musselmanWinterMeltTrends2021} states that to better understand the impact of anthropogenic warming on snow, it is important to continue investigating the relationship between climatology, physiography, and snowpack. This allows for more insight into how snowpack will react to warming temperatures across spatial scales, as this still remain unclear \citep{molotchEstimatingDistributionSnow2008}. Therefore, we must quantify the physiographic controls and climatological sensitivities of hydrologically important snowpack metrics.
 
 % 
 \subsection{Background}
@@ -20,22 +20,24 @@ Physiographic parameters (i.e., elevation, aspect, slope) are first order contro
 
 \subsubsection{Limitations of previous work}
 Spatial and temporal scales of observations need to be relevant to the physical process of interest. For instance, \cite{bloschlScalingIssuesSnow1999} showed that the relevant spatial scale for snow hydrology in mountain regions $\sim$100~m, with this resolution showing the ability to resolve critical spatial characteristics. **Need the right scales for both measurements and models.  AND, we need to consider the spatial and temporal scales for understanding processes.** Past studies have leveraged long-term point-based in situ data \citep{clowChangesTimingSnowmelt2010,harpoldChangesSnowpackAccumulation2012a,kapnickCausesRecentChanges2012,musselmanWinterMeltTrends2021} and kilometer-scale models to evaluate various climatic-scale monotonic snowpack metric trends 
-\citep{moteDECLININGMOUNTAINSNOWPACK2005, moteDramaticDeclinesSnowpack2018, zengSnowpackChange19822018, haleDriversSpatiotemporalPatterns2023}. However, snow pillows cover less than 1~\% of the land area and are limited to mainly mid-elevation flat forest cuts \citep{guan20102011Snow2013}, and macroscale hydrologic models (e.g., Variable Infiltration Capacity (VIC) \citep{liangSimpleHydrologicallyBased1994}) or snow reanalyses (e.g. UA daily 4~km SWE product \citep{broxtonLinkingSnowfallSnow2016}, SNOw Data Assimilation System (SNODAS) \citep{barrettNationalOperationalHydrologic2003}) have resolutions on the scale of kilometers---neither are well-suited for understanding snowpack patterns in complex topography. \cite{trujilloSnowpackRegimesWestern2014} used SNOTEL data from the WUS to characterize distinct geographic snowpack regimes, yet physiographic variables were not considered due to data limitations.
+\citep{moteDECLININGMOUNTAINSNOWPACK2005, moteDramaticDeclinesSnowpack2018, zengSnowpackChange19822018, haleDriversSpatiotemporalPatterns2023}. However, snow pillows cover less than 1~\% of the land area and are limited to mainly mid-elevation flat forest cuts \citep{guan20102011Snow2013}. Macroscale hydrologic models (e.g., Variable Infiltration Capacity (VIC) \citep{liangSimpleHydrologicallyBased1994}) or snow reanalyses (e.g. UA daily 4~km SWE product \citep{broxtonLinkingSnowfallSnow2016}, SNOw Data Assimilation System (SNODAS) \citep{barrettNationalOperationalHydrologic2003}) have resolutions on the scale of kilometers. This makes neither of these data well-suited for understanding snowpack patterns in complex topography. \cite{trujilloSnowpackRegimesWestern2014} used SNOTEL data from the WUS to characterize distinct geographic snowpack regimes, yet physiographic variables were not considered due to data limitations.
 
-%%% studies that do use asepct!
-Past studies have considered physiographic in their characterization of mountain snowpack. \cite{pomeroyVariationSurfaceEnergetics2003} used in situ meteorologic instrumentation setup slope normal instead of the traditional gravimetric orientation and found marked differences in insolation and ablation rates on south and north-facing slopes. 
+%%% studies that do use aspect! (elder???)
+Past studies have considered physiography in their characterization of mountain snowpack. \cite{pomeroyVariationSurfaceEnergetics2003} used in situ meteorologic instrumentation setup slope normal instead of the traditional gravimetric orientation and found marked differences in insolation and ablation rates on south and north-facing slopes. Lidar data has been employed to investigate snow depth variation with respect to various landscape characteristics \citep{kirchnerLiDARMeasurementSeasonal2014, tennantRegionalSensitivitiesSeasonal2017}. Various snow modeling studies have considered physiographic effects on snowpack accumulation and ablation \citep{broxtonForestCoverTopography2020,mazzottiCanopyStructureTopography2023, lopez-morenoEffectSlopeAspect2014}. However, all the studies referenced are limited by either their small spatial scale or short temporal scale.
 
-
-***Past work has investigated the spatial variability snow depth and SWE and smaller spatial and shorter temporal scales.
--- \citep{kirchnerLiDARMeasurementSeasonal2014, tennantRegionalSensitivitiesSeasonal2017} physiographic snow depth variability from lidar, only a few flights in one basin. add info on modeling studies % in situ
-modeling** \citep{mazzottiCanopyStructureTopography2023, lopez-morenoEffectSlopeAspect2014}. 
-
-% and the physical mechanisms that govern snowpack snow accumulation and ablation.
 \subsection{Study Overview}
-Here, we use the Sierra Nevada Snow Reanalysis (SNSR), a 90-m spatiotemporally continuous SWE data set from 1985--2016 (32 years), for a comparison of how snowpack metrics change with physiography, specifically aspect and elevation.
+Here, we use the Sierra Nevada Snow Reanalysis (SNSR), a 90~m spatiotemporally continuous SWE data set from 1985--2016 (32 years), for a comparison of how snowpack metrics change with physiography, specifically aspect, and elevation. This novel dataset addresses two of the main deficiencies outlined above: it is high-resolution (90~m) spatially distributed data that spans a 32-year study period. 
 
-We analyze four snowpack metrics: MSWE, day of max SWE (DOM), fraction of snow ablation before 1 April (FM) \citep{musselmanWinterMeltTrends2021}, and midwinter ablation mount of snow ablation (MWA) \citep{harpoldHumidityDeterminesSnowpack2018}. We then quantify the physiographic controls across three basins and perform a sensitivity analysis against meteorological forcings.
-% *** compare these metrics against annual temperature and a clear sky shortwave radiation (herein SWin) and perform a Spearman’s Rho (SR) (Yue et al., 2002).
+We analyze four snowpack metrics: MSWE, day of MSWE (DOM), fraction of snow ablation before 1 April (FM) \citep{musselmanWinterMeltTrends2021}, and amount of midwinter snow ablation (MWA) \citep{harpoldHumidityDeterminesSnowpack2018}. Our study aims to answer the following research questions:
+
+\begin{enumerate}
+    \item How does midwinter ablation vary across a watershed with respect to physiography?
+    
+    \item What are the physical mechanisms driving this variation in midwinter ablation?
+\end{enumerate}
+
+
+% We then quantify the physiographic controls across three basins and perform a sensitivity analysis against meteorological forcings.
 
 
 %------
@@ -50,7 +52,6 @@ We analyze four snowpack metrics: MSWE, day of max SWE (DOM), fraction of snow a
 %-	What about slope and aspect? \citep{dozierRevisitingTopographicHorizons2022, dozierApproachEnergyBalance1979} \
 
 %-	Why is FM greater lower elevations: rain-snow partitioning/storm temperature \citep{huWidespreadWarmingTrends2020} warmer (temps), \
-
 
 %-	(A. A. Harpold \& Brooks, 2018) “The observation that seasonal snow cover in the western United States exists across a mean winter temperature range of greater than 12 °C, including multiple locations with mean winter temperatures greater than 0 °C (Fig. 4), highlights the importance of other energy fluxes in controlling snowpack response to climate change.” \
 
