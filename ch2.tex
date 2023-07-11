@@ -103,7 +103,7 @@ We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGridde
 \hypertarget{ch2-do-2}{\subsubsection{Clear sky insolation}\label{ch2-do-2}}
 
 
-We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar radiation (CS insolation) using the R package “insol”, which is based on the Bird model \citep{birdReviewEvaluationImprovement1981}. The model uses the SNSR 90 m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. To calculate CS insolation, the daily values were averaged in the same fashion as the gridMET data. This produced a single estimate, not a time series like gridMET data. CS insolation does not account for cloud cover or variations in latitude in the dataset.
+We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar radiation (CS insolation) using the R package “insol”, which is based on the Bird model \citep{birdReviewEvaluationImprovement1981}. The model uses the SNSR 90 m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. To calculate CS insolation, the daily values were averaged in the same fashion as the gridMET data. This produced a single estimate, not a time series like gridMET data. CS insolation does not account for cloud cover or variations in latitude
 
 
 %==============================================================================
@@ -119,11 +119,12 @@ We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar rad
 \label{kuy_study_area}
 \end{figure*}
 
-Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. MSWE is defined as the maximum amount (mm) of SWE in a given pixel for WY, while DOM is the last day of the water year in which the pixel has that amount. As defined \cite{musselmanWinterMeltTrends2021}, FM is the fraction of ablation (e.g., melt, wind transport, sublimation, evaporation) that occurs before April 1st. MWA is the amount of SWE lost in (mm) during the same time period. Reporting both FM and MWA allows for a more complete understanding of midwinter ablation dynamics, as they provide both a fraction and a magnitude.
+Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. MSWE is defined as the maximum amount (mm) of SWE in a given pixel for WY, while DOM is the last day of the water year in which a pixel has that amount. As defined \cite{musselmanWinterMeltTrends2021}, FM is the fraction of ablation (i.e., melt, wind transport, sublimation, evaporation) that occurs before April 1st. MWA is the amount of SWE lost in (mm) during the same time period. Reporting both FM and MWA allows for a more complete understanding of midwinter ablation dynamics, as they provide both a fraction and a magnitude.
 
 We focused our analysis on the seasonal snow zone, which is loosely defined as areas that receive snow for the majority of years. To do this, an annual accumulation threshold of 26~mm ($\sim$1~in) of SWE was set for a given pixel to be included. Then, within the 32-year time series, a pixel must meet this condition for at least 27 of the 32 years. *** figure here***?
 
 These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 station years (Figure \ref{kuy_study_area}). SNSR values were selected by the specific pixel in which the SNOTEL station fell. Two correlation coefficients (R and R$^{2}$), root-mean-square error (RMSE), mean absolute error (MAE), mean error (ME), and percent bias (PB) are in Table \ref{tab:snow_metrics_val_table}.
+
 
 \begin{table}[htbp]
   \centering
@@ -143,13 +144,13 @@ These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 
 
 \hypertarget{ch2-methods-2}{\subsection{Physiographic disaggregation}\label{ch2-methods-2}}
 
-We disaggregated the basins by their physiographic characteristics (elevation, slope, and aspect) in order to understand the relationship between these physical attributes, snow metrics, and climate. This segmenting also controls for precipitation inputs, where we assume that snowfall amounts are relatively constant throughout the EZs. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5 (3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
+We disaggregated the basins by their physiographic characteristics (elevation, slope, and aspect) in order to understand the relationship between these physical attributes, snow metrics, and climate. This segmenting also controls for precipitation inputs, where we assume that snowfall amounts are relatively constant throughout the elevation zones (EZs). The basins were segmented into EZs: EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5 (3100--4361~m). EZ1--4 are split into even 400~m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
 
-The basins were then segmented in north-facing (315--45$^{\circ}$) and south-facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we focus our analysis on only complex mountain terrain and flatter areas, which still technically have aspect value. We did not include east facing and west facing slopes in this study, as our focus is on the variations in direct insolation between north and south-facing slopes
+The basins were then segmented into north-facing (315--45$^{\circ}$) and south-facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, flatter terrain is excluded, focusing our analysis on complex mountain areas. We did not include east-facing and west-facing slopes in this study. 
 
 \hypertarget{ch2-methods-3}{\subsection{Spearman correlations}\label{ch2-methods-3}}
 
-Spearman's Rho, a non-parametric measure of statistical dependence between variables, was computed to assess the relationship between FM and the three meteorological variables across the EZs and three study basins. The objective of this part of the analysis was to characterize the snow metric sensitivity to the meteorologic data. The analysis was conducted on a pixel-wise basis for the 32-year study period, with each pixel producing $p$ and Spearman's $\rho$ values. As there are $\sim$10$^4$ pixels in each elevation zone, we calculated the percentage of pixels that displayed significant trends ($p < .05$).
+Spearman's Rho, a non-parametric measure of statistical dependence between variables, was computed to assess the relationship between FM and the three meteorological variables across the EZs and three study basins. The objective of this part of the analysis was to characterize the snow metric sensitivity to the meteorologic data. The analysis was conducted on a pixel-wise basis for the 32-year study period, with each pixel producing $p$ and Spearman's $\rho$ values. As there are $\sim$10$^4$ pixels in each EZ, we calculated the percentage of pixels that displayed significant relationships ($p < .05$).
 
 %==============================================================================
 %==============================================================================
@@ -157,7 +158,7 @@ Spearman's Rho, a non-parametric measure of statistical dependence between varia
 \hypertarget{ch2-results}{\section{Results}\label{ch2-results}}
 \hypertarget{ch2-results-1}{\subsection{Snow metric physiography}\label{ch2-results-1}}
 
-The four snowpack metrics varied significantly with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south-facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} with Fig.\ref{fig:snow_boxplots} showing the distributions. We also report the physiographic distribution of the four meteorologic variables in Table \ref{tab:met_metric_table} and Fig. \ref{fig:met_boxplots}.
+The four snowpack metrics varied significantly, with patterns emerging with respect to basin, elevation, and aspect. The mean values---split into north and south-facing slopes and EZs---for the four snow metrics are displayed in Table \ref{tab:snow_metric_table} with Fig.\ref{fig:snow_boxplots} showing the distributions. We also report the physiographic distribution of the four meteorologic variables in Table \ref{tab:met_metric_table} and Fig. \ref{fig:met_boxplots}.
 
 %f1
 \begin{figure*}[t]
