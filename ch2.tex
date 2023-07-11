@@ -130,7 +130,7 @@ These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 
   \centering
   \caption{Error statistics (RMSE, MAE, ME, and PB) and correlation coefficients for (R and R$^{2}$) for the MSWE, DOM, and FM compared to 29 SNOTEL stations from WY 1985–-2016 (n $\approx$ 840). The in situ data are compared against the single SNSR pixel in which the station falls within.}
   \label{tab:snow_metrics_val_table}
-  \begin{tabular}{lllllll}
+  \begin{tabular}{lrrrrrr}
     \toprule
     Snow Metric & R & R$^{2}$ & RMSE & MAE & ME & PB (\%) \\
     \midrule
@@ -167,7 +167,6 @@ The four snowpack metrics varied significantly, with patterns emerging with resp
 \label{fig:snow_boxplots}
 \end{figure*}
 
-
 For all of the snow metrics in all three basins, there are marked differences between the north and south-facing slopes (Fig.~\ref{fig:snow_boxplots}). Overall the Kern, which is the southernmost basin, has the greatest mean FM values (Fig.~\ref{fig:snow_boxplots}a) for all elevation bands when compared to the Yuba and the USJ. Additionally, it had the highest mean FM percent difference between south and north-facing slopes of 69.6~\%. Yet, shown in Fig. \ref{fig:met_boxplots} and Table \ref{tab:met_metric_table}, the Kern has either similar or colder T\textsubscript{mean} values (Fig. \ref{fig:met_boxplots}a) than the Yuba and the USJ. These differences are possibly explained by the insolation values in the Kern (Fig. \ref{fig:snow_boxplots}c) being greater by $\sim$15--25 $\mathrm{W~m}^{-2}$ across all EZs. 
 
 Elevation trends are consistently observed across all three basins for each of the four metrics, although the magnitude of the differences varies incongruently among the basins. As expected, MSWE and DOM increase with elevation, while FM and MWA broadly decrease. The two midwinter ablation metrics (FM and MWA) impact both MSWE and DOM for all basins and EZs. Across the three basins, south-facing slopes reach DOM on average 16.1~d earlier, with the greatest mean difference of 25 d occurring in the USJ between 3100--4361~m. MSWE on north-facing slopes is, on average, 154~mm greater across all basins and EZs. North vs. south-facing disparities are amplified by increasing elevation, with a maximum difference of 467~mm in EZ4 of the Yuba.
@@ -176,7 +175,7 @@ For EZ4 (2700--3100~m) and EZ5 (3100--4361~m), the USJ and Kern showed particula
 
 Fig.~\ref{fig:aspec_mwa_fm_bp} shows boxplots of T\textsubscript{mean} split into 0.5 C$^{\circ}$ bins plotted against FM (left) and MWA (right) for the three study basins. Across all basins and T\textsubscript{mean} values, south-facing slopes show greater FM and MWA values.  The Kern and USJ have higher elevations, and therefore large areas with cold season T\textsubscript{mean} values below 0~$^{\circ}$C. In the places with T\textsubscript{mean} at or below $-$2~$^{\circ}$C, north-facing slopes show near-zero FM and MWA, while south-facing areas show between 0.15--0.25 and $\sim$100~m, respectively. Broadly, as T\textsubscript{mean} rises, FM and MWA values on north and south-facing slopes become more similar.
 
-For the gridMET derived metrics (T\textsubscript{mean}, RH***, insolation) there are no significant differences between the north-facing and south-facing slopes (Figure \ref{fig:met_boxplots}.a--c). This makes sense considering gridMET's native 4~km spatial resolution, thus not capturing the topographic heterogeneity of the 90~m SNSR data. CS insolation shows vast differences in the amount of insolation received by the two aspects. Across all basins and EZs, south-facing slopes have a mean daily value of 234~$\mathrm{W~m}^{-2}$, while north-facing's is 43~$\mathrm{W~m}^{-2}$. Since these are static clear sky estimates, the values say consistent across the three study basins and EZs. However, in the gridMET insolation data, the Kern has the greatest mean basin-wide insolation value of 157~$\mathrm{W~m}^{-2}$. These insolation values decrease as basin latitude increases, with the USJ and Yuba having mean values of 149~$\mathrm{W~m}^{-2}$ and 139~$\mathrm{W~m}^{-2}$, respectively.
+For the gridMET derived metrics (T\textsubscript{mean}, RH, insolation), there are no significant differences between the north-facing and south-facing slopes (Figure \ref{fig:met_boxplots}.a--c). This makes sense considering gridMET's native 4~km spatial resolution, thus not capturing the topographic heterogeneity of the 90~m SNSR data. CS insolation shows vast differences in the amount of insolation received by the two aspects. Across all basins and EZs, south-facing slopes have a mean daily value of 234~$\mathrm{W~m}^{-2}$, while north-facing's is 43~$\mathrm{W~m}^{-2}$. Since these are static clear sky estimates, the values say consistent across the three study basins and EZs. However, in the gridMET insolation data, the Kern has the greatest mean basin-wide insolation value of 157~$\mathrm{W~m}^{-2}$. These insolation values decrease as basin latitude increases, with the USJ and Yuba having mean values of 149~$\mathrm{W~m}^{-2}$ and 139~$\mathrm{W~m}^{-2}$, respectively.
 
 \begin{table}[htbp]
 \centering
@@ -189,20 +188,20 @@ For the gridMET derived metrics (T\textsubscript{mean}, RH***, insolation) there
 \midrule
 Basin & EZ & NF & SF & Diff & NF & SF & Diff & NF & SF & Diff & NF & SF & Diff \\
 \midrule
-Kern & 1500--1900 m & 151 & 116 & -35 & 138 & 127 & -11 & 0.78 & 0.87 & 0.09 & 178 & 201 & 23 \\
-Kern & 1900--2300 m & 269 & 191 & -78 & 149 & 133 & -16 & 0.58 & 0.79 & 0.21 & 171 & 238 & 67 \\
-Kern & 2300--2700 m & 414 & 301 & -113 & 164 & 143 & -21 & 0.34 & 0.62 & 0.28 & 119 & 222 & 103 \\
-Kern & 2700--3100 m & 518 & 375 & -143 & 178 & 156 & -22 & 0.15 & 0.47 & 0.32 & 56 & 177 & 121 \\
-Kern & 3100--4361 m & 744 & 555 & -189 & 195 & 173 & -22 & 0.04 & 0.25 & 0.21 & 25 & 123 & 98 \\
-USJ & 1500--1900 m & 267 & 219 & -48 & 146 & 136 & -10 & 0.65 & 0.78 & 0.13 & 218 & 262 & 44 \\
-USJ & 1900--2300 m & 505 & 411 & -94 & 163 & 149 & -14 & 0.35 & 0.56 & 0.21 & 172 & 282 & 110 \\
-USJ & 2300--2700 m & 745 & 614 & -131 & 178 & 162 & -16 & 0.14 & 0.35 & 0.21 & 87 & 221 & 134 \\
-USJ & 2700--3100 m & 927 & 771 & -156 & 191 & 172 & -19 & 0.06 & 0.24 & 0.18 & 43 & 170 & 127 \\
-USJ & 3100--4361 m & 1068 & 808 & -260 & 204 & 179 & -25 & 0.03 & 0.18 & 0.15 & 31 & 133 & 102 \\
-Yuba & 1500--1900 m & 637 & 531 & -106 & 166 & 153 & -13 & 0.31 & 0.5 & 0.19 & 203 & 335 & 132 \\
-Yuba & 1900--2300 m & 960 & 809 & -151 & 176 & 168 & -8 & 0.15 & 0.31 & 0.16 & 136 & 272 & 136 \\
-Yuba & 2300--2700 m & 1210 & 1020 & -190 & 184 & 174 & -10 & 0.08 & 0.21 & 0.13 & 85 & 221 & 136 \\
-Yuba & 2700--3100 m & 1660 & 1193 & -467 & 196 & 178 & -18 & 0.04 & 0.15 & 0.11 & 61 & 178 & 117 \\
+Kern & 1500--1900 m & 151 & 116 & $-$35 & 138 & 127 & $-$11 & 0.78 & 0.87 & 0.09 & 178 & 201 & 23 \\
+Kern & 1900--2300 m & 269 & 191 & $-$78 & 149 & 133 & $-$16 & 0.58 & 0.79 & 0.21 & 171 & 238 & 67 \\
+Kern & 2300--2700 m & 414 & 301 & $-$113 & 164 & 143 & $-$21 & 0.34 & 0.62 & 0.28 & 119 & 222 & 103 \\
+Kern & 2700--3100 m & 518 & 375 & $-$143 & 178 & 156 & $-$22 & 0.15 & 0.47 & 0.32 & 56 & 177 & 121 \\
+Kern & 3100--4361 m & 744 & 555 & $-$189 & 195 & 173 & $-$22 & 0.04 & 0.25 & 0.21 & 25 & 123 & 98 \\
+USJ & 1500--1900 m & 267 & 219 & $-$48 & 146 & 136 & $-$10 & 0.65 & 0.78 & 0.13 & 218 & 262 & 44 \\
+USJ & 1900--2300 m & 505 & 411 & $-$94 & 163 & 149 & $-$14 & 0.35 & 0.56 & 0.21 & 172 & 282 & 110 \\
+USJ & 2300--2700 m & 745 & 614 & $-$131 & 178 & 162 & $-$16 & 0.14 & 0.35 & 0.21 & 87 & 221 & 134 \\
+USJ & 2700--3100 m & 927 & 771 & $-$156 & 191 & 172 & $-$19 & 0.06 & 0.24 & 0.18 & 43 & 170 & 127 \\
+USJ & 3100--4361 m & 1068 & 808 & $-$260 & 204 & 179 & $-$25 & 0.03 & 0.18 & 0.15 & 31 & 133 & 102 \\
+Yuba & 1500--1900 m & 637 & 531 & $-$106 & 166 & 153 & $-$13 & 0.31 & 0.5 & 0.19 & 203 & 335 & 132 \\
+Yuba & 1900--2300 m & 960 & 809 & $-$151 & 176 & 168 & $-$8 & 0.15 & 0.31 & 0.16 & 136 & 272 & 136 \\
+Yuba & 2300--2700 m & 1210 & 1020 & $-$190 & 184 & 174 & $-$10 & 0.08 & 0.21 & 0.13 & 85 & 221 & 136 \\
+Yuba & 2700--3100 m & 1660 & 1193 & $-$467 & 196 & 178 & $-$18 & 0.04 & 0.15 & 0.11 & 61 & 178 & 117 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -217,53 +216,56 @@ Yuba & 2700--3100 m & 1660 & 1193 & -467 & 196 & 178 & -18 & 0.04 & 0.15 & 0.11 
 
 \begin{figure*}[h]
 \centering
-\includegraphics[width=\textwidth]{figures/ch2_figs/met4_boxplot_v4.png}
-\caption{ Boxplots for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} AH, \textbf{(c)} insolation, and \textbf{(d)} CS insolation for the 32-year study period. The data are grouped by the five EZs and colored the three basins: Kern (gray), USJ (orange), Yuba (green). The colors shading represents north-facing (darker) and south-facing (lighter) slopes for the respective basin.}
+\includegraphics[width=\textwidth]{figures/ch2_figs/met4_boxplot_v5.png}
+\caption{Boxplots for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} RH, \textbf{(c)} insolation, and \textbf{(d)} CS insolation for the 32-year study period. The data are grouped by the five EZs and colored the three basins: Kern (gray), USJ (orange), Yuba (green). The colors shading represents north-facing (darker) and south-facing (lighter) slopes for the respective basin.}
 \label{fig:met_boxplots}
 \end{figure*}
 
 \begin{table}[htbp]
 \centering
-\caption{******UPDATE:REMOVE AH****** The mean values of the T\textsubscript{mean}, AH, insolation, and CS insolation for the three study basins. Each basin is split into north-facing (NF) and south-facing (SF) with the difference between the two also shown.}
+\caption{The mean values of the T\textsubscript{mean}, RH, insolation, and CS insolation for the three study basins. Each basin is split into north-facing (NF) and south-facing (SF) with the difference between the two also shown.}
 \label{tab:met_metric_table}
 \tiny 
 \begin{tabular}{llrrrrrrrrrrrr}
 \toprule
-& & \multicolumn{3}{c}{T\textsubscript{mean}} & \multicolumn{3}{c}{AH} & \multicolumn{3}{c}{Insolation} & \multicolumn{3}{c}{CS Insolation} \\
+& & \multicolumn{3}{c}{T\textsubscript{mean} ($^{\circ}$)} & \multicolumn{3}{c}{RH (\%)} & \multicolumn{3}{c}{Insolation ($\mathrm{W~m}^{-2}$)} & \multicolumn{3}{c}{CS Insolation ($\mathrm{W~m}^{-2}$)} \\
 \midrule
 Basin & EZ & NF & SF & Diff & NF & SF & Diff & NF & SF & Diff & NF & SF & Diff \\
 \midrule
-Kern & 1500-1900 m & 4.98 & 4.68 & -0.3 & 3.4 & 3.37 & -0.03 & 159 & 159 & 0 & 41 & 231 & 190 \\
-Kern & 1900-2300 m & 3.86 & 3.68 & -0.18 & 3.14 & 3.1 & -0.04 & 159 & 158 & -1 & 41 & 232 & 191 \\
-Kern & 2300-2700 m & 1.83 & 1.56 & -0.27 & 2.75 & 2.7 & -0.05 & 158 & 158 & 0 & 41 & 232 & 191 \\
-Kern & 2700-3100 m & -0.39 & -0.55 & -0.16 & 2.31 & 2.28 & -0.03 & 157 & 156 & -1 & 41 & 233 & 192 \\
-Kern & 3100-4361 m & -2.98 & -3.13 & -0.15 & 1.85 & 1.83 & -0.02 & 155 & 154 & -1 & 46 & 233 & 187 \\
-USJ & 1500-1900 m & 5.83 & 5.78 & -0.05 & 3.67 & 3.7 & 0.03 & 147 & 146 & -1 & 40 & 232 & 192 \\
-USJ & 1900-2300 m & 3.56 & 3.78 & 0.22 & 3.18 & 3.24 & 0.06 & 147 & 147 & 0 & 39 & 233 & 194 \\
-USJ & 2300-2700 m & 1.64 & 1.68 & 0.04 & 2.79 & 2.82 & 0.03 & 149 & 148 & -1 & 40 & 234 & 194 \\
-USJ & 2700-3100 m & -0.28 & -0.2 & 0.08 & 2.46 & 2.49 & 0.03 & 150 & 149 & -1 & 41 & 233 & 192 \\
-USJ & 3100-4361 m & -2.92 & -2.7 & 0.22 & 2.01 & 2.05 & 0.04 & 151 & 151 & 0 & 46 & 232 & 186 \\
-Yuba & 1500-1900 m & 4.42 & 4.52 & 0.1 & 3.5 & 3.53 & 0.03 & 138 & 137 & -1 & 41 & 231 & 190 \\
-Yuba & 1900-2300 m & 2.45 & 2.47 & 0.02 & 3.07 & 3.07 & 0 & 140 & 140 & 0 & 41 & 236 & 195 \\
-Yuba & 2300-2700 m & 1.22 & 1.09 & -0.13 & 2.94 & 2.93 & -0.01 & 140 & 140 & 0 & 47 & 236 & 189 \\
-Yuba & 2700-3100 m & 0.69 & 0.7 & 0.01 & 2.91 & 2.91 & 0 & 140 & 140 & 0 & 56 & 246 & 190 \\
+    Kern & 1500--1900 m & 4.98 & 4.68 & $-$0.3 & 50 & 51 & 1 & 159 & 159 & 0 & 41 & 231 & 190 \\
+    Kern & 1900--2300 m & 3.86 & 3.68 & $-$0.18 & 50 & 50 & 0 & 159 & 158 & $-$1 & 41 & 232 & 191 \\
+    Kern & 2300--2700 m & 1.83 & 1.56 & $-$0.27 & 50 & 50 & 0 & 158 & 158 & 0 & 41 & 232 & 191 \\
+    Kern & 2700--3100 m & $-$0.39 & $-$0.55 & $-$0.16 & 49 & 49 & 0 & 157 & 156 & $-$1 & 41 & 233 & 192 \\
+    Kern & 3100--4361 m & $-$2.98 & $-$3.13 & $-$0.15 & 47 & 47 & 0 & 155 & 154 & $-$1 & 46 & 233 & 187 \\
+    USJ & 1500--1900 m & 5.83 & 5.78 & $-$0.05 & 51 & 52 & 1 & 147 & 146 & $-$1 & 40 & 232 & 192 \\
+    USJ & 1900--2300 m & 3.56 & 3.78 & 0.22 & 52 & 52 & 0 & 147 & 147 & 0 & 39 & 233 & 194 \\
+    USJ & 2300--2700 m & 1.64 & 1.68 & 0.04 & 51 & 52 & 1 & 149 & 148 & $-$1 & 40 & 234 & 194 \\
+    USJ & 2700--3100 m & $-$0.28 & $-$0.2 & 0.08 & 52 & 52 & 0 & 150 & 149 & $-$1 & 41 & 233 & 192 \\
+    USJ & 3100--4361 m & $-$2.92 & $-$2.7 & 0.22 & 50 & 51 & 1 & 151 & 151 & 0 & 46 & 232 & 186 \\
+    Yuba & 1500--1900 m & 4.42 & 4.52 & 0.1 & 53 & 53 & 0 & 138 & 137 & $-$1 & 41 & 231 & 190 \\
+    Yuba & 1900--2300 m & 2.45 & 2.47 & 0.02 & 54 & 54 & 0 & 140 & 140 & 0 & 41 & 236 & 195 \\
+    Yuba & 2300--2700 m & 1.22 & 1.09 & $-$0.13 & 56 & 56 & 0 & 140 & 140 & 0 & 47 & 236 & 189 \\
+    Yuba & 2700--3100 m & 0.69 & 0.7 & 0.01 & 57 & 57 & 0 & 140 & 140 & 0 & 56 & 246 & 190 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+
+
+
 \hypertarget{ch2-results-3}{\subsection{Snow metric climate sensitivity}\label{ch2-results-3}}
 
-Fig.~\ref{fig:heat_map} displays the results of our Spearman correlations between FM on north and south-facing slopes and three meteorological variables: T\textsubscript{mean}, RH, and insolation. Overall, FM in the Yuba is highly sensitive to the three variables tested on both south-facing slopes in all EZs. For the three lowest EZs, spanning 1500--3100~m, a minimum of 90~\% of the land area shows significant relationships between FM and T\textsubscript{mean}. 
+Fig.~\ref{fig:heat_map} displays the results of our Spearman correlations between FM on north and south-facing slopes three meteorological variables: T\textsubscript{mean}, RH, and insolation. Overall the Yuba is the most sensitive basin, as FM is highly sensitive to the three variables tested on both south-facing slopes in all EZs. For the three lowest EZs, spanning 1500--3100~m, a minimum of 90~\% of the land area shows significant relationships between FM and T\textsubscript{mean}. 
 
-The Kern and the USJ display similar patterns for the various correlations; therefore, we group these basins together when reporting their results below. For the top two EZs (2700--4361~m) in the Kern and USJ, the T\textsubscript{mean} sensitivity on north and south-facing slopes diverges. Seen on the right side of Fig.~\ref{fig:heat_map}, the USJ and Kern have a mean of 14.5~\% of the area that is temperature sensitive, while south-facing slopes show a markedly greater mean value of 70~\%. In contrast, this relationship reverses for the EZ1 and EZ2, where north-facing slopes have a greater mean sensitive area (96~\%) while south-facings slopes shows much less significance (mean of 65 \%). We note that the low percentage areas of significant relationship in EZ1--2 does not mean low FM---these areas have the largest mean FM values of anywhere in the study---it just means the FM wasn't correlated to T\textsubscript{mean}.
+The Kern and the USJ display similar patterns for the various correlations; therefore, we group these basins together when reporting their results below. For the top two EZs (2700--4361~m) in the Kern and USJ, the T\textsubscript{mean} sensitivity on north and south-facing slopes diverges. Seen on the right side of Fig.~\ref{fig:heat_map}, the USJ and Kern have a north-facing mean of 14.5~\% of the area that is temperature sensitive, while south-facing slopes show a markedly greater mean value of 70~\%. In contrast, this relationship reverses for the EZ1 and EZ2, where north-facing slopes have a greater mean sensitive area (96~\%) while south-facings slopes shows much less significance (mean of 65 \%). We note that the low percentage areas of significant relationship in EZ1--2 does not mean low FM---these areas have the largest mean FM values of anywhere in the study---it just means the FM wasn't correlated to T\textsubscript{mean}.
 
--report results for RH and insolation
+-report results for RH and insolation...
 
 
 \begin{figure*}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/ch2_figs/metvars_fm_heatmaps_v4.png}
-\caption{Heat maps of the displaying percentage of area in each EZ with significant trends ($p < .05$) for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} RH, \textbf{(c)} insolation for the 32-year study period. The panels are split into north (left), south-facing (center) slopes, and the difference between the two (right). The color bars correspond to the values within a given panel. Elevation in the Yuba doesn't rise above 3100~m, shown by a gray value in the heatmap.}
+\caption{Heat maps of the displaying percentage of area in each EZ with significant trends ($p < .05$) for \textbf{(a)} T\textsubscript{mean}, \textbf{(b)} RH, and \textbf{(c)} insolation for the 32-year study period. The panels are split into north (left), south-facing (center) slopes, and the difference between the two (right). The color bars correspond to the values within a given panel. Elevation in the Yuba does not rise above 3100~m, shown by a gray value in the heatmap.}
 \label{fig:heat_map}
 \end{figure*}
 
@@ -275,14 +277,13 @@ The Kern and the USJ display similar patterns for the various correlations; ther
 \hypertarget{ch2-discussion}{\section{Discussion}\label{ch2-discussion}}
 
 
-While south vs. north-facing slope patterns are well-established and visible throughout many mountain ranges across the globe, our study quantified these aspect-driven midwinter ablation variations with respect to T\textsubscript{mean} and elevation. As discussed when we compared midwinter ablation to elevation, the north vs. south-facing difference varies by basin and T\textsubscript{mean}. 
+While south vs. north-facing slope patterns are well-established and visible throughout mountain ranges across the globe, our study quantified these aspect-driven midwinter ablation variations with respect to T\textsubscript{mean} and elevation. We showed that FM is highly spatially variable with significant differences emerging in the same EZs. This suggests that snowpack energy balance dynamics 
 
-This makes them sensible heat-driven midwinter ablation for two reasons; T\textsubscript{mean} rises above 0~$^{\circ}$C less frequently, and when it does, the sensible heat flux goes to decreasing cold content and not ablating the snow.
-
-Before we can have any melt, all cold content must be removed from the snowpack***. The primary control on snowpack cold content is the amount and temperature of snowfall (cite keith, 2018), with a negative energy balance being a secondary control. Additionally, degree-day models like SNOW17 use temperature as a proxy for the snowpack energy balance. The areas at high elevations (EZ4--5) have a greater amount of snowpack cold content as a result of greater total season snowfall and colder snowpacks. These two factors** make the high-elevation snowpack, especially north-facing slopes, less susceptible to melt. However, we showed that south-facing slopes at these higher elevations on average four times greater FM and MWA.  This suggests that insolation is a driving factor in high-elevation midwinter ablation. Conversely, the warmest T\textsubscript{mean} values have the most similar north and south-facing values. This suggests that at these warmer temperatures, which are lower elevation areas with shallower snowpacks, sensible heat flux is driving the melt and sublimation. 
-
+Before we can have any melt, all cold content must be removed from the snowpack***. The primary control on snowpack cold content is the amount and temperature of snowfall \citep{jenningsObservationsSimulationsSeasonal2018}, with a negative energy balance being a secondary control. Additionally, degree-day models like SNOW-17 use temperature as a proxy for the snowpack energy balance. The areas at high elevations (EZ4--5) have a greater amount of snowpack cold content as a result of greater total season snowfall and colder snowpacks. These two factors make the high-elevation snowpack, especially north-facing slopes, less sensitive to warming temperatures. This is also shown in our Spearman correlations, where high-elevation north-facing slopes show limited temperature sensitivity. This suggest that these areas, due to their high snowpack cold content and lower overall energy inputs, will be less sensitive warmer temperatures. This makes them sensible heat-driven midwinter ablation for two reasons; T\textsubscript{mean} rises above 0~$^{\circ}$C less frequently, and when it does, the sensible heat flux goes to decreasing cold content and not ablating the snow. However, we showed that south-facing slopes at these higher elevations on average four times greater FM and MWA. This indicates that insolation is a driving factor in high-elevation midwinter ablation. Conversely, the warmest T\textsubscript{mean} values have the most similar north and south-facing values for the midwinter ablation metrics (\ref{fig:snow_boxplots}). This implies that at these warmer temperatures---which are low-elevation, shallower, and lower cold content snowpacks---sensible heat flux is driving the melt and sublimation. 
 
 %%%% 
+Various physiographic patterns emerged with respect to 
+We also explored sensitivities of FM to various meteorologic factors.
 -talk about hypsometry and the fact that much more area at low to mid elevations
 -paragraph on temperature variation \citp{kapnickCausesRecentChanges2012}
 
