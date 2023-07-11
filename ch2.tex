@@ -26,34 +26,18 @@ Spatial and temporal scales of observations need to be relevant to the physical 
 Past studies have considered physiography in their characterization of mountain snowpack. \cite{pomeroyVariationSurfaceEnergetics2003} used in situ meteorologic instrumentation setup slope normal instead of the traditional gravimetric orientation and found marked differences in insolation and ablation rates on south and north-facing slopes. Lidar data has been employed to investigate snow depth variation with respect to various landscape characteristics \citep{kirchnerLiDARMeasurementSeasonal2014, tennantRegionalSensitivitiesSeasonal2017}. Various snow modeling studies have considered physiographic effects on snowpack accumulation and ablation \citep{broxtonForestCoverTopography2020,mazzottiCanopyStructureTopography2023, lopez-morenoEffectSlopeAspect2014}. However, all the studies referenced are limited by either their small spatial scale or short temporal scale.
 
 \subsection{Study Overview}
-Here, we use the Sierra Nevada Snow Reanalysis (SNSR), a 90~m spatiotemporally continuous SWE data set from 1985--2016 (32 years), for a comparison of how snowpack metrics change with physiography, specifically aspect, and elevation. This novel dataset addresses two of the main deficiencies outlined above: it is high-resolution (90~m) spatially distributed data that spans a 32-year study period. 
+Here, we use the Sierra Nevada Snow Reanalysis (SNSR), a 90~m spatiotemporally continuous SWE data set from 1985--2016 (32 years), for a comparison of how snowpack metrics change with physiography, specifically aspect and elevation. This novel dataset addresses two of the main deficiencies outlined above: it is high-resolution (90~m) spatially distributed data that spans a 32-year study period. 
 
 We analyze four snowpack metrics: MSWE, day of MSWE (DOM), fraction of snow ablation before 1 April (FM) \citep{musselmanWinterMeltTrends2021}, and amount of midwinter snow ablation (MWA) \citep{harpoldHumidityDeterminesSnowpack2018}. Our study aims to answer the following research questions:
 
 \begin{enumerate}
     \item How does midwinter ablation vary across a watershed with respect to physiography?
+
+    \item Does midwinter ablation explain the differences in MSWE across the landscape?
     
     \item What are the physical mechanisms driving this variation in midwinter ablation?
 \end{enumerate}
 
-
-% We then quantify the physiographic controls across three basins and perform a sensitivity analysis against meteorological forcings.
-
-
-%------
-
-%ANNE NOTES
-%- it is key to disaggregate by physiographic parameters which serve as key controls on snowpack energy balance, thus we focus the effects slope and aspect on key snow metrics. \
-
-%-info on blowing snow and redistribution
-%- While detection of monotonic trend is useful for understanding that a given metric is changing, understanding the physical mechanism (i.e., temperature, SW, LW) driving that change illuminates 
-% -	How does elevation impact SWE, snowfall? How does landscape? \
-
-%-	What about slope and aspect? \citep{dozierRevisitingTopographicHorizons2022, dozierApproachEnergyBalance1979} \
-
-%-	Why is FM greater lower elevations: rain-snow partitioning/storm temperature \citep{huWidespreadWarmingTrends2020} warmer (temps), \
-
-%-	(A. A. Harpold \& Brooks, 2018) “The observation that seasonal snow cover in the western United States exists across a mean winter temperature range of greater than 12 °C, including multiple locations with mean winter temperatures greater than 0 °C (Fig. 4), highlights the importance of other energy fluxes in controlling snowpack response to climate change.” \
 
 
 %=========================================================================
@@ -66,9 +50,9 @@ We analyze four snowpack metrics: MSWE, day of MSWE (DOM), fraction of snow abla
 
 \hypertarget{ch2-sa}{\subsection{Study Area}\label{ch2-sa}}
 
-We selected three watersheds to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins were selected as they span a range of latitudes, hydroclimatology, forest cover, and elevations ***. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5(3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
+% We selected three watersheds to analyze: the Yuba, Upper San Joaquin (USJ), and the Kern. These basins were selected as they span a range of latitudes, forest cover, and elevation. The basins were segmented into five elevation zones (EZs): EZ1 (1500--1900~m), EZ2 (1900--2300~m), EZ3 (2300--2700~m), EZ4 (2700--3100~m), and EZ5(3100--4361~m). EZ1--4 are split into even 400-m segments, while EZ5 extends from 3100~m to the maximum elevation (4361~m). EZ5 was chosen to be larger to simplify our results, as we found that areas above 3100~m exhibited similar snow metric characteristics. 
 
-The basins were then segmented in north-facing (315--45$^{\circ}$) and south-facing (135--215$^{\circ}$) aspects, with a least a slope of > 4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we ensure that only complex mountain terrain, and flatter areas. The north south 
+% The basins were then segmented into north-facing (315--45$^{\circ}$) and south-facing (135--215$^{\circ}$) aspects, with a least a slope of >~4$^{\circ}$ needed to be considered in our analysis. By setting this slope threshold, we ensure that only complex mountain terrain, and flatter areas. The north south 
 
 %%% add in table
 - basin total area, elevation range, cc \%, percent area north-facing and south-facing, percent area "seasonal snow" as we define
@@ -98,7 +82,7 @@ The basins were then segmented in north-facing (315--45$^{\circ}$) and south-fac
 %==============================================================================
 \hypertarget{ch2-do-1}{\subsection{Data Overview}\label{ch2-do-1}}
 
-In this section, we describe the gridded snow reanalysis, meteorologic data, and in situ snow data.
+In this section, we describe the gridded snow reanalysis, meteorologic data, and in situ snow data used in this study.
 
 %==============================================================================
 \hypertarget{ch2-do-2}{\subsubsection{SNSR}\label{ch2-do-2}}
@@ -108,17 +92,18 @@ The SNSR \citep{margulisLandsatEraSierraNevada2016} is a 90~m gridded daily SWE 
 
 \hypertarget{ch2-do-2}{\subsubsection{SNOTEL data}\label{ch2-do-2}}
 
-We used snow pillow data from 29 SNOTEL sites totaling $\sim$840 station years (Fig. \ref{kuy_study_area}(**UPDATE map with SNOTEL LOCATIONS AND ASPECTS). Operated by the United States Department of Agriculture's Natural Resources Conservation Service (NRCS), it is a comprehensive network of remote, long-term, automated sites spread across the western United States and Alaska. These data are quality controlled by the NRCS.
+
+SWE data from 29 SNOTEL sites totaling $\sim$840 station years (Fig. \ref{kuy_study_area}(**UPDATE map with SNOTEL LOCATIONS AND ASPECTS) was used for model validaiton. Operated by the United States Department of Agriculture's Natural Resources Conservation Service (NRCS), it is a comprehensive network of remote, long-term, automated sites spread across the western United States and Alaska. These data are quality controlled by the NRCS.
 
 \hypertarget{ch2-do-2}{\subsubsection{gridMET Data}\label{ch2-do-2}}
 
-We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGriddedSurface2013} to calculate annual (1985--2016) cold season values from October 1 to March 31 (ONDJFM) for four meteorologic variables: mean temperature(T\textsubscript{mean}), relative humidity (RH\textsubscript{mean}), incoming solar radiation (insolation), absolute humidity (AH). Daily ONDJFM where averaged to create the annual metrics. These data were bilinearly downscaled to the 90 m SNSR resolution. Since gridMET does not include a T\textsubscript{mean} or RH\textsubscript{mean} value, only the daily maximum and minimum, these values were averaged to create the two mean variables. Insolation from gridMET is estimated with respect to a planar surface and not topographically corrected. 
+We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGriddedSurface2013} to calculate annual (1985--2016) cold season values from October 1 to March 31 (ONDJFM) for three meteorologic variables: mean temperature (T\textsubscript{mean}), relative humidity (RH\textsubscript{mean}), and incoming solar radiation (insolation). Daily ONDJFM where averaged to create the annual metrics. These data were bilinearly downscaled to the 90~m SNSR resolution. Since gridMET does not include a T\textsubscript{mean} or RH\textsubscript{mean} value---only the daily maximum and minimum---these values were averaged to create the two mean variables. Insolation from gridMET is estimated with respect to a planar surface and not topographically corrected. 
 
-%==============================================================================
+%===========================================================================
 \hypertarget{ch2-do-2}{\subsubsection{Clear sky insolation}\label{ch2-do-2}}
 
 
-We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar radiation (CS insolation) using the R package “insol”, which is based on the Bird model \citep{birdReviewEvaluationImprovement1981}. The model uses the SNSR 90 m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. We held these values constant, with information on the specific model parametrization included in the supplement***. To calculate CS insolation the daily values were averaged in the same fashion as the gridMET data. This produced a single estimate not a time series like gridMET data.
+We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar radiation (CS insolation) using the R package “insol”, which is based on the Bird model \citep{birdReviewEvaluationImprovement1981}. The model uses the SNSR 90 m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. To calculate CS insolation, the daily values were averaged in the same fashion as the gridMET data. This produced a single estimate, not a time series like gridMET data. CS insolation does not account for cloud cover or variations in latitude in the dataset.
 
 
 %==============================================================================
@@ -134,11 +119,11 @@ We estimated 90~m spatially distributed mean ONDJFM clear sky incoming solar rad
 \label{kuy_study_area}
 \end{figure*}
 
-Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. MSWE is defined as the maximum amount (mm) of SWE in a given pixel for WY, while DOM is the last day of the water year in which the pixel has the amount. FM is the fraction of ablation (melt, wind transport, sublimation) that occurs before April 1st, while MWA is the amount of SWE lost in (mm). Reporting both FM and MWA allows for a more complete understanding of midwinter melt dynamics, as gives two different values to melt across the landscape (***rework***).
+Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. MSWE is defined as the maximum amount (mm) of SWE in a given pixel for WY, while DOM is the last day of the water year in which the pixel has that amount. As defined \cite{musselmanWinterMeltTrends2021}, FM is the fraction of ablation (e.g., melt, wind transport, sublimation, evaporation) that occurs before April 1st. MWA is the amount of SWE lost in (mm) during the same time period. Reporting both FM and MWA allows for a more complete understanding of midwinter ablation dynamics, as they provide both a fraction and a magnitude.
 
-We focused on our analysis on the seasonal snow zone, or areas that receive snow the majority of years. To do this, an annual accumulation threshold of 26~mm ($\sim$1~in) was of SWE for a given pixel to be considered. Then, within the 32-year time series, a pixel must meet this condition at least 27 of the 32 years. ***See Appendix 1 for figures showing the full SNSR study area***. 
+We focused our analysis on the seasonal snow zone, which is loosely defined as areas that receive snow for the majority of years. To do this, an annual accumulation threshold of 26~mm ($\sim$1~in) of SWE was set for a given pixel to be included. Then, within the 32-year time series, a pixel must meet this condition for at least 27 of the 32 years. *** figure here***?
 
-SNSR values were selected by the specific pixel in which the station fell. These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 station years (Figure \ref{kuy_study_area}). Two correlation coefficients (R and R$^{2}$), root-mean-square error (RMSE), mean absolute error (MAE), mean error (ME), and percent bias (PB) are in Table \ref{tab:snow_metrics_val_table}.
+These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 station years (Figure \ref{kuy_study_area}). SNSR values were selected by the specific pixel in which the SNOTEL station fell. Two correlation coefficients (R and R$^{2}$), root-mean-square error (RMSE), mean absolute error (MAE), mean error (ME), and percent bias (PB) are in Table \ref{tab:snow_metrics_val_table}.
 
 \begin{table}[htbp]
   \centering
