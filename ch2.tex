@@ -117,7 +117,13 @@ Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, an
 
 We focused our analysis on the seasonal snow zone, which we defined as grid cells that receive at least 26~mm ($\sim$1~in) of SWE for at least 27 of the 32 years in the SNSR data set. While the SNSR data set uses a 1500~m threshold, a preliminary analysis found that many of the lower elevation grid cells, specifically in the Kern, did not contain snow in most year. Figure XXX shows the three basins, the 1500~m SNSR seasonal snow grid cells and the seasonal snow grid cells considered in this study.
 
-*** figure here ***?
+%f1
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/ch2_figs/kuy_snow_metric_area_v2.png}
+\caption{The north (blue) and south (red) facing pixels that met the threshold for inclusion in the study for the \textbf{(a)}~Kern, \textbf{(b)}~Yuba, and \textbf{(c)}~USJ.}
+\label{kuy_study_area}
+\end{figure*}
 
 These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 station years (Figure \ref{kuy_study_area}). SNSR values were selected by the specific pixel in which the SNOTEL station fell. Two correlation coefficients (R and R$^{2}$), root-mean-square error (RMSE), mean absolute error (MAE), mean error (ME), and percent bias (PB) are in Table \ref{tab:snow_metrics_val_table}.
 
