@@ -50,18 +50,35 @@ These past studies have subjectively selected various products (e.g., fSCA, bina
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods}{\section{Study area}\label{ch4-methods}}
 
-The USJ is approximately 4244~km$^{2}$ in land area, spanning from the high-elevation Sierra peaks (4227~m) in the east to flat low-elevation (153~m) Central Valley in the west (Fig.~\ref{fig:multisensor_study_area}). The main channel flows into Millerton Lake, which is one of the largest reservoirs in the Central Valley. The USJ is mainly covered by various types of conifer species, except for the highest elevations, which are in the alpine. 
+The USJ is approximately 4244~km$^{2}$ in land area, spanning from the high-elevation Sierra peaks (4227~m) in the east to flat low-elevation (153~m) Central Valley in the west (Fig.~\ref{fig:multisensor_study_area}). The main channel flows into Millerton Lake, which is one of the largest reservoirs in the Central Valley. The USJ is mainly land cover is mainly various types of conifer species, except for the highest elevations. These areas are in the alpine with shrub-like or no vegetation. The UAVSAR flight line shown in red mainly exists with the USJ boundary but extends further to the north and south.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth]{figures/ch4_figs/agu_map_v5.png}
 \centering
-\caption{Showing \textbf{(a)} elevation, \textbf{(b)} land cover, \textbf{(c)} canopy cover (\%) for the UAVSASR flight line (red) and the USJ basin (black).}
+\caption{Showing \textbf{(a)} elevation, \textbf{(b)} land cover, \textbf{(c)} canopy cover (\%) for the UAVSAR flight line (red) and the USJ basin (black).}
 \label{fig:multisensor_study_area}
 \end{figure}
 \clearpage
 
+%==============================================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods}{\section{Methods \& data overview}\label{ch4-methods}}
-In this section, we overview the UAVSAR InSAR data products, the six different snow cover products data and how they are produced, and the in situ snowpack information used.
+
+In this section, we overview the UAVSAR InSAR data products, the six different snow cover products and how they are produced, and the in situ snowpack information used.
+
+%==============================================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypertarget{ch4-methods}{\section{Study area}\label{ch4-methods}}
+
+The USJ is approximately 4244~km$^{2}$ in land area, spanning from the high-elevation Sierra peaks (4227~m) in the east to flat low-elevation (153~m) Central Valley in the west (Fig.~\ref{fig:multisensor_study_area}). The main channel flows into Millerton Lake, which is one of the largest reservoirs in the Central Valley. The USJ is mainly land cover is mainly various types of conifer species, except for the highest elevations. These areas are in the alpine with shrub-like or no vegetation. The UAVSAR flight line shown in red mainly exists with the USJ boundary but extends further to the north and south.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{figures/ch4_figs/agu_map_v5.png}
+\centering
+\caption{Showing \textbf{(a)} elevation, \textbf{(b)} land cover, \textbf{(c)} canopy cover (\%) for the UAVSAR flight line (red) and the USJ basin (black).}
+\label{fig:multisensor_study_area}
+\end{figure}
+\clearpage
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -163,12 +180,11 @@ The Visible Infrared Imaging Radiometer Suite (VIIRS) on the Suomi National Pola
 
 \hypertarget{ch4-methods-7}{\subsubsection{FLM}\label{ch4-methods-7}}
 
-***The fused Landsat-MODIS (FLM) fSCA product created by \cite{rittgerMultisensorFusionUsing2021} is spatiotemporally continuous 30 m over the Sierra Nevada, CA. The goal of their data fusion methods was to create a product with the high spatial resolution of Landsat (30 m) with the high temporal resolution of MODIS (1 d), leveraging the strengths of both sensors. These data were created using a combination of 170 Landsat scenes, daily MOD09GA Collection 6 in a sinusoidal projection at 463 m, physiographic information, spectral mixture algorithms, and random forest algorithm. 
+The fused Landsat-MODIS (FLM) fSCA product created by \cite{rittgerMultisensorFusionUsing2021} is spatiotemporally continuous 30~m over the Sierra Nevada, CA. The goal of their data fusion methods was to create a product with the high spatial resolution of Landsat (30~m) with the high temporal resolution of MODIS (1~d), leveraging the strengths of both sensors. These data were created using a combination of 170 Landsat scenes, daily MOD09GA Collection 6 in a sinusoidal projection at 463~m, physiographic information, spectral mixture algorithms, and random forest algorithm. 
 
 \hypertarget{ch4-methods-8}{\subsubsection{Landsat fSCA}\label{ch4-methods-8}}
 
-Landsat~8 fSCA \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecenterCollection1LandsatLevel32018} data are generated using a spectral unmixing analysis based on the MODSCAG algorithm developed for MODIS (Painter et al., 2009). The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023}. As of 2021 (**check this), the data products include both viewable fSCA and total ground fSCA. To estimate total fSCA in areas with canopy cover, a moving window analysis algorithm is employed, and it selects. The data used in this study is from 4~March 2020 (Fig.~4.2e).
-
+Landsat~8 fSCA (Fig.~\ref{fig:fsca_plot} \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecenterCollection1LandsatLevel32018} data are generated using a spectral unmixing analysis based on the MODSCAG algorithm developed for MODIS \citep{painterRetrievalSubpixelSnow2009}. The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023}. The data products include both viewable fSCA and total ground fSCA. To estimate total fSCA in areas with canopy cover, a moving window analysis algorithm is employed, and it selects.
 
 \hypertarget{ch4-methods-8}{\subsection{In situ snow data}\label{ch4-methods-8}}
 
@@ -177,7 +193,8 @@ CADWR pillows -- name them
 
 \hypertarget{ch4-methods-9}{\subsubsection{Canopy Cover}\label{ch4-methods-9}}
 
-We used 2016 NLCD canopy cover.... blah blah
+We used National Land Cover Database (NLCD) \citep{homerConterminousUnitedStates2020} canopy cover data. These data are Landsat-based 30~m native spatial resolution products that report canopy cover values in a percentage. These data are also used in the Landsat fSCA canopy cover correction.
+
 
 %==============================================================================
 %==============================================================================
@@ -299,12 +316,12 @@ The 41 $\times$ 41 moving window pixel-wise SD of SWE gains, losses, and are com
 \hypertarget{ch5-discussion}{\section{Discussion}\label{ch4-discussion}}
 \hypertarget{ch5-discussion-1}{\section{Key Findings}\label{ch4-discussion}}
 
-Our results show that significant InSAR-based $\Delta$SWE estimation variability can arise fSCA product choice. The variability in how snow cover is defined arises from two main sources: (1) native spatial resolution and (2) sub canopy snow cover estimation. The Landsat-derived  
+Our results show that significant InSAR-based $\Delta$SWE estimation variability can arise from fSCA product choice. The variability in how snow cover is defined arises from two main sources: (1) sub-canopy snow cover estimation methodology and (2) native product spatial resolution. The Landsat fSCA data had the greatest differences in fSCA, which then propagated into SWE gains and losses of lesser magnitude when compared to the other five products. These losses are mainly driven by how these data estimate sub-canopy snow cover. To estimate snow cover below the canopy, a multi-step moving window canopy adjustment is employed. It uses an 11~$\times$~11 and a 31~$\times$~31 moving window to the infill surrounding pixels depending on NLCD canopy cover percentage, elevation, cloud cover, and solar radiation \citep{selkowitzUSGSLandsatSnow2017}. If a pixel is >60~\% canopy cover, it is automatically excluded from snow cover eligibility. We hypothesize that the dense conifer forest in parts of the UAVSAR study area, with 48~\% of the total forest having a canopy cover density of >40~\%
 
 
-We originally hypothesized FLM would provide the most realistic results as it uses information from both Landsat and MODIS to products its dataset. While the coarser native resolution values of MODIS and MODSCAG (500~m) and VIIRS (375~m) create blocky results around the snowline, these differences don't significantly impact the overall $\Delta$SWE results when compared to FLM. 
+We originally hypothesized FLM would provide the most realistic results as it uses information from both Landsat and MODIS to produce its dataset. While the coarser native resolution values of MODIS and MODSCAG (500~m) and VIIRS (375~m) create blocky results around the snowline, these differences don't significantly impact the overall $\Delta$SWE results when compared to FLM. 
 
-It is promising that fSCA derived from MODIS and VIIRS NDSI data, currently produced in near-real-time by NSIDC, can generate fSCA estimates for SAR-based SWE retrievals that yield nearly identical values (\ref{tab:dswe_stats}) to that of the more complex spectral unmixing and machine learning methods employed by MODSCAG and FLM. Addtionally, these products are currently research-based, and not currently hosted openly on a NASA DAAC. This means that upon the launch of NISAR in early 2024, VIIRS seems the best candidate as it was nearly identical to FLM.
+It is promising that fSCA derived from MODIS and VIIRS NDSI data, currently produced in near-real-time by NSIDC, can generate fSCA estimates for SAR-based SWE retrievals that yield nearly identical values (\ref{tab:dswe_stats}) to that of the more complex spectral unmixing and machine learning methods employed by MODSCAG and FLM. Additionally, these products are not currently hosted openly on a NASA DAAC. This means that upon the launch of NISAR in early 2024, VIIRS seems the best candidate as it was nearly identical to FLM.
 
 % is spectral unmixing needed? prob not
 These results suggest that spectral unmixing is not completely necessary for the multisensor SAR-optical approach. While \cite{stillingerLandsatMODISVIIRS2023a} showed these methods are more accurate than NDSI-based approaches, these are research based products that are not currently produced by a NASA DAAC. %%
