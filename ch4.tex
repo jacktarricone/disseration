@@ -143,29 +143,27 @@ NDSI = \frac{VIS - SWIR}{VIS + SWIR}
 \label{fig:fsca_plot}
 \end{figure}
 
-The data selected for our study have a range of spatial, temporal, and spectral resolutions. 
+The data selected for our study have a range of spatial, temporal, and spectral resolutions. All data products in Fig.~\ref{fig:fsca_plot} were cropped and resampled to the 80~m NISAR resolution.  
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-3}{\subsubsection{IMS}\label{ch4-methods-3}}
 
-
-The National Oceanic and Atmospheric Administration’s National Environmental Satellite Data and Information Service (NOAA/NESDIS) Interactive Multisensor Snow and Ice Mapping System (IMS) is a hemispherical scale binary 1 km snow cover product originally created to help with numerical weather prediction 
-\citep{ramsayInteractiveMultisensorSnow1998, helfrichEnhancementsForthcomingDevelopments2007}. The input data comes a variety of platforms, including but not limited to: the National Oceanic and Atmospheric Administration's (NOAA's) next generation of geostationary satellites (GOES) constellation \citep{menzelIntroducingGOESIFirst1994}, the Advanced Very High Resolution Radiometer (AVHRR) \citep{cracknellAdvancedVeryHigh1997}, MODIS \citep{salomonsonMODISAdvancedFacility1989}, and the National Operational Hydrologic Remote Sensing Center (NOHRSC) SNOw Data Assimilation System (SNODAS) \citep{barrettandrewNationalOperationalHydrologic2003}.
+The National Oceanic and Atmospheric Administration’s National Environmental Satellite Data and Information Service (NOAA/NESDIS) Interactive Multisensor Snow and Ice Mapping System (IMS) is a hemispherical scale binary 1~km snow cover product (Fig.~\ref{fig:fsca_plot}a) originally created to help with numerical weather prediction 
+\citep{ramsayInteractiveMultisensorSnow1998, helfrichEnhancementsForthcomingDevelopments2007}. The input data comes from a variety of platforms, including but not limited to: the National Oceanic and Atmospheric Administration's (NOAA's) next generation of geostationary satellites (GOES) constellation \citep{menzelIntroducingGOESIFirst1994}, the Advanced Very High Resolution Radiometer (AVHRR) \citep{cracknellAdvancedVeryHigh1997}, MODIS \citep{salomonsonMODISAdvancedFacility1989}, and the National Operational Hydrologic Remote Sensing Center (NOHRSC) SNOw Data Assimilation System (SNODAS) \citep{barrettandrewNationalOperationalHydrologic2003}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-4}{\subsubsection{MODSCAG}\label{ch4-methods-4}}
 
 
-***The MODIS Snow-Covered Area and Grain size (MODSCAG) \citep{painterRetrievalSubpixelSnow2009} is a spectral-mixing model that uses various end-members (e.g. rock, soil, snow, clouds, etc.) to produce estimates of fSCA, fractional vegetation (fVEG), snow grain size, and albedo.
+The MODIS Snow-Covered Area and Grain size (MODSCAG) (Fig.~\ref{fig:fsca_plot}b) \citep{painterRetrievalSubpixelSnow2009} is a spectral-mixing model that uses various end-members (e.g., rock, soil, snow, clouds, etc.) to produce estimates of fSCA, fractional vegetation (fVEG), snow grain size, and albedo.
 
-- add info on NSDI to fsca conversion \citep{salomonsonEstimatingFractionalSnow2004}
-
+- add info here
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypertarget{ch4-methods-5}{\subsubsection{MODIS}\label{ch4-methods-5}}
 
-The MODIS cloud-gap-filled (CGF) snow cover product \citep{hallEvaluationMODISVIIRS2019} provides daily NSDI values at 500 m spatial resolution from the Terra (MOD10A1F) and Aqua (MYD10A1F) satellites. These data account for cloud cover by excluded pixels  flagged as clouds and refilling them with NDSI from the last cloud free day. This process only goes on for **eight** days of cloud cover until the pixel is marked as NA. NDSI can be used to directly estimate fSCA \citep{salomonsonEstimatingFractionalSnow2004, salomonsonDevelopmentAquaMODIS2006,stillingerLandsatMODISVIIRS2023}. We estimated MODIS fSCA using the Eq. \ref{eq:fsca}:
+The MODIS cloud-gap-filled (CGF) snow cover product \citep{hallEvaluationMODISVIIRS2019} provides daily NSDI values at 500Am spatial resolution from the Terra (MOD10A1F) and Aqua (MYD10A1F) satellites (Fig.~\ref{fig:fsca_plot}c) . These data account for cloud cover by excluding pixels flagged as clouds and refilling them with NDSI from the last cloud-free day. This process only goes on for eight days of cloud cover until the pixel is marked as NA. NDSI can be used to directly estimate fSCA \citep{salomonsonEstimatingFractionalSnow2004, salomonsonDevelopmentAquaMODIS2006,stillingerLandsatMODISVIIRS2023}. We estimated MODIS fSCA using the Eq.~\ref{eq:fsca}:
 
 \begin{equation}
 \text{fSCA} = 0.01 + (1.45 \times NDSI)
@@ -175,16 +173,16 @@ The MODIS cloud-gap-filled (CGF) snow cover product \citep{hallEvaluationMODISVI
 
 \hypertarget{ch4-methods-6}{\subsubsection{VIIRS}\label{ch4-methods-6}}
 
-The Visible Infrared Imaging Radiometer Suite (VIIRS) on the Suomi National Polar Partnership (S-NPP) produces a daily CGF NDSI product (VNP10A1F) at 375 m spatial resolution \citep{hallEvaluationMODISVIIRS2019}. These data are generated and gap filled using the same methods as the MODIS CFG data outlined in Section \ref{ch4-methods-5}. We converted the VIIRS NSDI values to fCSA using Eq. \ref{eq:fsca}.
+The Visible Infrared Imaging Radiometer Suite (VIIRS) on the Suomi National Polar Partnership (S-NPP) produces a daily CGF NDSI product (VNP10A1F) at 375~m spatial resolution (Fig.~\ref{fig:fsca_plot}d) \citep{hallEvaluationMODISVIIRS2019}. These data are generated and gap-filled using the same methods as the MODIS CFG data outlined in Section \ref{ch4-methods-5}. We converted the VIIRS NSDI values to fCSA using Eq. \ref{eq:fsca}.
 
 
 \hypertarget{ch4-methods-7}{\subsubsection{FLM}\label{ch4-methods-7}}
 
-The fused Landsat-MODIS (FLM) fSCA product created by \cite{rittgerMultisensorFusionUsing2021} is spatiotemporally continuous 30~m over the Sierra Nevada, CA. The goal of their data fusion methods was to create a product with the high spatial resolution of Landsat (30~m) with the high temporal resolution of MODIS (1~d), leveraging the strengths of both sensors. These data were created using a combination of 170 Landsat scenes, daily MOD09GA Collection 6 in a sinusoidal projection at 463~m, physiographic information, spectral mixture algorithms, and random forest algorithm. 
+The fused Landsat-MODIS (FLM) (Fig.~\ref{fig:fsca_plot}e)  fSCA product created by \cite{rittgerMultisensorFusionUsing2021} is spatiotemporally continuous 30~m over the Sierra Nevada, CA. The goal of their data fusion methods was to create a product with the high spatial resolution of Landsat (30~m) with the high temporal resolution of MODIS (1~d), leveraging the strengths of both sensors. These data were created using a combination of 170 Landsat scenes, daily MOD09GA Collection 6 in a sinusoidal projection at 463~m, physiographic information, spectral mixture algorithms, and random forest algorithm. 
 
 \hypertarget{ch4-methods-8}{\subsubsection{Landsat fSCA}\label{ch4-methods-8}}
 
-Landsat~8 fSCA (Fig.~\ref{fig:fsca_plot} \citep{u.s.geologicalsurveyearthresourcesobservationandsciencecenterCollection1LandsatLevel32018} data are generated using a spectral unmixing analysis based on the MODSCAG algorithm developed for MODIS \citep{painterRetrievalSubpixelSnow2009}. The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023}. The data products include both viewable fSCA and total ground fSCA. To estimate total fSCA in areas with canopy cover, a moving window analysis algorithm is employed, and it selects.
+Landsat~8 fSCA (Fig.~\ref{fig:fsca_plot}f) \citep{selkowitzUSGSLandsatSnow2017} data are generated using a spectral unmixing analysis based on the MODSCAG algorithm developed for MODIS \citep{painterRetrievalSubpixelSnow2009}. The data processing workflow includes water masking, cloud masking, and canopy cover corrections \citep{selkowitzUSGSLandsatSnow2017, stillingerLandsatMODISVIIRS2023}. The data products include both viewable fSCA and total ground fSCA. To estimate total fSCA in areas with canopy cover, a moving window analysis algorithm is employed, and it selects.
 
 \hypertarget{ch4-methods-8}{\subsection{In situ snow data}\label{ch4-methods-8}}
 
@@ -211,7 +209,7 @@ First, the UAVSAR phase data were masked with each of the six fSCA products. A t
 \end{equation}
 
 
-\noindent where snow permittivity is $\epsilon_\mathrm{s}$ and snow density is $\rho_\mathrm{s}$. Using Eq.~\ref{eq:insar_dswe}, pixel-wise $\Delta$SWE values were calculated with inputs of $\lambda$ (23.84\,cm), spatially distributed phase and $\theta$, $\rho_\mathrm{s}$ of 370 kg\,m$^{-3}$, and $\epsilon_\mathrm{s}$ of 1.68. 
+\noindent where snow permittivity is $\epsilon_\mathrm{s}$ and snow density is $\rho_\mathrm{s}$. Using Eq.~\ref{eq:insar_dswe}, pixel-wise $\Delta$SWE values were calculated with inputs of $\lambda$ (23.84\,cm), spatially distributed phase and $\theta$, $\rho_\mathrm{s}$ of 370~kg\,m$^{-3}$, and $\epsilon_\mathrm{s}$ of 1.68. 
 
 To find the known change point to tether the initially relative InSAR $\Delta$SWE values, we used three snow pillows (vlc, mhp, ubc, wwc) from CADWR. The SnowEx $\Delta$SWE pit data could not be directly utilized as the phase values over the Mammoth CUES pit did not unwrap properly, resulting in the absence of any data. Additionally, the Panorama Dome pit was not dug during the study period. To account for uncertainties within the snow pillow geolocation, we extracted the UAVSAR pixel that the snow pillow was within and the eight surrounding pixels. We then took a spatial average of the relative InSAR $\Delta$SWE and the three pillows $\Delta$SWE values and subtracted them to obtain an absolute change. We report our volumetric $\Delta$SWE results in units of cubic decameters (dam$^{3}$). A cubic decameter is equal to 1000~m$^{3}$ or $\sim$0.81~acre-feet.
 
@@ -222,7 +220,7 @@ To find the known change point to tether the initially relative InSAR $\Delta$SW
 
 To understand how the various fSCA products impacted the scene wide $\Delta$SWE estimates, we performed a summing moving window analysis of the six UAVSAR-derived $\Delta$SWE datasets. The variability in the $\Delta$SWE data products solely comes from which pixels are considered snow covered and which are not. Therefore, a pixel-wise analysis is not an apt solution, as this would be comparing pixels with data to  NA (not available) values.
 
-For the analysis, the $\Delta$SWE data were separated loss and gains to prevent the cancellation of patterns caused by opposite signs within an area. The pixel-wise SWE changes were then summed using a 41 $\times$ 41-pixel moving window. Next, the standard deviation (SD) of the six moving window summed products was calculated. The relatively large window size was selected to minimize the of NA pixels in the SD calculation, where only datasets with 41-pixel squared areas of no snow will produced NA values. Summed pixels with NA values were not included in the SD calculations. We note the IMS data as the northeast corner has a large continuous swath of NA values.
+For the analysis, the $\Delta$SWE data were separated loss and gains to prevent the cancellation of patterns caused by opposite signs within an area. The pixel-wise SWE changes were then summed using a 41~$\times$~41 pixel moving window. Next, the standard deviation (SD) of the six moving window summed products was calculated. The relatively large window size was selected to minimize the of NA pixels in the SD calculation, where only datasets with 41-pixel squared areas of no snow will produced NA values. Summed pixels with NA values were not included in the SD calculations. We note the IMS data as the northeast corner has a large continuous swath of NA values.
 
 \hypertarget{ch4-results}{\section{Results}\label{ch4-results}}
 \hypertarget{ch4-results}{\subsection{$\Delta$SWE Estimates}\label{ch4-results}}
@@ -277,23 +275,22 @@ Mean & 3,100 & $-$17,800 & $-$14,600 \\
 
 Fig.~\ref{fig:dswe_moving_window} shows the moving window sums of the $\Delta$SWE gains and losses. The majority of the SWE gains are recorded in the northeast and southeast portions of the swath. The SWE gain spatial patterns between the datasets are similar except for the northeast corner of the IMS data. This area is shown as no snow while MODSCAG, MODIS, VIIRS, and FLM display SWE gains on the order of 100--150~dam$^{3}$. Landsat shows SWE gain in this area as well but with a lesser magnitude of $\sim$50~dam$^{3}$. All datasets other than Landsat show consistent spatial patterns and SWE loss magnitudes. Landsat's spatial patterns are similar but with a lower amount of $\Delta$SWE. This is driven by Landsat's fSCA data not being as temporally continuous. The large area of NA values in the IMS data is not of concern as this area was considered SWE gain by the data. In the center left of the swath, all datasets show a lower elevation snow free area except for IMS. However, most of the $\Delta$SWE values in that area and relatively small, therefore, do not significantly bias the results.
 
-The 41 $\times$ 41 moving window pixel-wise SD of SWE gains, losses, and are compared to canopy cover percentage in Fig.~\ref{fig:dswe_standard_deviation}. For SWE gains, the area with the greatest SD (30--50~dam$^{3}$) was in the northeast corner of swath. The sharp transition from red to green is driven by the NA values in the IMS data. Large SWE loss variability was centered around lower elevation area in the middle of the scene. These SWE loss SD values shows similar spatial patterns to that of the canopy cover data in Fig.~\ref{fig:dswe_standard_deviation}c. $\Delta$SWE SD is directly compared to canopy cover percent in Fig.~\ref{fig:dswe_boxplots}. Generally, the SD for SWE gains and SWE losses increases as canopy cover increases, yet there is variability in the relationship.
+The 41 $\times$ 41 moving window pixel-wise SD of SWE gains and losses are compared to canopy cover percentage in Fig.~\ref{fig:dswe_standard_deviation}. For SWE gains, the area with the greatest SD (30--50~dam$^{3}$) was in the northeast corner of the swath. The sharp transition from red to green is driven by the NA values in the IMS data. Large SWE loss variability was centered around the lower elevation area in the middle of the scene. These SWE loss SD values show similar spatial patterns to that of the canopy cover data in Fig.~\ref{fig:dswe_standard_deviation}c. $\Delta$SWE SD is directly compared to canopy cover percent in Fig.~\ref{fig:dswe_boxplots}. Generally, the SD for SWE gains and SWE losses increases as canopy cover increases, yet there is variability in the relationship.
 
 \clearpage
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/ch4_figs/dswe_mw_full_dam3_v1.png}
-\caption{$\Delta$SWE moving window analysis for.....}
+\caption{$\Delta$SWE moving window analysis for SWE gains (top) and SWE losses (bottom) for the six different $\Delta$SWE products.}
 \label{fig:dswe_moving_window}
 \end{figure}
-
 
 
 \clearpage
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/ch4_figs/sd_vs_cc_map_dam3_41x41.png}
-\caption{Showing SD for blahhhh *****FIX UNTIS ON (B)}
+\caption{***FIX UNITS**** Showing SD \textbf{(a)} SWE gain and \textbf{(b)} SWE Loss between the six a 41~$\times$~41 pixel moving window $\Delta$SWE estimates. \textbf{(c)} The moving window canopy cover percentage.}
 \label{fig:dswe_standard_deviation}
 \end{figure}
 
@@ -301,7 +298,7 @@ The 41 $\times$ 41 moving window pixel-wise SD of SWE gains, losses, and are com
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/ch4_figs/swe_sd_bp_dam3_41x41_v1.png}
-\caption{Boxplots showing the relationship between CC \% and SWE SD for \textbf{(a)} gain and \textbf{(b)} loss. The y-axis set individually for each plot for data visualization purposes.}
+\caption{Boxplots showing the relationship between CC \% and SWE SD for \textbf{(a)} gain and \textbf{(b)} loss. The y-axis is set individually for each plot for data visualization purposes.}
 \label{fig:dswe_boxplots}
 \end{figure}
 
@@ -316,16 +313,15 @@ The 41 $\times$ 41 moving window pixel-wise SD of SWE gains, losses, and are com
 \hypertarget{ch5-discussion}{\section{Discussion}\label{ch4-discussion}}
 \hypertarget{ch5-discussion-1}{\section{Key Findings}\label{ch4-discussion}}
 
-Our results show that significant InSAR-based $\Delta$SWE estimation variability can arise from fSCA product choice. The variability in how snow cover is defined arises from two main sources: (1) sub-canopy snow cover estimation methodology and (2) native product spatial resolution. The Landsat fSCA data had the greatest differences in fSCA, which then propagated into SWE gains and losses of lesser magnitude when compared to the other five products. These losses are mainly driven by how these data estimate sub-canopy snow cover. To estimate snow cover below the canopy, a multi-step moving window canopy adjustment is employed. It uses an 11~$\times$~11 and a 31~$\times$~31 moving window to the infill surrounding pixels depending on NLCD canopy cover percentage, elevation, cloud cover, and solar radiation \citep{selkowitzUSGSLandsatSnow2017}. If a pixel is >60~\% canopy cover, it is automatically excluded from snow cover eligibility. We hypothesize that the dense conifer forest in parts of the UAVSAR study area, with 48~\% of the total forest having a canopy cover density of >40~\%
+Our results show that significant InSAR-based $\Delta$SWE estimation variability can arise from fSCA product choice. The variability in how snow cover is defined arises from two main sources: (1) sub-canopy snow cover estimation methodology and (2) native product spatial resolution. The five fSCA products, excluding Landsat, showed broad similarities in their fSCA estimation in forest areas. For the coarser resolution products (MODIS, VIIRS, IMS), the larger pixel size has more sub-pixel variably, with fewer pixels having less than 15~\% fSCA. For the finer-resolution products (FLM and Landsat), their main differences arise from the sub-canopy fSCA estimation. The Landsat fSCA data had the greatest differences in fSCA, which then propagated into SWE gains and losses of lesser magnitude when compared to the other five products. These losses are mainly driven by how these data estimate sub-canopy snow cover. To estimate snow cover below the canopy, a multi-step moving window canopy adjustment is employed. It uses an 11~$\times$~11 and a 31~$\times$~31 moving window to the infill surrounding pixels depending on NLCD canopy cover percentage, elevation, cloud cover, and solar radiation \citep{selkowitzUSGSLandsatSnow2017}. If a pixel is >~60~\% canopy cover, it is automatically excluded from snow cover eligibility. We hypothesize that the dense conifer forest in parts of the UAVSAR study area, with 48~\% of the total forest having a canopy cover density of >~40~\% in the study area, created conditions where the algorithm didn't detect sub-canopy snow cover.
+
+We ***originally hypothesized*** FLM would provide the most realistic results as it uses information from both Landsat and MODIS. While the coarser native resolution values of MODIS and MODSCAG (500~m) and VIIRS (375~m) create blocky results around the snowline, these differences don't significantly impact the overall $\Delta$SWE results when compared to FLM. \cite{stillingerLandsatMODISVIIRS2023a} performed an uncertainty analysis of various fSCA products from MODIS, VIIRS, and Landsat using airborne lidar-based fSCA as validation. They found some variability in the fSCA products, with the spectrally unmixed data performing better, but overall modest differences. It is promising that fSCA derived from MODIS and VIIRS NDSI data, currently produced in near-real-time by NSIDC, can generate fSCA estimates for SAR-based SWE retrievals that yield nearly identical values (\ref{tab:dswe_stats}) to that of the more complex spectral unmixing and machine learning methods employed by MODSCAG and FLM. Additionally, these products are not currently hosted openly on a NASA DAAC. This means that upon the launch of NISAR in early 2024, the moderate-resolution sensor can provide a reasonable snow cover boundary for basin-scale water resource applications. 
+
+%%% thoughts on fSCA
+It is important to note that fSCA data has not traditionally been used in combination with radar data for SWE estimation. Past implementations include various reconstruction approaches \citep{clineEstimatingSpatialDistribution1998,molotchEstimatingDistributionSnow2008,rittgerSpatialEstimatesSnow2016,margulisLandsatEraSierraNevada2016}, where fSCA is used in combination with a spatially distributed energy balance model to derive SWE. We employed a 15\% fSCA threshold to determine the inclusion of pixels as snow-covered. This is a subjective choice based on the minimum threshold set in \cite{painterRetrievalSubpixelSnow2009}. While not the main focus of this study, future work should focus on the uncertainties associated with all SAR-based SWE retrievals techniques fSCA and canopy cover. Whether it's the InSAR phase-based technique presented here with L-band, P-band \citep{shahRemoteSensingSnow2017,maEstimatingSpatiotemporallyContinuous2023}, C-band \citep{lievensSnowDepthVariability2019,oveisgharanSnowWaterEquivalent2023}, or Ku-band \citep{tsangReviewArticleGlobal2022,rottColdRegionsHydrology2010}, all techniques will have to quantify the uncertainty associated with mixed pixels. As seen the in the Landsat fSCA data used in this study, very few 80~m square areas are completely snow-covered. There are bare areas driven by prevailing wind patterns and aspect-based solar radiation variations, as well at large areas of the swath consistent conifer forest canopy. In the Cold Regions Hydrology High-Resolution Observatory (CoReH$_{2}$O) mission (Ku-band) developed \cite{rottColdRegionsHydrology2010}, they note the importance of accounting for three-dimensional canopy structure on backscatter values. \cite{lemmetyinenAttenuationRadarSignal2022} showed radar signals at various wavelengths show different sensitives to forest canopy, with above-freezing temperatures increasing the uncertainty. Continuing to unravel in the impacts of forest on SAR-based SWE retrevials from airbone and spaceborne platforms should be the topic of future investigations.
 
 
-We originally hypothesized FLM would provide the most realistic results as it uses information from both Landsat and MODIS to produce its dataset. While the coarser native resolution values of MODIS and MODSCAG (500~m) and VIIRS (375~m) create blocky results around the snowline, these differences don't significantly impact the overall $\Delta$SWE results when compared to FLM. 
 
-It is promising that fSCA derived from MODIS and VIIRS NDSI data, currently produced in near-real-time by NSIDC, can generate fSCA estimates for SAR-based SWE retrievals that yield nearly identical values (\ref{tab:dswe_stats}) to that of the more complex spectral unmixing and machine learning methods employed by MODSCAG and FLM. Additionally, these products are not currently hosted openly on a NASA DAAC. This means that upon the launch of NISAR in early 2024, VIIRS seems the best candidate as it was nearly identical to FLM.
-
-% is spectral unmixing needed? prob not
-These results suggest that spectral unmixing is not completely necessary for the multisensor SAR-optical approach. While \cite{stillingerLandsatMODISVIIRS2023a} showed these methods are more accurate than NDSI-based approaches, these are research based products that are not currently produced by a NASA DAAC. %%
--A recent study from \cite{stillingerLandsatMODISVIIRS2023a} performed an uncertainty analysis of various fSCA products from MODIS, VIIRS, and Landsat using airborne lidar-based fSCA as validation. They found some variability in the fSCA products, with the spectrally unmixed data performing better, but overall modest differences. \cite{bairHowTradeoffsSatellite2023}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -376,6 +372,7 @@ However, future work should continue to focus estimate fSCA at finer spatial res
 %==============================================================================
 \hypertarget{ch6-conclusions}{\section{Conclusions}\label{ch6-conclusions}}
 
+This study set out to understand how fSCA product selection impacts $\Delta$SWE estimates in a multisensor optical-radar approach. While 
 
 
 \clearpage
