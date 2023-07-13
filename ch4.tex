@@ -294,7 +294,9 @@ Our study did not aim to validate the given data products with respect to the va
 The UAVSAR flight line was over a high elevation (mean of 2733~m) portion of the USJ, where a majority of the swath was snow covered. During the two-week study period, there were no large precipitation events, and therefore snow cover was relatively constant. In future satellite-based basin-scale analyses, there will be a greater range and variability of fSCA values, as well as more lower-elevation forest cover. Additionally, large atmospheric river-type storms in the Sierra can significantly shift the snow line. This presents challenges for the products that are daily, such as Landsat. We chose to analyze data over a short study window (12~d) and therefore did not fully address the effects temporal resolution has on SWE change estimates. Future work should focus on the $\Delta$SWE uncertainties that come from infrequent fSCA data.
 
 % swe change tie point and density uncertanities
-For our calibration and validation, we used an average SWE change between three snow pillows to set the InSAR known change point. As seen in **Appendix Table 1, there was disagreement between the UAVSAR predict SWE change and the in situ values. However, future work should continue to focus estimate fSCA at finer spatial resolutions. The incorporation Very-High-Resolution (VHR) commercial satellite imagery: sources are \citep{huImprovingMountainSnow2022, thalerEstimatingSnowCover2023,yangHighresolutionMappingSnow2023,johnHighResolutionSnowCoveredArea2022}
+For our calibration and validation, we calculated the average SWE change between three snow pillows to identify the InSAR known change point. As seen in **Appendix Table 1, there was disagreement between the UAVSAR estimated SWE change and the in situ values. 
+
+Future work should continue to focus estimate fSCA at finer spatial resolutions. The incorporation Very-High-Resolution (VHR) commercial satellite imagery: sources are \citep{huImprovingMountainSnow2022, thalerEstimatingSnowCover2023,yangHighresolutionMappingSnow2023,johnHighResolutionSnowCoveredArea2022}
 
 
 -Our variability analysis was an imperfect comparison between the six data products. While we used a 41 $\times$ 41 moving window, the IMS data had a large continuous snow free area in the northeast corner. These pixels were then omitted from the standard deviation analysis, propagating uncertainty in the calculation as one dataset was not used.
@@ -305,8 +307,7 @@ For our calibration and validation, we used an average SWE change between three 
 %=============================================================================
 \hypertarget{ch6-conclusions}{\section{Conclusions}\label{ch6-conclusions}}
 
-This study set out to understand how fSCA product selection impacts $\Delta$SWE estimates in a multisensor optical-radar approach. While 
-
+This study set out to understand how snow cover product selection impacts $\Delta$SWE estimates in a multisensor optical-radar approach. While we showed that there is variability between the snow cover products, there are broad similarities in the SWE retrievals. The key finding is that moderate-resolution NDSI-based SCA products can be effectively used in optical-radar SWE retrievals in mountain regions. We originally hypothesized that a 30~m product would be optimal for this multisensor approach, yet our results show that there is essentially no difference in SWE gains and SWE losses when comparing the FLM with other coarser snow cover products. This means that the widely available, moderate resolution (375--500~m) snow cover products will likely be sufficient for future multisensor optical-radar SWE retrievals. 
 
 \clearpage
 \bibliographystyle{apalike}
