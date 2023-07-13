@@ -48,10 +48,22 @@ Our approach uses a combination of in situ snow observations, gridded SWE and cl
 
 \hypertarget{ch2-sa}{\subsection{Study Area}\label{ch2-sa}}
 
-This study focuses on the Sierra Nevada because it is a critical source of water for people and ecosystems in California and Nevada. Moreover, Sierra Nevada snowpacks are declining and at risk of mid-winter and early melt \citep{hatchettMidwinterDrySpells2023}. We analyzed three watersheds: the Yuba, Upper San Joaquin (USJ), and the Kern. These were selected as they span a range of latitudes, forest cover types, and elevation.
+This study focuses on the Sierra Nevada because it is a critical source of water for people and ecosystems in California and Nevada. Moreover, Sierra Nevada snowpacks are declining and at risk of mid-winter and early melt \citep{hatchettMidwinterDrySpells2023}. We analyzed three watersheds: the Yuba, Upper San Joaquin (USJ), and the Kern. These were selected as they span a range of latitudes, forest cover types, and elevations.
 
-%%% add in table
-- basin total area, elevation range, cc \%, percent area north-facing and south-facing, percent area "seasonal snow" as we define
+\begin{table}[htbp]
+  \centering
+  \caption{test}
+  \label{tab:snow_metrics_val_table}
+  \begin{tabular}{lrrrrrr}
+    \toprule
+    Basin & Study Area (km$^{2}$) & NF$^{2}$ & SF$^{2}$ & Max Elevation (m) & Mean CC (\%) \\
+    \midrule
+    Yuba  & 1346 & 270 & 334 & 2713 & 17 \\
+    USJ   & 3101 & 557 & 718 & 4197 & 26 \\
+    Kern  & 2854 & 512 & 714 & 4362 & 42 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 %f1
 \begin{figure*}[t]
@@ -60,6 +72,17 @@ This study focuses on the Sierra Nevada because it is a critical source of water
 \caption{\textbf{(a)} The full extent of the SNSR study domain with Yuba (orange), USJ (purple), and Kern (red) basins shown. From left to right for the \textbf{(b)}~Kern, \textbf{(c)}~Yuba, \textbf{(d)}~USJ: elevation, canopy cover (\%), and elevation zones (EZs).}
 \label{kuy_study_area}
 \end{figure*}
+
+%f1
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/ch2_figs/kuy_snow_metric_area_v2.png}
+\caption{The north (blue) and south (red) facing pixels that met the threshold for inclusion in the study for the \textbf{(a)}~Kern, \textbf{(b)}~Yuba, and \textbf{(c)}~USJ. The orange line is a 1500~m contour, which represents the boundary of the SNSR.}
+\label{fig:kuy_snow_metric_area}
+\end{figure*}
+
+
+
 %==============================================================================
 \hypertarget{ch2-sa-1}{\subsubsection{Yuba}\label{ch2-sa-1}}
 
@@ -83,7 +106,6 @@ In this section, we describe the gridded snow reanalysis, meteorologic data, and
 
 %==============================================================================
 \hypertarget{ch2-do-2}{\subsubsection{SNSR}\label{ch2-do-2}}
-
 
 The SNSR \citep{margulisLandsatEraSierraNevada2016} is a 90~m gridded daily SWE product for California Sierra Nevada from water year (WY) 1985--2016. These data were created using a Bayesian particle batch smoother data assimilation (DA) technique to retroactively assimilate Landsat fractional snow-covered area (fSCA) with downscaled National Land Data Assimilation System (NLDAS) meteorological forcings. The MSWE estimates were validated with over 9000 years of snow pillow and snow course data. Detailed information on the development and implementation of this methodology can be found in a series of past publications: \cite{durandBayesianApproachSnow2008, girottoExaminingSpatialTemporal2014, girottoProbabilisticSWEReanalysis2014, margulisParticleBatchSmoother2015}. A recent analysis from \citep{yangIntercomparisonSnowWater2023} evaluated the uncertainty of various SWE products using lidar data from the Airborne Snow Observatories (ASO) (cite painter). They found that the SNSR performed the best according to various error metrics, making it a well-suited data set for our analysis.
 
@@ -115,15 +137,7 @@ Clear sky incoming solar radiation (CS insolation) for ONDJFM was estimated usin
 
 Using the SNSR, we generated four pixel-wise snowpack metrics: MSWE, DOM, FM, and MWA. MSWE is defined as the maximum amount (mm) of SWE in a given pixel for a Water Year (WY, Oct. 1 -- Sept. 30), while DOM is the last day of the water year in which a pixel has that amount. As defined \cite{musselmanWinterMeltTrends2021}, FM is the fraction of ablation (i.e., melt, wind transport, sublimation, evaporation) that occurs before April 1st. MWA is the amount of SWE lost in (mm) during the same time period. Reporting both FM and MWA allows for a more complete understanding of midwinter ablation dynamics, as they provide both a fraction and a magnitude.
 
-We focused our analysis on the seasonal snow zone, which we defined as grid cells that receive at least 26~mm ($\sim$1~in) of SWE for at least 27 of the 32 years in the SNSR data set. While the SNSR data set uses a 1500~m threshold, a preliminary analysis found that many of the lower elevation grid cells, specifically in the Kern, did not contain snow in most year. Figure XXX shows the three basins, the 1500~m SNSR seasonal snow grid cells and the seasonal snow grid cells considered in this study.
-
-%f1
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/ch2_figs/kuy_snow_metric_area_v2.png}
-\caption{The north (blue) and south (red) facing pixels that met the threshold for inclusion in the study for the \textbf{(a)}~Kern, \textbf{(b)}~Yuba, and \textbf{(c)}~USJ.}
-\label{kuy_study_area}
-\end{figure*}
+We focused our analysis on the seasonal snow zone, which we defined as grid cells that receive at least 26~mm ($\sim$1~in) of SWE for at least 27 of the 32 years in the SNSR data set. While the SNSR data set uses a 1500~m threshold, a preliminary analysis found that many of the lower elevation grid cells, specifically in the Kern, did not contain snow in most years. Fig.~\ref{fig:kuy_snow_metric_area} shows the three basins, the 1500~m SNSR seasonal snow grid cells, and the seasonal north and south-facing snow grid cells considered in this study.
 
 These metrics were then validated against 29 SNOTEL stations totaling $\sim$840 station years (Figure \ref{kuy_study_area}). SNSR values were selected by the specific pixel in which the SNOTEL station fell. Two correlation coefficients (R and R$^{2}$), root-mean-square error (RMSE), mean absolute error (MAE), mean error (ME), and percent bias (PB) are in Table \ref{tab:snow_metrics_val_table}.
 
