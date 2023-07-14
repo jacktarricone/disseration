@@ -58,15 +58,15 @@ Here, we use the Sierra Nevada Snow Reanalysis (SNSR) \citep{margulisLandsatEraS
 %=========================================================================
 \hypertarget{ch2-sa}{\section{Methods}\label{ch2-sa}}
 
-Our approach uses a combination of in situ snow observations, gridded SWE and climate reanalysis datasets, a digital elevation model, and hydrologically-relevant snow metrics to answer the stated research questions. Below, we describe the study area, data sets, and specific methodology.
+Our approach uses a combination of in situ snow observations, gridded SWE and climate reanalysis data, a digital elevation model, and hydrologically-relevant snow metrics to answer the stated research questions. Below, we describe the study area, data, and specific methodology.
 
 \hypertarget{ch2-sa}{\subsection{Study Area}\label{ch2-sa}}
 
-This study focuses on the Sierra Nevada because it is a critical source of water for people and ecosystems in California and Nevada. Moreover, Sierra Nevada snowpacks are declining and at risk of mid-winter and early melt \citep{hatchettMidwinterDrySpells2023}. We analyzed three watersheds: the Yuba, Upper San Joaquin (USJ), and the Kern. These were selected as they span a range of latitudes, forest cover types, and elevations.
+This study focuses on the Sierra Nevada because it is a critical source of water for people and ecosystems in California and Nevada. Moreover, Sierra Nevada snowpacks are declining and at risk of mid-winter and early melt \citep{harpoldDefiningSnowDrought2017}. We analyzed three watersheds: the Yuba, Upper San Joaquin (USJ), and the Kern. These were selected as they span a range of latitudes, forest cover types, and elevations.
 
 \begin{table}[htbp]
   \centering
-  \caption{Table showing the physiographic statistics for the three basins. The total seasonal snow study area (SA), as defined by the methods in Section~\ref{ch2-methods-1}. We report the north-facing and south-facing total area, basin max elevation, and and mean CC.}
+  \caption{Table showing the physiographic statistics for the three basins. We report the total seasonal snow study area (SA), as defined by the methods in Section~\ref{ch2-methods-1}, the north-facing (NF), south-facing (SF) area, basin max elevation, and mean CC.}
   \label{tab:snow_metrics_val_table}
   \begin{tabular}{lrrrrr}
     \toprule
@@ -91,7 +91,7 @@ This study focuses on the Sierra Nevada because it is a critical source of water
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/ch2_figs/kuy_snow_metric_area_v2.png}
-\caption{The north (blue) and south (red) facing pixels that met the threshold for inclusion in the study for the \textbf{(a)}~Kern, \textbf{(b)}~Yuba, and \textbf{(c)}~USJ. The orange line is a 1500~m contour, which represents the boundary of the SNSR.}
+\caption{The north (blue) and south (red) facing pixels that met the threshold for inclusion in the study for the \textbf{(a)}~Kern, \textbf{(b)}~Yuba, and \textbf{(c)}~USJ. The orange line is a 1500~m contour, which represents the boundary of the SNSR. The grey area represents pixels in the SNSR modeling domain that are not considered in this study.}
 \label{fig:kuy_snow_metric_area}
 \end{figure*}
 
@@ -100,16 +100,17 @@ This study focuses on the Sierra Nevada because it is a critical source of water
 %==============================================================================
 \hypertarget{ch2-sa-1}{\subsubsection{Yuba}\label{ch2-sa-1}}
 
--info veg, reference table i need to make, the main channels, water management
+The Yuba River basin is located in the northern Sierra Nevada and is 3483~km$^{2}$ in land area. The Yuba River is the main tributary of the Feather River and eventually runs into the Sacramento River, which is the largest in California. It has the lowest maximum elevation (2713~m) and greatest average canopy cover (42~\%) of the three study basins. 
 
 %==============================================================================
 \hypertarget{ch2-sa-2}{\subsubsection{USJ}\label{ch2-sa-2}}
 
-The USJ is approximately 4244~km$^{2}$ in land area, spanning from the high-elevation Sierra peaks (4227~m) in the east to flat low-elevation (153~m) Central Valley in the west (Fig.~\ref{fig:multisensor_study_area}). The main channel flows into Millerton Lake, which is one of the largest reservoirs in the Central Valley. 
+The USJ is approximately 4244~km$^{2}$ in land area, spanning from the high-elevation peaks (4227~m) in the east to flat low-elevation (153~m) Central Valley in the west (Fig.~\ref{fig:multisensor_study_area}). The main channel flows into Millerton Lake, which is one of the largest reservoirs in the Central Valley. 
 
 %==============================================================================
 \hypertarget{ch2-sa-3}{\subsubsection{Kern}\label{ch2-sa-3}}
 
+The Kern River basin is the southernmost basin of Sierra Nevada and is 5370~km$^{2}$ in land area. Its southern drainage direction and predominant basin orientation are different that the west-facing Yuba and USJ. It has the greatest maximum elevation (4362~m) --- with the headwaters of the North Fork originating near Mount Whitney --- and the lowest average canopy cover (17~\%) of the three study basins. 
 
 %==============================================================================
 %==============================================================================
@@ -121,7 +122,7 @@ In this section, we describe the gridded snow reanalysis, meteorologic data, and
 %==============================================================================
 \hypertarget{ch2-do-2}{\subsubsection{SNSR}\label{ch2-do-2}}
 
-The SNSR \citep{margulisLandsatEraSierraNevada2016} is a 90~m gridded daily SWE product for California Sierra Nevada from water year (WY) 1985--2016. These data were created using a Bayesian particle batch smoother data assimilation (DA) technique to retroactively assimilate Landsat fractional snow-covered area (fSCA) with downscaled National Land Data Assimilation System (NLDAS) meteorological forcings. The MSWE estimates were validated with over 9000 years of snow pillow and snow course data. Detailed information on the development and implementation of this methodology can be found in a series of past publications: \cite{durandBayesianApproachSnow2008, girottoExaminingSpatialTemporal2014, girottoProbabilisticSWEReanalysis2014, margulisParticleBatchSmoother2015}. A recent analysis from \citep{yangIntercomparisonSnowWater2023} evaluated the uncertainty of various SWE products using lidar data from the Airborne Snow Observatories (ASO) (cite painter). They found that the SNSR performed the best according to various error metrics, making it a well-suited data set for our analysis.
+The SNSR \citep{margulisLandsatEraSierraNevada2016} is a 90~m gridded daily SWE product for California Sierra Nevada from water years (WY) 1985--2016. These data were created using a Bayesian particle batch smoother data assimilation (DA) technique to retroactively assimilate Landsat fractional snow-covered area (fSCA) with downscaled National Land Data Assimilation System (NLDAS) meteorological forcings. The MSWE estimates were validated with over 9000 years of snow pillow and snow course data. Detailed information on the development and implementation of this methodology can be found in a series of past publications: \cite{durandBayesianApproachSnow2008, girottoExaminingSpatialTemporal2014, girottoProbabilisticSWEReanalysis2014, margulisParticleBatchSmoother2015}. A recent analysis from \cite{yangIntercomparisonSnowWater2023} evaluated the uncertainty of various SWE products using lidar data from the Airborne Snow Observatories (ASO) \citep{painterAirborneSnowObservatory2016}. They found that the SNSR performed the best according to various error metrics, making it a well-suited data set for our analysis.
 
 \hypertarget{ch2-do-2}{\subsubsection{SNOTEL data}\label{ch2-do-2}}
 
