@@ -82,7 +82,7 @@ This study focuses on the Sierra Nevada because it is a critical source of water
 %f1
 \begin{figure*}[t]
 \centering
-\includegraphics[width=14cm]{figures/ch2_figs/kuy_study_area_v2.png}
+\includegraphics[width=14cm]{figures/ch2_figs/kuy_study_area_v3.png}
 \caption{\textbf{(a)} The full extent of the SNSR study domain with Yuba (orange), USJ (purple), and Kern (red) basins shown. From left to right for the \textbf{(b)}~Kern, \textbf{(c)}~Yuba, \textbf{(d)}~USJ: elevation, canopy cover (\%), and elevation zones (EZs).}
 \label{kuy_study_area}
 \end{figure*}
@@ -126,16 +126,16 @@ The SNSR \citep{margulisLandsatEraSierraNevada2016} is a 90~m gridded daily SWE 
 
 \hypertarget{ch2-do-2}{\subsubsection{SNOTEL data}\label{ch2-do-2}}
 
-SWE data from 29 SNOTEL sites totaling $\sim$840 station years (Fig. \ref{kuy_study_area}a) were used for model validation. Operated by the United States Department of Agriculture's Natural Resources Conservation Service (NRCS), it is a comprehensive network of remote, long-term, automated sites spread across the western United States and Alaska. These data are quality controlled by the NRCS.
+SWE data from 29 SNOTEL sites totaling $\sim$840 station years (black dots in Fig. \ref{kuy_study_area}a) were used for model validation. Operated by the United States Department of Agriculture's Natural Resources Conservation Service (NRCS), it is a comprehensive network of remote, long-term, automated sites spread across the western United States and Alaska. These data are quality controlled by the NRCS.
 
 \hypertarget{ch2-do-2}{\subsubsection{gridMET Data}\label{ch2-do-2}}
 
-We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGriddedSurface2013} to calculate annual (1985--2016) cold season values from October 1 to March 31 (ONDJFM) for three meteorologic variables: mean temperature (T\textsubscript{mean}), relative humidity (RH\textsubscript{mean}), and incoming solar radiation (insolation). Daily ONDJFM where averaged to create the annual metrics. These data were bilinearly downscaled to the 90~m SNSR resolution. Since gridMET does not include a T\textsubscript{mean} or RH\textsubscript{mean} value---only the daily maximum and minimum---these values were averaged to create the two mean variables. Insolation from gridMET is estimated with respect to a planar surface and not topographically corrected. 
+We used 4~km meteorological data from gridMET \citep{abatzoglouDevelopmentGriddedSurface2013} to calculate annual (1985--2016) cold season values from October 1 to March 31 (ONDJFM) for three meteorologic variables: mean temperature (T\textsubscript{mean}), relative humidity (RH\textsubscript{mean}), and incoming solar radiation (insolation). Daily ONDJFM where averaged to create the annual metrics. These data were bilinearly downscaled to the 90~m SNSR resolution. Since gridMET does not include a T\textsubscript{mean} or RH\textsubscript{mean} value --- only the daily maximum and minimum --- these values were averaged to create the two mean variables. Insolation from gridMET is estimated with respect to a planar surface and not topographically corrected. 
 
 %===========================================================================
 \hypertarget{ch2-do-2}{\subsubsection{Clear sky insolation}\label{ch2-do-2}}
 
-Clear sky incoming solar radiation (CS insolation) for ONDJFM was estimated using the 90~m spatially distributed mean value. Calculations were performed using the R package “insol” (**cite), which is based on the Bird model \citep{birdReviewEvaluationImprovement1981}. The R insol model uses the SNSR 90~m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. To calculate CS insolation, daily values were averaged in the same fashion as the gridMET data. Note that CS insolation does not account for cloud cover or variations in latitude. Thus, we produce a gridded estimate of CS insolation that represents the average cold-season clear sky radiation for any year (i.e., not a time series).
+Clear sky incoming solar radiation (CS insolation) for ONDJFM was estimated using the 90~m spatially distributed mean value. Calculations were performed using the R package ``insol” \citep{corripioInsolSolarRadiation2020}, which is based on the Bird model \citep{birdReviewEvaluationImprovement1981}. The R insol model uses the SNSR 90~m DEM as input and accounts for slope, aspect, differential shading, day of year, solar zenith angle, air temperature, elevation, and relative humidity. To calculate CS insolation, daily values were averaged in the same fashion as the gridMET data. Note that CS insolation does not account for cloud cover or variations in latitude. Thus, we produce a gridded estimate of CS insolation that represents the average cold-season clear sky radiation for any year (i.e., not a time series).
 
 %==============================================================================
 %==============================================================================
